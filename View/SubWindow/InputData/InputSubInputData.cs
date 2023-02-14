@@ -76,7 +76,7 @@ namespace htv5_mixer_control
 
         private void btnAddMaterial_Click(object sender, EventArgs e)
         {
-            if (SaveVariables.MaterialList.Rows.Count == 0)
+            if (SaveVariables.MaterialList == null || SaveVariables.MaterialList.Rows.Count == 0)
                 SaveVariables.addMatColumn();
             MaterialInputCRUDForm materialInputCRUDForm = new MaterialInputCRUDForm(null, 0);
             materialInputCRUDForm.FormClosing += materialInputCRUDFormClosing;

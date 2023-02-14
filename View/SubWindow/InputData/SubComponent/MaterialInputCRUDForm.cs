@@ -119,23 +119,30 @@ namespace htv5_mixer_control
 
         private void btnSaveMaterial_Click(object sender, EventArgs e)
         {
-
+            DialogResult dialogResult;
             if (t == 0)
             {
-                SaveVariables.MaterialList.Rows.Add(UUIDGenerator.getAscId(), txbInputMaterialName.Text.Trim(), txbInputMaterialLot.Text.Trim(), txbInputMaterialWeight.Text.Trim(), txbInputMaterialTolerance.Text.Trim());
+                dialogResult = MessageBox.Show("Thêm mới dữa liệu ?", "Thông tin", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (dialogResult == DialogResult.Yes)
+                    SaveVariables.MaterialList.Rows.Add(UUIDGenerator.getAscId(), txbInputMaterialName.Text.Trim(), txbInputMaterialLot.Text.Trim(), txbInputMaterialWeight.Text.Trim(), txbInputMaterialTolerance.Text.Trim());
             }
             else if (t == 1)
             {
-                for (int i = 0; i < SaveVariables.MaterialList.Rows.Count; i++)
+                dialogResult = MessageBox.Show("Sửa liệu "+ txbInputMaterialName.Text.Trim() + " ?", "Thông tin", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (dialogResult == DialogResult.Yes)
                 {
-                    if (SaveVariables.MaterialList.Rows[i]["uuid"].ToString() == specID)
+                    for (int i = 0; i < SaveVariables.MaterialList.Rows.Count; i++)
                     {
-                        SaveVariables.MaterialList.Rows[i]["mat_name"] = txbInputMaterialName.Text.Trim();
-                        SaveVariables.MaterialList.Rows[i]["lot_no"] = txbInputMaterialLot.Text.Trim();
-                        SaveVariables.MaterialList.Rows[i]["weight"] = txbInputMaterialWeight.Text.Trim();
-                        SaveVariables.MaterialList.Rows[i]["tolerance"] = txbInputMaterialTolerance.Text.Trim();
+                        if (SaveVariables.MaterialList.Rows[i]["uuid"].ToString() == specID)
+                        {
+                            SaveVariables.MaterialList.Rows[i]["mat_name"] = txbInputMaterialName.Text.Trim();
+                            SaveVariables.MaterialList.Rows[i]["lot_no"] = txbInputMaterialLot.Text.Trim();
+                            SaveVariables.MaterialList.Rows[i]["weight"] = txbInputMaterialWeight.Text.Trim();
+                            SaveVariables.MaterialList.Rows[i]["tolerance"] = txbInputMaterialTolerance.Text.Trim();
+                        }
                     }
                 }
+               
             }
 
         }
