@@ -134,7 +134,7 @@ namespace htv5_mixer_control
                 DialogResult dialogResult;
                 if (t == 0)
                 {
-                    dialogResult = MessageBox.Show("Thêm mới dữa liệu ?", "Thông tin", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    dialogResult = MessageBox.Show("Thêm mới dữ liệu ?", "Thông tin", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     if (dialogResult == DialogResult.Yes)
                         SaveVariables.MaterialList.Rows.Add(UUIDGenerator.getAscId(), txbInputMaterialName.Text.Trim(), txbInputMaterialLot.Text.Trim(), txbInputMaterialWeight.Text.Trim(), txbInputMaterialTolerance.Text.Trim());
                 }

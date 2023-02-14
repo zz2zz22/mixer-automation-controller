@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static com.sun.tools.javac.util.Name;
 
 namespace htv5_mixer_control
 {
@@ -56,6 +57,8 @@ namespace htv5_mixer_control
             btnAddMaterial.ButtonText = "Thêm mới" + Environment.NewLine + "";
             btnEditMaterial.ButtonText = "Chỉnh sửa" + Environment.NewLine + "";
             btnDeleteMaterial.ButtonText = "Xóa bỏ" + Environment.NewLine + "";
+            if (SaveVariables.ProcessList == null || SaveVariables.ProcessList.Rows.Count == 0)
+                lbProcessNumber.Text = "1";
         }
 
         private void txbInputLotNo_Validating(object sender, CancelEventArgs e)
@@ -94,6 +97,34 @@ namespace htv5_mixer_control
                 dtgvMaterialInfos.Columns["lot_no"].HeaderText = "Số lô" + Environment.NewLine + "批號";
                 dtgvMaterialInfos.Columns["weight"].HeaderText = "Trọng lượng" + Environment.NewLine + "分量";
                 dtgvMaterialInfos.Columns["tolerance"].HeaderText = "Dung sai" + Environment.NewLine + "公差";
+            }
+        }
+        private void LoadProcessData()
+        {
+            if (SaveVariables.ProcessList.Rows.Count >0)
+            {
+                int minAccountLevel = int.MaxValue;
+                int maxAccountLevel = int.MinValue;
+                foreach (DataRow dr in SaveVariables.ProcessList.Rows)
+                {
+                    int accountLevel = dr.Field<int>("process_no");
+                    minAccountLevel = Math.Min(minAccountLevel, accountLevel);
+                    maxAccountLevel = Math.Max(maxAccountLevel, accountLevel);
+                }
+                lbProcessNumber.Text = maxAccountLevel.ToString();
+                rtbRemark.Clear();
+                txbSpeed.Clear();
+                txbTemperature.Clear();
+                txbTime.Clear();
+                dtgvProcess.DataSource = null;
+                SaveVariables.ProcessList.DefaultView.Sort = "process_no ASC";
+                dtgvProcess.DataSource = SaveVariables.ProcessList.DefaultView.ToTable();
+                dtgvProcess.Columns["uuid"].Visible = false;
+                dtgvProcess.Columns["process_no"].HeaderText = "STT";
+                dtgvProcess.Columns["speed"].HeaderText = "Tốc độ";
+                dtgvProcess.Columns["temperature"].HeaderText = "Nhiệt độ";
+                dtgvProcess.Columns["time"].HeaderText = "Thời gian";
+                dtgvProcess.Columns["remark"].HeaderText = "Mô tả";
             }
         }
         private void materialInputCRUDFormClosing(object sender, FormClosingEventArgs e)
@@ -137,6 +168,8 @@ namespace htv5_mixer_control
                             SaveVariables.MaterialList.AcceptChanges();
                         }
                     }
+                    SaveVariables.SelectedMatUUID = null;
+                    LoadMaterialData();
                 }
             }
         }
@@ -148,6 +181,130 @@ namespace htv5_mixer_control
                 int selectedrowindex = dtgvMaterialInfos.SelectedCells[0].RowIndex;
                 DataGridViewRow selectedRow = dtgvMaterialInfos.Rows[selectedrowindex];
                 SaveVariables.SelectedMatUUID = Convert.ToString(selectedRow.Cells["uuid"].Value);
+            }
+        }
+
+        private void rtbRemark_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txbInputLotNo.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(txbInputLotNo, "Mô tả thao tác không được trống!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txbInputLotNo, null);
+            }
+        }
+
+        private void btnProcessSave_Click(object sender, EventArgs e)
+        {
+            if (ValidateChildren(ValidationConstraints.Enabled))
+            {
+                if (SaveVariables.ProcessList == null || SaveVariables.ProcessList.Rows.Count == 0)
+                    SaveVariables.addProcessColumn();
+                DialogResult dialogResult = MessageBox.Show("Thêm mới dữ liệu ?", "Thông tin", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (dialogResult == DialogResult.Yes)
+                    SaveVariables.ProcessList.Rows.Add(UUIDGenerator.getAscId(), lbProcessNumber.Text, rtbRemark.Text.ToString().Trim(), txbSpeed.Text.Trim(), txbTemperature.Text.Trim(), txbTime.Text.Trim());
+                LoadProcessData();
+            }
+        }
+
+        private void dtgvProcess_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dtgvProcess.SelectedCells.Count > 0)
+            {
+                int selectedrowindex = dtgvProcess.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dtgvProcess.Rows[selectedrowindex];
+                SaveVariables.SelectedProcessUUID = Convert.ToString(selectedRow.Cells["uuid"].Value);
+                rtbRemark.Text = Convert.ToString(selectedRow.Cells["remark"].Value);
+                txbSpeed.Text = Convert.ToString(selectedRow.Cells["speed"].Value);
+                txbTemperature.Text = Convert.ToString(selectedRow.Cells["temperature"].Value);
+                txbTime.Text = Convert.ToString(selectedRow.Cells["time"].Value);
+            }
+        }
+
+        private void btnProcessEdit_Click(object sender, EventArgs e)
+        {
+            if (ValidateChildren(ValidationConstraints.Enabled))
+            {
+                DialogResult dialogResult = MessageBox.Show("Cập nhật dữ liệu ?", "Thông tin", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    for (int i = 0; i < SaveVariables.ProcessList.Rows.Count; i++)
+                    {
+                        if (SaveVariables.ProcessList.Rows[i]["uuid"].ToString() == SaveVariables.SelectedProcessUUID)
+                        {
+                            SaveVariables.ProcessList.Rows[i]["remark"] = rtbRemark.Text.Trim();
+                            SaveVariables.ProcessList.Rows[i]["speed"] = txbSpeed.Text.Trim();
+                            SaveVariables.ProcessList.Rows[i]["temperature"] = txbTemperature.Text.Trim();
+                            SaveVariables.ProcessList.Rows[i]["time"] = txbTime.Text.Trim();
+                        }
+                    }
+                }
+                SaveVariables.SelectedProcessUUID= null;
+                LoadProcessData();
+            }
+        }
+
+        private void btnProcessDelete_Click(object sender, EventArgs e)
+        {
+            if (SaveVariables.SelectedProcessUUID == null)
+            {
+                MessageBox.Show("Vui lòng chọn thao tác để xóa!");
+            }
+            else
+            {
+                for (int i = 0; i < SaveVariables.ProcessList.Rows.Count; i++)
+                {
+                    if (SaveVariables.ProcessList.Rows[i]["uuid"].ToString() == SaveVariables.SelectedProcessUUID)
+                    {
+                        SaveVariables.ProcessList.Rows[i].Delete();
+                        SaveVariables.ProcessList.AcceptChanges();
+                    }
+                }
+                SaveVariables.SelectedProcessUUID = null;
+                LoadMaterialData();
+            }
+        }
+
+        private void txbTime_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txbTemperature_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txbSpeed_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
             }
         }
     }
