@@ -178,11 +178,11 @@
     <Compile Include="View\SubWindow\InputData\InputUserLogin.Designer.cs">
       <DependentUpon>InputUserLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\SubWindow\InputData\SubComponent\InputCRUDForm.cs">
+    <Compile Include="View\SubWindow\InputData\SubComponent\MaterialInputCRUDForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\SubWindow\InputData\SubComponent\InputCRUDForm.Designer.cs">
-      <DependentUpon>InputCRUDForm.cs</DependentUpon>
+    <Compile Include="View\SubWindow\InputData\SubComponent\MaterialInputCRUDForm.Designer.cs">
+      <DependentUpon>MaterialInputCRUDForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="View\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
@@ -212,8 +212,8 @@
     <EmbeddedResource Include="View\SubWindow\InputData\InputUserLogin.resx">
       <DependentUpon>InputUserLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\SubWindow\InputData\SubComponent\InputCRUDForm.resx">
-      <DependentUpon>InputCRUDForm.cs</DependentUpon>
+    <EmbeddedResource Include="View\SubWindow\InputData\SubComponent\MaterialInputCRUDForm.resx">
+      <DependentUpon>MaterialInputCRUDForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="htv5-mixer-control_TemporaryKey.pfx" />
     <None Include="ikvm.properties" />

@@ -73,5 +73,32 @@ namespace htv5_mixer_control
                 errorProvider.SetError(txbInputLotNo, null);
             }
         }
+
+        private void btnAddMaterial_Click(object sender, EventArgs e)
+        {
+            if (SaveVariables.MaterialList.Rows.Count == 0)
+                SaveVariables.addMatColumn();
+            MaterialInputCRUDForm materialInputCRUDForm = new MaterialInputCRUDForm(null, 0);
+            materialInputCRUDForm.FormClosing += materialInputCRUDFormClosing;
+            materialInputCRUDForm.ShowDialog();
+        }
+        private void LoadMaterialData()
+        {
+            if (SaveVariables.MaterialList.Rows.Count > 0)
+            {
+                dtgvMaterialInfos.DataSource = null;
+                dtgvMaterialInfos.DataSource = SaveVariables.MaterialList;
+                dtgvMaterialInfos.Columns["uuid"].Visible = false;
+                dtgvMaterialInfos.Columns["mat_name"].HeaderText = "Tên nguyên liệu" + Environment.NewLine + "材料名称";
+                dtgvMaterialInfos.Columns["lot_no"].HeaderText = "Số lô" + Environment.NewLine + "批號";
+                dtgvMaterialInfos.Columns["weight"].HeaderText = "Trọng lượng" + Environment.NewLine + "分量";
+                dtgvMaterialInfos.Columns["tolerance"].HeaderText = "Dung sai" + Environment.NewLine + "公差";
+            }
+        }
+        private void materialInputCRUDFormClosing(object sender, FormClosingEventArgs e)
+        {
+            ((Form)sender).FormClosing -= materialInputCRUDFormClosing;
+            LoadMaterialData();
+        }
     }
 }
