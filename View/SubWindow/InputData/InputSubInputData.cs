@@ -103,15 +103,7 @@ namespace htv5_mixer_control
         {
             if (SaveVariables.ProcessList.Rows.Count >0)
             {
-                int minAccountLevel = int.MaxValue;
-                int maxAccountLevel = int.MinValue;
-                foreach (DataRow dr in SaveVariables.ProcessList.Rows)
-                {
-                    int accountLevel = dr.Field<int>("process_no");
-                    minAccountLevel = Math.Min(minAccountLevel, accountLevel);
-                    maxAccountLevel = Math.Max(maxAccountLevel, accountLevel);
-                }
-                lbProcessNumber.Text = maxAccountLevel.ToString();
+                lbProcessNumber.Text = SaveVariables.ProcessList.Rows.Count.ToString();
                 rtbRemark.Clear();
                 txbSpeed.Clear();
                 txbTemperature.Clear();
