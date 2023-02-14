@@ -257,7 +257,7 @@ namespace htv5_mixer_control
                     }
                 }
                 SaveVariables.SelectedProcessUUID = null;
-                LoadMaterialData();
+                LoadProcessData();
             }
         }
 
