@@ -107,6 +107,7 @@
             this.btnEditMaterial.TabIndex = 18;
             this.btnEditMaterial.TextColor = System.Drawing.Color.DodgerBlue;
             this.btnEditMaterial.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.btnEditMaterial.Click += new System.EventHandler(this.btnEditMaterial_Click);
             // 
             // btnDeleteMaterial
             // 
@@ -127,6 +128,7 @@
             this.btnDeleteMaterial.TabIndex = 17;
             this.btnDeleteMaterial.TextColor = System.Drawing.Color.DodgerBlue;
             this.btnDeleteMaterial.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.btnDeleteMaterial.Click += new System.EventHandler(this.btnDeleteMaterial_Click);
             // 
             // btnAddMaterial
             // 
@@ -175,6 +177,7 @@
             this.dtgvMaterialInfos.RowTemplate.Height = 24;
             this.dtgvMaterialInfos.Size = new System.Drawing.Size(521, 452);
             this.dtgvMaterialInfos.TabIndex = 15;
+            this.dtgvMaterialInfos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvMaterialInfos_CellClick);
             // 
             // label4
             // 

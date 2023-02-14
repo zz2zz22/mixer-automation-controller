@@ -11,6 +11,7 @@ namespace htv5_mixer_control
     public class SaveVariables
     {
         public static String OperatorUUID { get; set; }
+        public static String SelectedMat { get; set; }
         public static DataTable MaterialList { get; set; }
 
         public static void addMatColumn()

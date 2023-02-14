@@ -76,11 +76,14 @@ namespace htv5_mixer_control
 
         private void btnAddMaterial_Click(object sender, EventArgs e)
         {
-            if (SaveVariables.MaterialList == null || SaveVariables.MaterialList.Rows.Count == 0)
-                SaveVariables.addMatColumn();
-            MaterialInputCRUDForm materialInputCRUDForm = new MaterialInputCRUDForm(null, 0);
-            materialInputCRUDForm.FormClosing += materialInputCRUDFormClosing;
-            materialInputCRUDForm.ShowDialog();
+            if (ValidateChildren(ValidationConstraints.Enabled))
+            {
+                if (SaveVariables.MaterialList == null || SaveVariables.MaterialList.Rows.Count == 0)
+                    SaveVariables.addMatColumn();
+                MaterialInputCRUDForm materialInputCRUDForm = new MaterialInputCRUDForm(null, 0);
+                materialInputCRUDForm.FormClosing += materialInputCRUDFormClosing;
+                materialInputCRUDForm.ShowDialog();
+            }
         }
         private void LoadMaterialData()
         {
@@ -99,6 +102,55 @@ namespace htv5_mixer_control
         {
             ((Form)sender).FormClosing -= materialInputCRUDFormClosing;
             LoadMaterialData();
+        }
+
+        private void btnEditMaterial_Click(object sender, EventArgs e)
+        {
+            if (ValidateChildren(ValidationConstraints.Enabled))
+            {
+                if (SaveVariables.SelectedMatUUID == null)
+                {
+                    MessageBox.Show("Vui lòng chọn mã liệu để chỉnh sửa!");
+                }
+                else
+                {
+                    MaterialInputCRUDForm materialInputCRUDForm = new MaterialInputCRUDForm(SaveVariables.SelectedMatUUID, 1);
+                    materialInputCRUDForm.FormClosing += materialInputCRUDFormClosing;
+                    materialInputCRUDForm.ShowDialog();
+                }
+            }
+        }
+
+        private void btnDeleteMaterial_Click(object sender, EventArgs e)
+        {
+            if (ValidateChildren(ValidationConstraints.Enabled))
+            {
+                if (SaveVariables.SelectedMatUUID == null)
+                {
+                    MessageBox.Show("Vui lòng chọn mã liệu để xóa!");
+                }
+                else
+                {
+                    for (int i = 0; i < SaveVariables.MaterialList.Rows.Count; i++)
+                    {
+                        if (SaveVariables.MaterialList.Rows[i]["uuid"].ToString() == SaveVariables.SelectedMatUUID)
+                        {
+                            SaveVariables.MaterialList.Rows[i].Delete();
+                            SaveVariables.MaterialList.AcceptChanges();
+                        }
+                    }
+                }
+            }
+        }
+
+        private void dtgvMaterialInfos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dtgvMaterialInfos.SelectedCells.Count > 0)
+            {
+                int selectedrowindex = dtgvMaterialInfos.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dtgvMaterialInfos.Rows[selectedrowindex];
+                SaveVariables.SelectedMatUUID = Convert.ToString(selectedRow.Cells["uuid"].Value);
+            }
         }
     }
 }

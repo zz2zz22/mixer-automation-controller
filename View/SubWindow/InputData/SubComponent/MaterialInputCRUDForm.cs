@@ -27,6 +27,16 @@ namespace htv5_mixer_control
             else if (type == 1)
             {
                 t = 1;
+                for (int i = 0; i < SaveVariables.MaterialList.Rows.Count; i++)
+                {
+                    if (SaveVariables.MaterialList.Rows[i]["uuid"].ToString() == specID)
+                    {
+                        txbInputMaterialName.Text = SaveVariables.MaterialList.Rows[i]["mat_name"].ToString();
+                        txbInputMaterialLot.Text = SaveVariables.MaterialList.Rows[i]["lot_no"].ToString();
+                        txbInputMaterialWeight.Text = SaveVariables.MaterialList.Rows[i]["weight"].ToString();
+                        txbInputMaterialTolerance.Text = SaveVariables.MaterialList.Rows[i]["tolerance"].ToString();
+                    }
+                }
                 btnSaveMaterial.ButtonText = "Lưu thông tin liệu" + Environment.NewLine + "保存数据信息";
             }
         }
@@ -146,6 +156,7 @@ namespace htv5_mixer_control
                     }
 
                 }
+                SaveVariables.SelectedMatUUID = null;
                 this.Close();
             }
         }
