@@ -97,6 +97,7 @@
             this.btnEditMaterial.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
             this.btnEditMaterial.ClickTextColor = System.Drawing.Color.DodgerBlue;
             this.btnEditMaterial.CornerRadius = 5;
+            this.btnEditMaterial.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditMaterial.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
             this.btnEditMaterial.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
             this.btnEditMaterial.HoverTextColor = System.Drawing.Color.DodgerBlue;
@@ -105,7 +106,7 @@
             this.btnEditMaterial.Name = "btnEditMaterial";
             this.btnEditMaterial.Size = new System.Drawing.Size(157, 61);
             this.btnEditMaterial.TabIndex = 18;
-            this.btnEditMaterial.TextColor = System.Drawing.Color.DodgerBlue;
+            this.btnEditMaterial.TextColor = System.Drawing.Color.Black;
             this.btnEditMaterial.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             this.btnEditMaterial.Click += new System.EventHandler(this.btnEditMaterial_Click);
             // 
@@ -118,6 +119,7 @@
             this.btnDeleteMaterial.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
             this.btnDeleteMaterial.ClickTextColor = System.Drawing.Color.DodgerBlue;
             this.btnDeleteMaterial.CornerRadius = 5;
+            this.btnDeleteMaterial.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteMaterial.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
             this.btnDeleteMaterial.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
             this.btnDeleteMaterial.HoverTextColor = System.Drawing.Color.DodgerBlue;
@@ -126,7 +128,7 @@
             this.btnDeleteMaterial.Name = "btnDeleteMaterial";
             this.btnDeleteMaterial.Size = new System.Drawing.Size(157, 61);
             this.btnDeleteMaterial.TabIndex = 17;
-            this.btnDeleteMaterial.TextColor = System.Drawing.Color.DodgerBlue;
+            this.btnDeleteMaterial.TextColor = System.Drawing.Color.Black;
             this.btnDeleteMaterial.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             this.btnDeleteMaterial.Click += new System.EventHandler(this.btnDeleteMaterial_Click);
             // 
@@ -139,6 +141,7 @@
             this.btnAddMaterial.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
             this.btnAddMaterial.ClickTextColor = System.Drawing.Color.DodgerBlue;
             this.btnAddMaterial.CornerRadius = 5;
+            this.btnAddMaterial.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddMaterial.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
             this.btnAddMaterial.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
             this.btnAddMaterial.HoverTextColor = System.Drawing.Color.DodgerBlue;
@@ -147,7 +150,7 @@
             this.btnAddMaterial.Name = "btnAddMaterial";
             this.btnAddMaterial.Size = new System.Drawing.Size(157, 61);
             this.btnAddMaterial.TabIndex = 16;
-            this.btnAddMaterial.TextColor = System.Drawing.Color.DodgerBlue;
+            this.btnAddMaterial.TextColor = System.Drawing.Color.Black;
             this.btnAddMaterial.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             this.btnAddMaterial.Click += new System.EventHandler(this.btnAddMaterial_Click);
             // 

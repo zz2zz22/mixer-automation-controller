@@ -145,9 +145,9 @@
             this.btnSaveMaterial.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
             this.btnSaveMaterial.HoverTextColor = System.Drawing.Color.DodgerBlue;
             this.btnSaveMaterial.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btnSaveMaterial.Location = new System.Drawing.Point(432, 214);
+            this.btnSaveMaterial.Location = new System.Drawing.Point(363, 202);
             this.btnSaveMaterial.Name = "btnSaveMaterial";
-            this.btnSaveMaterial.Size = new System.Drawing.Size(200, 50);
+            this.btnSaveMaterial.Size = new System.Drawing.Size(269, 62);
             this.btnSaveMaterial.TabIndex = 8;
             this.btnSaveMaterial.TextColor = System.Drawing.Color.Black;
             this.btnSaveMaterial.Vertical_Alignment = System.Drawing.StringAlignment.Center;

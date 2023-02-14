@@ -34,7 +34,6 @@ namespace htv5_mixer_control
             if (string.IsNullOrEmpty(txbInputCode.Text))
             {
                 e.Cancel = true;
-                txbInputCode.Focus();
                 errorProvider.SetError(txbInputCode, "Mã quy cách không được để trống!");
             }
             else
@@ -64,7 +63,6 @@ namespace htv5_mixer_control
             if (string.IsNullOrEmpty(txbInputLotNo.Text))
             {
                 e.Cancel = true;
-                txbInputLotNo.Focus();
                 errorProvider.SetError(txbInputLotNo, "Số lô không được để trống!");
             }
             else

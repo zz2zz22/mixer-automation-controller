@@ -39,7 +39,6 @@ namespace htv5_mixer_control
             if (string.IsNullOrEmpty(txbInputUsername.Text))
             {
                 e.Cancel = true;
-                txbInputUsername.Focus();
                 errorProvider.SetError(txbInputUsername, "Tên đăng nhập không được trống!");
             }
             else
@@ -54,7 +53,6 @@ namespace htv5_mixer_control
             if (string.IsNullOrEmpty(txbInputPassword.Text))
             {
                 e.Cancel = true;
-                txbInputPassword.Focus();
                 errorProvider.SetError(txbInputPassword, "Mật khẩu không được trống!");
             }
             else
