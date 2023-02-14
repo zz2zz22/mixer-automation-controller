@@ -103,7 +103,7 @@ namespace htv5_mixer_control
         {
             if (SaveVariables.ProcessList.Rows.Count >0)
             {
-                lbProcessNumber.Text = SaveVariables.ProcessList.Rows.Count.ToString();
+                lbProcessNumber.Text = (SaveVariables.ProcessList.Rows.Count + 1).ToString();
                 rtbRemark.Clear();
                 txbSpeed.Clear();
                 txbTemperature.Clear();
