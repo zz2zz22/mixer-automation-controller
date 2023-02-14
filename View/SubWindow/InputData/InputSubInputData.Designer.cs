@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gbxInputData = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -65,9 +66,9 @@
             // panel2
             // 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(564, 25);
+            this.panel2.Location = new System.Drawing.Point(526, 25);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(723, 662);
+            this.panel2.Size = new System.Drawing.Size(761, 662);
             this.panel2.TabIndex = 1;
             // 
             // panel1
@@ -84,7 +85,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(5, 25);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(559, 662);
+            this.panel1.Size = new System.Drawing.Size(521, 662);
             this.panel1.TabIndex = 0;
             // 
             // btnEditMaterial
@@ -154,7 +155,15 @@
             this.dtgvMaterialInfos.AllowUserToDeleteRows = false;
             this.dtgvMaterialInfos.AllowUserToResizeColumns = false;
             this.dtgvMaterialInfos.AllowUserToResizeRows = false;
-            this.dtgvMaterialInfos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dtgvMaterialInfos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvMaterialInfos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgvMaterialInfos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvMaterialInfos.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dtgvMaterialInfos.Location = new System.Drawing.Point(0, 210);
@@ -164,7 +173,7 @@
             this.dtgvMaterialInfos.RowHeadersVisible = false;
             this.dtgvMaterialInfos.RowHeadersWidth = 51;
             this.dtgvMaterialInfos.RowTemplate.Height = 24;
-            this.dtgvMaterialInfos.Size = new System.Drawing.Size(559, 452);
+            this.dtgvMaterialInfos.Size = new System.Drawing.Size(521, 452);
             this.dtgvMaterialInfos.TabIndex = 15;
             // 
             // label4
