@@ -1,5 +1,4 @@
-﻿using htv5_mixer_control.View.SubWindow.InputData;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -87,7 +86,7 @@ namespace htv5_mixer_control
 
         private void InputUserLogin_Load(object sender, EventArgs e)
         {
-            btnLogin.Text = "LOGIN" + Environment.NewLine + "登录";
+            btnLogin.ButtonText = "LOGIN" + Environment.NewLine + "登录";
         }
     }
 }

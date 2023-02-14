@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using XanderUI;
 
-namespace htv5_mixer_control.View.SubWindow.InputData
+namespace htv5_mixer_control
 {
     public partial class InputMainForm : Form
     {
@@ -42,6 +42,9 @@ namespace htv5_mixer_control.View.SubWindow.InputData
         }
         private void InputMainForm_Load(object sender, EventArgs e)
         {
+            btnInputData.ButtonText = "INPUT DATA" + Environment.NewLine + "输入";
+            btnCheckData.ButtonText = "CHECK DATA" + Environment.NewLine + "检查数据";
+            btnUserConfig.ButtonText = "USER CONFIG" + Environment.NewLine + "用户配置";
             isError = false;
             if (SaveVariables.OperatorUUID != null)
             {

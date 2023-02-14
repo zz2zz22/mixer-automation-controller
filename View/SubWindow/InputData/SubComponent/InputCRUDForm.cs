@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace htv5_mixer_control
 {
-    public partial class InputSubUserAdd : Form
+    public partial class InputCRUDForm : Form
     {
-        public InputSubUserAdd()
+        public InputCRUDForm(string specUUID)
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
 ﻿namespace htv5_mixer_control
 {
-    partial class InputSubCheckData
+    partial class InputCRUDForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,43 +28,54 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.gbxInputData = new System.Windows.Forms.GroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // gbxInputData
+            // panel1
             // 
-            this.gbxInputData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbxInputData.BackColor = System.Drawing.Color.Aquamarine;
-            this.gbxInputData.Location = new System.Drawing.Point(14, 14);
-            this.gbxInputData.Margin = new System.Windows.Forms.Padding(5);
-            this.gbxInputData.Name = "gbxInputData";
-            this.gbxInputData.Padding = new System.Windows.Forms.Padding(5);
-            this.gbxInputData.Size = new System.Drawing.Size(1214, 659);
-            this.gbxInputData.TabIndex = 3;
-            this.gbxInputData.TabStop = false;
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(782, 446);
+            this.panel1.TabIndex = 0;
             // 
-            // InputSubCheckData
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "label1";
+            // 
+            // InputCRUDForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.ClientSize = new System.Drawing.Size(1242, 687);
-            this.Controls.Add(this.gbxInputData);
+            this.ClientSize = new System.Drawing.Size(782, 446);
+            this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "InputSubCheckData";
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "InputCRUDForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "InputSubCheckData";
+            this.Text = "InputCRUDForm";
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox gbxInputData;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
     }
 }

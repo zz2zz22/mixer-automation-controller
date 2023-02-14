@@ -1,4 +1,4 @@
-﻿namespace htv5_mixer_control.View.SubWindow.InputData
+﻿namespace htv5_mixer_control
 {
     partial class InputMainForm
     {
@@ -28,17 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InputMainForm));
             this.panelInputMainHeader = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelInputMainSideMenu = new System.Windows.Forms.Panel();
+            this.xuiPanelInputComponent = new XanderUI.XUIWidgetPanel();
             this.btnUserConfig = new XanderUI.XUIButton();
             this.btnCheckData = new XanderUI.XUIButton();
             this.btnInputData = new XanderUI.XUIButton();
-            this.xuiPanelInputComponent = new XanderUI.XUIWidgetPanel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelInputMainHeader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelInputMainSideMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelInputMainHeader
@@ -53,18 +52,6 @@
             this.panelInputMainHeader.Size = new System.Drawing.Size(1160, 74);
             this.panelInputMainHeader.TabIndex = 0;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox1.Image = global::htv5_mixer_control.Properties.Resources.logoTechlinkFix;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(242, 72);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // panelInputMainSideMenu
             // 
             this.panelInputMainSideMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -78,16 +65,26 @@
             this.panelInputMainSideMenu.Size = new System.Drawing.Size(242, 577);
             this.panelInputMainSideMenu.TabIndex = 0;
             // 
+            // xuiPanelInputComponent
+            // 
+            this.xuiPanelInputComponent.ControlsAsWidgets = false;
+            this.xuiPanelInputComponent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.xuiPanelInputComponent.Location = new System.Drawing.Point(242, 74);
+            this.xuiPanelInputComponent.Name = "xuiPanelInputComponent";
+            this.xuiPanelInputComponent.Size = new System.Drawing.Size(918, 577);
+            this.xuiPanelInputComponent.TabIndex = 1;
+            // 
             // btnUserConfig
             // 
             this.btnUserConfig.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnUserConfig.ButtonImage = ((System.Drawing.Image)(resources.GetObject("btnUserConfig.ButtonImage")));
+            this.btnUserConfig.ButtonImage = global::htv5_mixer_control.Properties.Resources.avatarPeople;
             this.btnUserConfig.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
-            this.btnUserConfig.ButtonText = "Button";
+            this.btnUserConfig.ButtonText = "User Config";
             this.btnUserConfig.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
             this.btnUserConfig.ClickTextColor = System.Drawing.Color.DodgerBlue;
             this.btnUserConfig.CornerRadius = 5;
             this.btnUserConfig.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnUserConfig.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUserConfig.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
             this.btnUserConfig.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
             this.btnUserConfig.HoverTextColor = System.Drawing.Color.DodgerBlue;
@@ -97,19 +94,20 @@
             this.btnUserConfig.Name = "btnUserConfig";
             this.btnUserConfig.Size = new System.Drawing.Size(240, 92);
             this.btnUserConfig.TabIndex = 2;
-            this.btnUserConfig.TextColor = System.Drawing.Color.DodgerBlue;
+            this.btnUserConfig.TextColor = System.Drawing.Color.Black;
             this.btnUserConfig.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             // 
             // btnCheckData
             // 
             this.btnCheckData.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnCheckData.ButtonImage = ((System.Drawing.Image)(resources.GetObject("btnCheckData.ButtonImage")));
+            this.btnCheckData.ButtonImage = global::htv5_mixer_control.Properties.Resources.growth;
             this.btnCheckData.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
-            this.btnCheckData.ButtonText = "Button";
+            this.btnCheckData.ButtonText = "Check Data";
             this.btnCheckData.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
             this.btnCheckData.ClickTextColor = System.Drawing.Color.DodgerBlue;
             this.btnCheckData.CornerRadius = 5;
             this.btnCheckData.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCheckData.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCheckData.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
             this.btnCheckData.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
             this.btnCheckData.HoverTextColor = System.Drawing.Color.DodgerBlue;
@@ -119,7 +117,7 @@
             this.btnCheckData.Name = "btnCheckData";
             this.btnCheckData.Size = new System.Drawing.Size(240, 92);
             this.btnCheckData.TabIndex = 1;
-            this.btnCheckData.TextColor = System.Drawing.Color.DodgerBlue;
+            this.btnCheckData.TextColor = System.Drawing.Color.Black;
             this.btnCheckData.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             this.btnCheckData.Click += new System.EventHandler(this.btnCheckData_Click);
             // 
@@ -133,6 +131,7 @@
             this.btnInputData.ClickTextColor = System.Drawing.Color.DodgerBlue;
             this.btnInputData.CornerRadius = 5;
             this.btnInputData.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnInputData.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInputData.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
             this.btnInputData.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
             this.btnInputData.HoverTextColor = System.Drawing.Color.DodgerBlue;
@@ -142,18 +141,21 @@
             this.btnInputData.Name = "btnInputData";
             this.btnInputData.Size = new System.Drawing.Size(240, 92);
             this.btnInputData.TabIndex = 0;
-            this.btnInputData.TextColor = System.Drawing.Color.DodgerBlue;
+            this.btnInputData.TextColor = System.Drawing.Color.Black;
             this.btnInputData.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             this.btnInputData.Click += new System.EventHandler(this.btnInputData_Click);
             // 
-            // xuiPanelInputComponent
+            // pictureBox1
             // 
-            this.xuiPanelInputComponent.ControlsAsWidgets = false;
-            this.xuiPanelInputComponent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xuiPanelInputComponent.Location = new System.Drawing.Point(242, 74);
-            this.xuiPanelInputComponent.Name = "xuiPanelInputComponent";
-            this.xuiPanelInputComponent.Size = new System.Drawing.Size(918, 577);
-            this.xuiPanelInputComponent.TabIndex = 1;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox1.Image = global::htv5_mixer_control.Properties.Resources.logoTechlinkFix;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(242, 72);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // InputMainForm
             // 
@@ -172,8 +174,8 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InputMainForm_FormClosing);
             this.Load += new System.EventHandler(this.InputMainForm_Load);
             this.panelInputMainHeader.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelInputMainSideMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

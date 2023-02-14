@@ -1,4 +1,4 @@
-﻿namespace htv5_mixer_control.View.SubWindow.InputData
+﻿namespace htv5_mixer_control
 {
     partial class InputSubUserAdd
     {
@@ -33,8 +33,8 @@
             // 
             // gbxInputData
             // 
-            this.gbxInputData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.gbxInputData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gbxInputData.BackColor = System.Drawing.Color.Aquamarine;
             this.gbxInputData.Location = new System.Drawing.Point(14, 14);
@@ -53,8 +53,10 @@
             this.ClientSize = new System.Drawing.Size(1242, 687);
             this.Controls.Add(this.gbxInputData);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "InputSubUserAdd";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "InputSubUserAdd";
             this.ResumeLayout(false);

@@ -178,6 +178,12 @@
     <Compile Include="View\SubWindow\InputData\InputUserLogin.Designer.cs">
       <DependentUpon>InputUserLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\SubWindow\InputData\SubComponent\InputCRUDForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\SubWindow\InputData\SubComponent\InputCRUDForm.Designer.cs">
+      <DependentUpon>InputCRUDForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="View\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -205,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\SubWindow\InputData\InputUserLogin.resx">
       <DependentUpon>InputUserLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SubWindow\InputData\SubComponent\InputCRUDForm.resx">
+      <DependentUpon>InputCRUDForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="htv5-mixer-control_TemporaryKey.pfx" />
     <None Include="ikvm.properties" />
@@ -245,6 +254,24 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\growth.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\avatarPeople.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ADD.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\System.Text.Json.6.0.6\build\System.Text.Json.targets" Condition="Exists('packages\System.Text.Json.6.0.6\build\System.Text.Json.targets')" />
