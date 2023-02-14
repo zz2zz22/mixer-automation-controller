@@ -34,12 +34,12 @@ namespace htv5_mixer_control
             MaterialList.Columns.Add(matCol);
 
             matCol = new DataColumn();
-            matCol.DataType = Type.GetType("System.String");
+            matCol.DataType = Type.GetType("System.Double");
             matCol.ColumnName = "weight";
             MaterialList.Columns.Add(matCol);
 
             matCol = new DataColumn();
-            matCol.DataType = Type.GetType("System.String");
+            matCol.DataType = Type.GetType("System.Double");
             matCol.ColumnName = "tolerance";
             MaterialList.Columns.Add(matCol);
         }
