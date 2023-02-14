@@ -186,15 +186,15 @@ namespace htv5_mixer_control
 
         private void rtbRemark_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrEmpty(txbInputLotNo.Text))
+            if (string.IsNullOrEmpty(rtbRemark.Text))
             {
                 e.Cancel = true;
-                errorProvider.SetError(txbInputLotNo, "Mô tả thao tác không được trống!");
+                errorProvider.SetError(rtbRemark, "Mô tả thao tác không được trống!");
             }
             else
             {
                 e.Cancel = false;
-                errorProvider.SetError(txbInputLotNo, null);
+                errorProvider.SetError(rtbRemark, null);
             }
         }
 
