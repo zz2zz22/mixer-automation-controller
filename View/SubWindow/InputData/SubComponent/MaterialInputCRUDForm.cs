@@ -82,21 +82,6 @@ namespace htv5_mixer_control
             }
         }
 
-        private void txbInputMaterialLot_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrEmpty(txbInputMaterialLot.Text))
-            {
-                e.Cancel = true;
-                txbInputMaterialLot.Focus();
-                errorProvider.SetError(txbInputMaterialLot, "Số lot không được trống!");
-            }
-            else
-            {
-                e.Cancel = false;
-                errorProvider.SetError(txbInputMaterialLot, null);
-            }
-        }
-
         private void txbInputMaterialWeight_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrEmpty(txbInputMaterialWeight.Text))
@@ -158,6 +143,43 @@ namespace htv5_mixer_control
                 }
                 SaveVariables.SelectedMatUUID = null;
                 this.Close();
+            }
+        }
+
+        private void txbInputMaterialTolerance_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                if (ValidateChildren(ValidationConstraints.Enabled))
+                {
+                    DialogResult dialogResult;
+                    if (t == 0)
+                    {
+                        dialogResult = MessageBox.Show("Thêm mới dữ liệu ?", "Thông tin", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                        if (dialogResult == DialogResult.Yes)
+                            SaveVariables.MaterialList.Rows.Add(UUIDGenerator.getAscId(), txbInputMaterialName.Text.Trim(), txbInputMaterialLot.Text.Trim(), txbInputMaterialWeight.Text.Trim(), txbInputMaterialTolerance.Text.Trim());
+                    }
+                    else if (t == 1)
+                    {
+                        dialogResult = MessageBox.Show("Sửa liệu " + txbInputMaterialName.Text.Trim() + " ?", "Thông tin", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            for (int i = 0; i < SaveVariables.MaterialList.Rows.Count; i++)
+                            {
+                                if (SaveVariables.MaterialList.Rows[i]["uuid"].ToString() == specID)
+                                {
+                                    SaveVariables.MaterialList.Rows[i]["mat_name"] = txbInputMaterialName.Text.Trim();
+                                    SaveVariables.MaterialList.Rows[i]["lot_no"] = txbInputMaterialLot.Text.Trim();
+                                    SaveVariables.MaterialList.Rows[i]["weight"] = txbInputMaterialWeight.Text.Trim();
+                                    SaveVariables.MaterialList.Rows[i]["tolerance"] = txbInputMaterialTolerance.Text.Trim();
+                                }
+                            }
+                        }
+
+                    }
+                    SaveVariables.SelectedMatUUID = null;
+                    this.Close();
+                }
             }
         }
     }

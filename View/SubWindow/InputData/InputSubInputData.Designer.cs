@@ -29,9 +29,23 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gbxInputData = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnCreateSpecification = new XanderUI.XUIButton();
+            this.btnProcessEdit = new XanderUI.XUIButton();
+            this.btnProcessDelete = new XanderUI.XUIButton();
+            this.btnProcessSave = new XanderUI.XUIButton();
+            this.dtgvProcess = new System.Windows.Forms.DataGridView();
+            this.txbSpeed = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txbTemperature = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txbTime = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lbProcessNumber = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.rtbRemark = new System.Windows.Forms.RichTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnEditMaterial = new XanderUI.XUIButton();
             this.btnDeleteMaterial = new XanderUI.XUIButton();
@@ -43,26 +57,12 @@
             this.txbInputCode = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.rtbRemark = new System.Windows.Forms.RichTextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lbProcessNumber = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txbTime = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txbTemperature = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txbSpeed = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.dtgvProcess = new System.Windows.Forms.DataGridView();
-            this.btnProcessSave = new XanderUI.XUIButton();
-            this.btnProcessDelete = new XanderUI.XUIButton();
-            this.btnProcessEdit = new XanderUI.XUIButton();
             this.gbxInputData.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvProcess)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvMaterialInfos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvProcess)).BeginInit();
             this.SuspendLayout();
             // 
             // gbxInputData
@@ -82,11 +82,11 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.btnCreateSpecification);
             this.panel2.Controls.Add(this.btnProcessEdit);
             this.panel2.Controls.Add(this.btnProcessDelete);
             this.panel2.Controls.Add(this.btnProcessSave);
             this.panel2.Controls.Add(this.dtgvProcess);
-            this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.txbSpeed);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.txbTemperature);
@@ -101,6 +101,198 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(761, 662);
             this.panel2.TabIndex = 1;
+            // 
+            // btnCreateSpecification
+            // 
+            this.btnCreateSpecification.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCreateSpecification.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnCreateSpecification.ButtonImage = global::htv5_mixer_control.Properties.Resources.save;
+            this.btnCreateSpecification.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
+            this.btnCreateSpecification.ButtonText = "Button";
+            this.btnCreateSpecification.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
+            this.btnCreateSpecification.ClickTextColor = System.Drawing.Color.DodgerBlue;
+            this.btnCreateSpecification.CornerRadius = 5;
+            this.btnCreateSpecification.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateSpecification.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
+            this.btnCreateSpecification.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
+            this.btnCreateSpecification.HoverTextColor = System.Drawing.Color.DodgerBlue;
+            this.btnCreateSpecification.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.btnCreateSpecification.Location = new System.Drawing.Point(365, 573);
+            this.btnCreateSpecification.Name = "btnCreateSpecification";
+            this.btnCreateSpecification.Size = new System.Drawing.Size(388, 78);
+            this.btnCreateSpecification.TabIndex = 20;
+            this.btnCreateSpecification.TextColor = System.Drawing.Color.Black;
+            this.btnCreateSpecification.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.btnCreateSpecification.Click += new System.EventHandler(this.btnCreateSpecification_Click);
+            // 
+            // btnProcessEdit
+            // 
+            this.btnProcessEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnProcessEdit.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnProcessEdit.ButtonImage = global::htv5_mixer_control.Properties.Resources.edit;
+            this.btnProcessEdit.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
+            this.btnProcessEdit.ButtonText = "Button";
+            this.btnProcessEdit.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
+            this.btnProcessEdit.ClickTextColor = System.Drawing.Color.DodgerBlue;
+            this.btnProcessEdit.CornerRadius = 5;
+            this.btnProcessEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProcessEdit.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
+            this.btnProcessEdit.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
+            this.btnProcessEdit.HoverTextColor = System.Drawing.Color.DodgerBlue;
+            this.btnProcessEdit.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.btnProcessEdit.Location = new System.Drawing.Point(365, 231);
+            this.btnProcessEdit.Name = "btnProcessEdit";
+            this.btnProcessEdit.Size = new System.Drawing.Size(157, 61);
+            this.btnProcessEdit.TabIndex = 19;
+            this.btnProcessEdit.TextColor = System.Drawing.Color.Black;
+            this.btnProcessEdit.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.btnProcessEdit.Click += new System.EventHandler(this.btnProcessEdit_Click);
+            // 
+            // btnProcessDelete
+            // 
+            this.btnProcessDelete.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnProcessDelete.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnProcessDelete.ButtonImage = global::htv5_mixer_control.Properties.Resources.delete;
+            this.btnProcessDelete.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
+            this.btnProcessDelete.ButtonText = "Button";
+            this.btnProcessDelete.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
+            this.btnProcessDelete.ClickTextColor = System.Drawing.Color.DodgerBlue;
+            this.btnProcessDelete.CornerRadius = 5;
+            this.btnProcessDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProcessDelete.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
+            this.btnProcessDelete.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
+            this.btnProcessDelete.HoverTextColor = System.Drawing.Color.DodgerBlue;
+            this.btnProcessDelete.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.btnProcessDelete.Location = new System.Drawing.Point(560, 157);
+            this.btnProcessDelete.Name = "btnProcessDelete";
+            this.btnProcessDelete.Size = new System.Drawing.Size(157, 61);
+            this.btnProcessDelete.TabIndex = 19;
+            this.btnProcessDelete.TextColor = System.Drawing.Color.Black;
+            this.btnProcessDelete.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.btnProcessDelete.Click += new System.EventHandler(this.btnProcessDelete_Click);
+            // 
+            // btnProcessSave
+            // 
+            this.btnProcessSave.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnProcessSave.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnProcessSave.ButtonImage = global::htv5_mixer_control.Properties.Resources.ADD;
+            this.btnProcessSave.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
+            this.btnProcessSave.ButtonText = "Button";
+            this.btnProcessSave.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
+            this.btnProcessSave.ClickTextColor = System.Drawing.Color.DodgerBlue;
+            this.btnProcessSave.CornerRadius = 5;
+            this.btnProcessSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProcessSave.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
+            this.btnProcessSave.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
+            this.btnProcessSave.HoverTextColor = System.Drawing.Color.DodgerBlue;
+            this.btnProcessSave.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.btnProcessSave.Location = new System.Drawing.Point(365, 157);
+            this.btnProcessSave.Name = "btnProcessSave";
+            this.btnProcessSave.Size = new System.Drawing.Size(157, 61);
+            this.btnProcessSave.TabIndex = 18;
+            this.btnProcessSave.TextColor = System.Drawing.Color.Black;
+            this.btnProcessSave.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.btnProcessSave.Click += new System.EventHandler(this.btnProcessSave_Click);
+            // 
+            // dtgvProcess
+            // 
+            this.dtgvProcess.AllowUserToAddRows = false;
+            this.dtgvProcess.AllowUserToDeleteRows = false;
+            this.dtgvProcess.AllowUserToResizeColumns = false;
+            this.dtgvProcess.AllowUserToResizeRows = false;
+            this.dtgvProcess.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtgvProcess.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dtgvProcess.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvProcess.Location = new System.Drawing.Point(3, 305);
+            this.dtgvProcess.MultiSelect = false;
+            this.dtgvProcess.Name = "dtgvProcess";
+            this.dtgvProcess.ReadOnly = true;
+            this.dtgvProcess.RowHeadersVisible = false;
+            this.dtgvProcess.RowHeadersWidth = 51;
+            this.dtgvProcess.RowTemplate.Height = 24;
+            this.dtgvProcess.Size = new System.Drawing.Size(750, 262);
+            this.dtgvProcess.TabIndex = 10;
+            this.dtgvProcess.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvProcess_CellClick);
+            // 
+            // txbSpeed
+            // 
+            this.txbSpeed.Location = new System.Drawing.Point(185, 262);
+            this.txbSpeed.Name = "txbSpeed";
+            this.txbSpeed.Size = new System.Drawing.Size(132, 27);
+            this.txbSpeed.TabIndex = 8;
+            this.txbSpeed.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbSpeed_KeyPress);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(5, 262);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(159, 40);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "Tốc độ quay (RPM):\r\n转数 (RPM)";
+            // 
+            // txbTemperature
+            // 
+            this.txbTemperature.Location = new System.Drawing.Point(185, 208);
+            this.txbTemperature.Name = "txbTemperature";
+            this.txbTemperature.Size = new System.Drawing.Size(132, 27);
+            this.txbTemperature.TabIndex = 6;
+            this.txbTemperature.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbTemperature_KeyPress);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(5, 208);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(174, 40);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Nhiệt độ tối đa (độ C):\r\n最高温度（摄氏度）";
+            // 
+            // txbTime
+            // 
+            this.txbTime.Location = new System.Drawing.Point(185, 154);
+            this.txbTime.Name = "txbTime";
+            this.txbTime.Size = new System.Drawing.Size(132, 27);
+            this.txbTime.TabIndex = 4;
+            this.txbTime.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbTime_KeyPress);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(5, 154);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(165, 40);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Thời gian trộn (phút):\r\n混合时间（分钟）";
+            // 
+            // lbProcessNumber
+            // 
+            this.lbProcessNumber.AutoSize = true;
+            this.lbProcessNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbProcessNumber.Location = new System.Drawing.Point(338, 10);
+            this.lbProcessNumber.Name = "lbProcessNumber";
+            this.lbProcessNumber.Size = new System.Drawing.Size(0, 25);
+            this.lbProcessNumber.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(5, 16);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(327, 20);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Mô tả thao tác nguyên liệu / 材料处理说明:\r\n";
+            // 
+            // rtbRemark
+            // 
+            this.rtbRemark.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.rtbRemark.Location = new System.Drawing.Point(5, 39);
+            this.rtbRemark.Name = "rtbRemark";
+            this.rtbRemark.Size = new System.Drawing.Size(712, 109);
+            this.rtbRemark.TabIndex = 0;
+            this.rtbRemark.Text = "";
             // 
             // panel1
             // 
@@ -134,7 +326,7 @@
             this.btnEditMaterial.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
             this.btnEditMaterial.HoverTextColor = System.Drawing.Color.DodgerBlue;
             this.btnEditMaterial.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btnEditMaterial.Location = new System.Drawing.Point(179, 143);
+            this.btnEditMaterial.Location = new System.Drawing.Point(179, 120);
             this.btnEditMaterial.Name = "btnEditMaterial";
             this.btnEditMaterial.Size = new System.Drawing.Size(157, 61);
             this.btnEditMaterial.TabIndex = 18;
@@ -156,7 +348,7 @@
             this.btnDeleteMaterial.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
             this.btnDeleteMaterial.HoverTextColor = System.Drawing.Color.DodgerBlue;
             this.btnDeleteMaterial.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btnDeleteMaterial.Location = new System.Drawing.Point(342, 143);
+            this.btnDeleteMaterial.Location = new System.Drawing.Point(342, 120);
             this.btnDeleteMaterial.Name = "btnDeleteMaterial";
             this.btnDeleteMaterial.Size = new System.Drawing.Size(157, 61);
             this.btnDeleteMaterial.TabIndex = 17;
@@ -178,7 +370,7 @@
             this.btnAddMaterial.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
             this.btnAddMaterial.HoverTextColor = System.Drawing.Color.DodgerBlue;
             this.btnAddMaterial.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btnAddMaterial.Location = new System.Drawing.Point(11, 143);
+            this.btnAddMaterial.Location = new System.Drawing.Point(11, 120);
             this.btnAddMaterial.Name = "btnAddMaterial";
             this.btnAddMaterial.Size = new System.Drawing.Size(157, 61);
             this.btnAddMaterial.TabIndex = 16;
@@ -193,31 +385,31 @@
             this.dtgvMaterialInfos.AllowUserToResizeColumns = false;
             this.dtgvMaterialInfos.AllowUserToResizeRows = false;
             this.dtgvMaterialInfos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvMaterialInfos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvMaterialInfos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dtgvMaterialInfos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvMaterialInfos.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dtgvMaterialInfos.Location = new System.Drawing.Point(0, 208);
+            this.dtgvMaterialInfos.Location = new System.Drawing.Point(0, 187);
             this.dtgvMaterialInfos.MultiSelect = false;
             this.dtgvMaterialInfos.Name = "dtgvMaterialInfos";
             this.dtgvMaterialInfos.ReadOnly = true;
             this.dtgvMaterialInfos.RowHeadersVisible = false;
             this.dtgvMaterialInfos.RowHeadersWidth = 51;
             this.dtgvMaterialInfos.RowTemplate.Height = 24;
-            this.dtgvMaterialInfos.Size = new System.Drawing.Size(519, 452);
+            this.dtgvMaterialInfos.Size = new System.Drawing.Size(519, 473);
             this.dtgvMaterialInfos.TabIndex = 15;
             this.dtgvMaterialInfos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvMaterialInfos_CellClick);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 102);
+            this.label4.Location = new System.Drawing.Point(7, 92);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(169, 20);
             this.label4.TabIndex = 14;
@@ -261,186 +453,6 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
-            // rtbRemark
-            // 
-            this.rtbRemark.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.rtbRemark.Location = new System.Drawing.Point(5, 54);
-            this.rtbRemark.Name = "rtbRemark";
-            this.rtbRemark.Size = new System.Drawing.Size(712, 97);
-            this.rtbRemark.TabIndex = 0;
-            this.rtbRemark.Text = "";
-            this.rtbRemark.Validating += new System.ComponentModel.CancelEventHandler(this.rtbRemark_Validating);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(5, 11);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(210, 40);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Mô tả thao tác nguyên liệu:\r\n材料处理说明";
-            // 
-            // lbProcessNumber
-            // 
-            this.lbProcessNumber.AutoSize = true;
-            this.lbProcessNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbProcessNumber.Location = new System.Drawing.Point(301, 15);
-            this.lbProcessNumber.Name = "lbProcessNumber";
-            this.lbProcessNumber.Size = new System.Drawing.Size(0, 20);
-            this.lbProcessNumber.TabIndex = 2;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(5, 170);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(165, 40);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Thời gian trộn (phút):\r\n混合时间（分钟）";
-            // 
-            // txbTime
-            // 
-            this.txbTime.Location = new System.Drawing.Point(185, 167);
-            this.txbTime.Name = "txbTime";
-            this.txbTime.Size = new System.Drawing.Size(132, 27);
-            this.txbTime.TabIndex = 4;
-            this.txbTime.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbTime_KeyPress);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(5, 234);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(174, 40);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Nhiệt độ tối đa (độ C):\r\n最高温度（摄氏度）";
-            // 
-            // txbTemperature
-            // 
-            this.txbTemperature.Location = new System.Drawing.Point(185, 231);
-            this.txbTemperature.Name = "txbTemperature";
-            this.txbTemperature.Size = new System.Drawing.Size(132, 27);
-            this.txbTemperature.TabIndex = 6;
-            this.txbTemperature.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbTemperature_KeyPress);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(5, 300);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(159, 40);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "Tốc độ quay (RPM):\r\n转数 (RPM)";
-            // 
-            // txbSpeed
-            // 
-            this.txbSpeed.Location = new System.Drawing.Point(185, 297);
-            this.txbSpeed.Name = "txbSpeed";
-            this.txbSpeed.Size = new System.Drawing.Size(132, 27);
-            this.txbSpeed.TabIndex = 8;
-            this.txbSpeed.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbSpeed_KeyPress);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Red;
-            this.label8.Location = new System.Drawing.Point(5, 354);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(350, 80);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "Nhập thông tin khi thao tác có thời gian, \r\nnhiệt độ, tốc độ nếu không thì bỏ trố" +
-    "ng.\r\n当操作有时间、温度、速度时填写信息，\r\n否则留空。\r\n";
-            // 
-            // dtgvProcess
-            // 
-            this.dtgvProcess.AllowUserToAddRows = false;
-            this.dtgvProcess.AllowUserToDeleteRows = false;
-            this.dtgvProcess.AllowUserToResizeColumns = false;
-            this.dtgvProcess.AllowUserToResizeRows = false;
-            this.dtgvProcess.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtgvProcess.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dtgvProcess.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvProcess.Location = new System.Drawing.Point(364, 167);
-            this.dtgvProcess.MultiSelect = false;
-            this.dtgvProcess.Name = "dtgvProcess";
-            this.dtgvProcess.ReadOnly = true;
-            this.dtgvProcess.RowHeadersVisible = false;
-            this.dtgvProcess.RowHeadersWidth = 51;
-            this.dtgvProcess.RowTemplate.Height = 24;
-            this.dtgvProcess.Size = new System.Drawing.Size(389, 267);
-            this.dtgvProcess.TabIndex = 10;
-            this.dtgvProcess.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvProcess_CellClick);
-            // 
-            // btnProcessSave
-            // 
-            this.btnProcessSave.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnProcessSave.ButtonImage = global::htv5_mixer_control.Properties.Resources.ADD;
-            this.btnProcessSave.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
-            this.btnProcessSave.ButtonText = "Button";
-            this.btnProcessSave.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
-            this.btnProcessSave.ClickTextColor = System.Drawing.Color.DodgerBlue;
-            this.btnProcessSave.CornerRadius = 5;
-            this.btnProcessSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProcessSave.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
-            this.btnProcessSave.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
-            this.btnProcessSave.HoverTextColor = System.Drawing.Color.DodgerBlue;
-            this.btnProcessSave.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btnProcessSave.Location = new System.Drawing.Point(22, 440);
-            this.btnProcessSave.Name = "btnProcessSave";
-            this.btnProcessSave.Size = new System.Drawing.Size(157, 61);
-            this.btnProcessSave.TabIndex = 18;
-            this.btnProcessSave.TextColor = System.Drawing.Color.Black;
-            this.btnProcessSave.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            this.btnProcessSave.Click += new System.EventHandler(this.btnProcessSave_Click);
-            // 
-            // btnProcessDelete
-            // 
-            this.btnProcessDelete.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnProcessDelete.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnProcessDelete.ButtonImage = global::htv5_mixer_control.Properties.Resources.delete;
-            this.btnProcessDelete.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
-            this.btnProcessDelete.ButtonText = "Button";
-            this.btnProcessDelete.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
-            this.btnProcessDelete.ClickTextColor = System.Drawing.Color.DodgerBlue;
-            this.btnProcessDelete.CornerRadius = 5;
-            this.btnProcessDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProcessDelete.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
-            this.btnProcessDelete.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
-            this.btnProcessDelete.HoverTextColor = System.Drawing.Color.DodgerBlue;
-            this.btnProcessDelete.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btnProcessDelete.Location = new System.Drawing.Point(599, 440);
-            this.btnProcessDelete.Name = "btnProcessDelete";
-            this.btnProcessDelete.Size = new System.Drawing.Size(157, 61);
-            this.btnProcessDelete.TabIndex = 19;
-            this.btnProcessDelete.TextColor = System.Drawing.Color.Black;
-            this.btnProcessDelete.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            this.btnProcessDelete.Click += new System.EventHandler(this.btnProcessDelete_Click);
-            // 
-            // btnProcessEdit
-            // 
-            this.btnProcessEdit.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnProcessEdit.ButtonImage = global::htv5_mixer_control.Properties.Resources.edit;
-            this.btnProcessEdit.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
-            this.btnProcessEdit.ButtonText = "Button";
-            this.btnProcessEdit.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
-            this.btnProcessEdit.ClickTextColor = System.Drawing.Color.DodgerBlue;
-            this.btnProcessEdit.CornerRadius = 5;
-            this.btnProcessEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProcessEdit.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
-            this.btnProcessEdit.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
-            this.btnProcessEdit.HoverTextColor = System.Drawing.Color.DodgerBlue;
-            this.btnProcessEdit.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btnProcessEdit.Location = new System.Drawing.Point(198, 440);
-            this.btnProcessEdit.Name = "btnProcessEdit";
-            this.btnProcessEdit.Size = new System.Drawing.Size(157, 61);
-            this.btnProcessEdit.TabIndex = 19;
-            this.btnProcessEdit.TextColor = System.Drawing.Color.Black;
-            this.btnProcessEdit.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            this.btnProcessEdit.Click += new System.EventHandler(this.btnProcessEdit_Click);
-            // 
             // InputSubInputData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -459,11 +471,11 @@
             this.gbxInputData.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvProcess)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvMaterialInfos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvProcess)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -487,7 +499,6 @@
         private System.Windows.Forms.RichTextBox rtbRemark;
         private System.Windows.Forms.Label lbProcessNumber;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txbSpeed;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txbTemperature;
@@ -497,5 +508,6 @@
         private XanderUI.XUIButton btnProcessDelete;
         private XanderUI.XUIButton btnProcessSave;
         private XanderUI.XUIButton btnProcessEdit;
+        private XanderUI.XUIButton btnCreateSpecification;
     }
 }

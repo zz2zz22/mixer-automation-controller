@@ -136,6 +136,7 @@
     <Compile Include="Controller\Sub Logic\HexTransformatUtil.cs" />
     <Compile Include="Controller\Sub Logic\ToolSupport.cs" />
     <Compile Include="Controller\Sub Logic\UUIDGenerator.cs" />
+    <Compile Include="Controller\UploadMain.cs" />
     <Compile Include="Model\SQL Class\DatabaseSQLServerUtils.cs" />
     <Compile Include="Model\SQL Class\DatabaseUtils.cs" />
     <Compile Include="Model\SQL Class\sqlHTV5ControlCon.cs" />

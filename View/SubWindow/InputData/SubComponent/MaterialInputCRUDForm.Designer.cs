@@ -30,15 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txbInputMaterialName = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txbInputMaterialLot = new System.Windows.Forms.TextBox();
+            this.btnSaveMaterial = new XanderUI.XUIButton();
+            this.txbInputMaterialTolerance = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.txbInputMaterialWeight = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txbInputMaterialTolerance = new System.Windows.Forms.TextBox();
-            this.btnSaveMaterial = new XanderUI.XUIButton();
+            this.txbInputMaterialLot = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txbInputMaterialName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
@@ -61,76 +61,6 @@
             this.panel1.Size = new System.Drawing.Size(644, 276);
             this.panel1.TabIndex = 0;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(170, 40);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nhập tên nguyên liệu:\r\n输入成分名称\r\n";
-            // 
-            // txbInputMaterialName
-            // 
-            this.txbInputMaterialName.Location = new System.Drawing.Point(188, 6);
-            this.txbInputMaterialName.Name = "txbInputMaterialName";
-            this.txbInputMaterialName.Size = new System.Drawing.Size(294, 27);
-            this.txbInputMaterialName.TabIndex = 1;
-            this.txbInputMaterialName.Validating += new System.ComponentModel.CancelEventHandler(this.txbInputMaterialName_Validating);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 66);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 40);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Số lô:\r\n批號\r\n";
-            // 
-            // txbInputMaterialLot
-            // 
-            this.txbInputMaterialLot.Location = new System.Drawing.Point(192, 63);
-            this.txbInputMaterialLot.Name = "txbInputMaterialLot";
-            this.txbInputMaterialLot.Size = new System.Drawing.Size(290, 27);
-            this.txbInputMaterialLot.TabIndex = 3;
-            this.txbInputMaterialLot.Validating += new System.ComponentModel.CancelEventHandler(this.txbInputMaterialLot_Validating);
-            // 
-            // txbInputMaterialWeight
-            // 
-            this.txbInputMaterialWeight.Location = new System.Drawing.Point(120, 124);
-            this.txbInputMaterialWeight.Name = "txbInputMaterialWeight";
-            this.txbInputMaterialWeight.Size = new System.Drawing.Size(146, 27);
-            this.txbInputMaterialWeight.TabIndex = 5;
-            this.txbInputMaterialWeight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbInputMaterialWeight_KeyPress);
-            this.txbInputMaterialWeight.Validating += new System.ComponentModel.CancelEventHandler(this.txbInputMaterialWeight_Validating);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 127);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(102, 40);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Trọng lượng:\r\n分量\r\n";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(316, 127);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(81, 40);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Dung sai:\r\n公差";
-            // 
-            // txbInputMaterialTolerance
-            // 
-            this.txbInputMaterialTolerance.Location = new System.Drawing.Point(403, 124);
-            this.txbInputMaterialTolerance.Name = "txbInputMaterialTolerance";
-            this.txbInputMaterialTolerance.Size = new System.Drawing.Size(129, 27);
-            this.txbInputMaterialTolerance.TabIndex = 7;
-            this.txbInputMaterialTolerance.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbInputMaterialTolerance_KeyPress);
-            this.txbInputMaterialTolerance.Validating += new System.ComponentModel.CancelEventHandler(this.txbInputMaterialTolerance_Validating);
-            // 
             // btnSaveMaterial
             // 
             this.btnSaveMaterial.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -152,6 +82,76 @@
             this.btnSaveMaterial.TextColor = System.Drawing.Color.Black;
             this.btnSaveMaterial.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             this.btnSaveMaterial.Click += new System.EventHandler(this.btnSaveMaterial_Click);
+            // 
+            // txbInputMaterialTolerance
+            // 
+            this.txbInputMaterialTolerance.Location = new System.Drawing.Point(403, 124);
+            this.txbInputMaterialTolerance.Name = "txbInputMaterialTolerance";
+            this.txbInputMaterialTolerance.Size = new System.Drawing.Size(129, 27);
+            this.txbInputMaterialTolerance.TabIndex = 7;
+            this.txbInputMaterialTolerance.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txbInputMaterialTolerance_KeyDown);
+            this.txbInputMaterialTolerance.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbInputMaterialTolerance_KeyPress);
+            this.txbInputMaterialTolerance.Validating += new System.ComponentModel.CancelEventHandler(this.txbInputMaterialTolerance_Validating);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(316, 127);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(81, 40);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Dung sai:\r\n公差";
+            // 
+            // txbInputMaterialWeight
+            // 
+            this.txbInputMaterialWeight.Location = new System.Drawing.Point(120, 124);
+            this.txbInputMaterialWeight.Name = "txbInputMaterialWeight";
+            this.txbInputMaterialWeight.Size = new System.Drawing.Size(146, 27);
+            this.txbInputMaterialWeight.TabIndex = 5;
+            this.txbInputMaterialWeight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbInputMaterialWeight_KeyPress);
+            this.txbInputMaterialWeight.Validating += new System.ComponentModel.CancelEventHandler(this.txbInputMaterialWeight_Validating);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 127);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(102, 40);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Trọng lượng:\r\n分量\r\n";
+            // 
+            // txbInputMaterialLot
+            // 
+            this.txbInputMaterialLot.Location = new System.Drawing.Point(192, 63);
+            this.txbInputMaterialLot.Name = "txbInputMaterialLot";
+            this.txbInputMaterialLot.Size = new System.Drawing.Size(290, 27);
+            this.txbInputMaterialLot.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 66);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(52, 40);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Số lô:\r\n批號\r\n";
+            // 
+            // txbInputMaterialName
+            // 
+            this.txbInputMaterialName.Location = new System.Drawing.Point(188, 6);
+            this.txbInputMaterialName.Name = "txbInputMaterialName";
+            this.txbInputMaterialName.Size = new System.Drawing.Size(294, 27);
+            this.txbInputMaterialName.TabIndex = 1;
+            this.txbInputMaterialName.Validating += new System.ComponentModel.CancelEventHandler(this.txbInputMaterialName_Validating);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(170, 40);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Nhập tên nguyên liệu:\r\n输入成分名称\r\n";
             // 
             // errorProvider
             // 

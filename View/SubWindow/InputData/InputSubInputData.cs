@@ -54,11 +54,15 @@ namespace htv5_mixer_control
 
         private void InputSubInputData_Load(object sender, EventArgs e)
         {
-            btnAddMaterial.ButtonText = "Thêm mới" + Environment.NewLine + "";
-            btnEditMaterial.ButtonText = "Chỉnh sửa" + Environment.NewLine + "";
-            btnDeleteMaterial.ButtonText = "Xóa bỏ" + Environment.NewLine + "";
+            btnAddMaterial.ButtonText = "Thêm mới" + Environment.NewLine + "添新";
+            btnEditMaterial.ButtonText = "Chỉnh sửa" + Environment.NewLine + "编辑信息";
+            btnDeleteMaterial.ButtonText = "Xóa bỏ" + Environment.NewLine + "裁撤";
             if (SaveVariables.ProcessList == null || SaveVariables.ProcessList.Rows.Count == 0)
                 lbProcessNumber.Text = "1";
+            btnProcessSave.ButtonText = "Thêm mới" + Environment.NewLine + "添新";
+            btnProcessEdit.ButtonText = "Chỉnh sửa" + Environment.NewLine + "编辑信息";
+            btnProcessDelete.ButtonText = "Xóa bỏ" + Environment.NewLine + "裁撤";
+            btnCreateSpecification.ButtonText = "Hoàn tất tạo quy cách" + Environment.NewLine + "完成规范";
         }
 
         private void txbInputLotNo_Validating(object sender, CancelEventArgs e)
@@ -176,20 +180,6 @@ namespace htv5_mixer_control
             }
         }
 
-        private void rtbRemark_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrEmpty(rtbRemark.Text))
-            {
-                e.Cancel = true;
-                errorProvider.SetError(rtbRemark, "Mô tả thao tác không được trống!");
-            }
-            else
-            {
-                e.Cancel = false;
-                errorProvider.SetError(rtbRemark, null);
-            }
-        }
-
         private void btnProcessSave_Click(object sender, EventArgs e)
         {
             if (ValidateChildren(ValidationConstraints.Enabled))
@@ -198,7 +188,7 @@ namespace htv5_mixer_control
                     SaveVariables.addProcessColumn();
                 DialogResult dialogResult = MessageBox.Show("Thêm mới dữ liệu ?", "Thông tin", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (dialogResult == DialogResult.Yes)
-                    SaveVariables.ProcessList.Rows.Add(UUIDGenerator.getAscId(), lbProcessNumber.Text, rtbRemark.Text.ToString().Trim(), txbSpeed.Text.Trim(), txbTemperature.Text.Trim(), txbTime.Text.Trim());
+                    SaveVariables.ProcessList.Rows.Add(UUIDGenerator.getAscId(), lbProcessNumber.Text, txbSpeed.Text.Trim(), txbTemperature.Text.Trim(), txbTime.Text.Trim(), rtbRemark.Text.ToString().Trim());
                 LoadProcessData();
             }
         }
@@ -297,6 +287,18 @@ namespace htv5_mixer_control
             if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void btnCreateSpecification_Click(object sender, EventArgs e)
+        {
+            if (ValidateChildren(ValidationConstraints.Enabled))
+            {
+                DialogResult dialogResult = MessageBox.Show("Lưu dữ liệu thao tác?", "Thông tin", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    UploadMain.transactionSupportUploadData(SaveVariables.MaterialList, SaveVariables.ProcessList, txbInputCode.Text.Trim(), txbInputLotNo.Text.Trim(), SaveVariables.OperatorUUID);
+                }
             }
         }
     }
