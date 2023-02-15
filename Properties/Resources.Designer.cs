@@ -153,6 +153,16 @@ namespace htv5_mixer_control.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap search_flat {
+            get {
+                object obj = ResourceManager.GetObject("search-flat", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap small_techlink_logo {
             get {
                 object obj = ResourceManager.GetObject("small-techlink-logo", resourceCulture);

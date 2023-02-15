@@ -25,7 +25,8 @@ namespace htv5_mixer_control
 
         private void btnMixerControl_Click(object sender, EventArgs e)
         {
-           
+           ControlSubChooseSpecification controlSubChoose = new ControlSubChooseSpecification();
+            controlSubChoose.ShowDialog();
         }
 
         private void MainWindow_Load(object sender, EventArgs e)

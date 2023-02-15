@@ -29,7 +29,7 @@
     <ProductName>Mixer Controller</ProductName>
     <PublisherName>Anh Vu</PublisherName>
     <MinimumRequiredVersion>1.0.0.0</MinimumRequiredVersion>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>2</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -185,6 +185,24 @@
     <Compile Include="View\SubWindow\InputData\SubComponent\MaterialInputCRUDForm.Designer.cs">
       <DependentUpon>MaterialInputCRUDForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\SubWindow\Mixer Control\ControlSubChooseSpecification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\SubWindow\Mixer Control\ControlSubChooseSpecification.Designer.cs">
+      <DependentUpon>ControlSubChooseSpecification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\SubWindow\Mixer Control\ControlSubScaleMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\SubWindow\Mixer Control\ControlSubScaleMaterial.Designer.cs">
+      <DependentUpon>ControlSubScaleMaterial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\SubWindow\Mixer Control\CustomControl\CustomDataRow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\SubWindow\Mixer Control\CustomControl\CustomDataRow.Designer.cs">
+      <DependentUpon>CustomDataRow.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="View\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -216,7 +234,15 @@
     <EmbeddedResource Include="View\SubWindow\InputData\SubComponent\MaterialInputCRUDForm.resx">
       <DependentUpon>MaterialInputCRUDForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="htv5-mixer-control_TemporaryKey.pfx" />
+    <EmbeddedResource Include="View\SubWindow\Mixer Control\ControlSubChooseSpecification.resx">
+      <DependentUpon>ControlSubChooseSpecification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SubWindow\Mixer Control\ControlSubScaleMaterial.resx">
+      <DependentUpon>ControlSubScaleMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SubWindow\Mixer Control\CustomControl\CustomDataRow.resx">
+      <DependentUpon>CustomDataRow.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="ikvm.properties" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -273,6 +299,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search-flat.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\System.Text.Json.6.0.6\build\System.Text.Json.targets" Condition="Exists('packages\System.Text.Json.6.0.6\build\System.Text.Json.targets')" />

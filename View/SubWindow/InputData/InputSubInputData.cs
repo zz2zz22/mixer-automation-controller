@@ -56,13 +56,13 @@ namespace htv5_mixer_control
         {
             btnAddMaterial.ButtonText = "Thêm mới" + Environment.NewLine + "添新";
             btnEditMaterial.ButtonText = "Chỉnh sửa" + Environment.NewLine + "编辑信息";
-            btnDeleteMaterial.ButtonText = "Xóa bỏ" + Environment.NewLine + "裁撤";
+            btnDeleteMaterial.ButtonText = "Xóa bỏ" + Environment.NewLine + "删除";
             if (SaveVariables.ProcessList == null || SaveVariables.ProcessList.Rows.Count == 0)
                 lbProcessNumber.Text = "1";
             btnProcessSave.ButtonText = "Thêm mới" + Environment.NewLine + "添新";
             btnProcessEdit.ButtonText = "Chỉnh sửa" + Environment.NewLine + "编辑信息";
-            btnProcessDelete.ButtonText = "Xóa bỏ" + Environment.NewLine + "裁撤";
-            btnCreateSpecification.ButtonText = "Hoàn tất tạo quy cách" + Environment.NewLine + "完成规范";
+            btnProcessDelete.ButtonText = "Xóa bỏ" + Environment.NewLine + "删除";
+            btnCreateSpecification.ButtonText = "Hoàn tất tạo quy cách" + Environment.NewLine + "完成型号";
         }
 
         private void txbInputLotNo_Validating(object sender, CancelEventArgs e)

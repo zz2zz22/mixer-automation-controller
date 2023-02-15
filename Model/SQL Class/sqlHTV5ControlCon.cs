@@ -11,7 +11,7 @@ namespace htv5_mixer_control.Model.SQL_Class
 {
     public class sqlHTV5ControlCon
     {
-        public SqlConnection conn = DatabaseUtils.GetSoftDBConnection();
+        public SqlConnection conn = DatabaseUtils.GetHTV5ControlDBConnection();
 
         public string sqlExecuteScalarString(string sql)
         {

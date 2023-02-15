@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gbxInputData = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnCreateSpecification = new XanderUI.XUIButton();
@@ -112,7 +112,7 @@
             this.btnCreateSpecification.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
             this.btnCreateSpecification.ClickTextColor = System.Drawing.Color.DodgerBlue;
             this.btnCreateSpecification.CornerRadius = 5;
-            this.btnCreateSpecification.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateSpecification.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreateSpecification.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
             this.btnCreateSpecification.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
             this.btnCreateSpecification.HoverTextColor = System.Drawing.Color.DodgerBlue;
@@ -135,7 +135,7 @@
             this.btnProcessEdit.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
             this.btnProcessEdit.ClickTextColor = System.Drawing.Color.DodgerBlue;
             this.btnProcessEdit.CornerRadius = 5;
-            this.btnProcessEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProcessEdit.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProcessEdit.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
             this.btnProcessEdit.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
             this.btnProcessEdit.HoverTextColor = System.Drawing.Color.DodgerBlue;
@@ -158,7 +158,7 @@
             this.btnProcessDelete.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
             this.btnProcessDelete.ClickTextColor = System.Drawing.Color.DodgerBlue;
             this.btnProcessDelete.CornerRadius = 5;
-            this.btnProcessDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProcessDelete.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProcessDelete.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
             this.btnProcessDelete.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
             this.btnProcessDelete.HoverTextColor = System.Drawing.Color.DodgerBlue;
@@ -181,7 +181,7 @@
             this.btnProcessSave.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
             this.btnProcessSave.ClickTextColor = System.Drawing.Color.DodgerBlue;
             this.btnProcessSave.CornerRadius = 5;
-            this.btnProcessSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProcessSave.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProcessSave.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
             this.btnProcessSave.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
             this.btnProcessSave.HoverTextColor = System.Drawing.Color.DodgerBlue;
@@ -217,54 +217,57 @@
             // 
             // txbSpeed
             // 
-            this.txbSpeed.Location = new System.Drawing.Point(185, 262);
+            this.txbSpeed.Location = new System.Drawing.Point(192, 258);
             this.txbSpeed.Name = "txbSpeed";
-            this.txbSpeed.Size = new System.Drawing.Size(132, 27);
+            this.txbSpeed.Size = new System.Drawing.Size(146, 27);
             this.txbSpeed.TabIndex = 8;
             this.txbSpeed.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbSpeed_KeyPress);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(5, 262);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(159, 40);
+            this.label7.Size = new System.Drawing.Size(183, 38);
             this.label7.TabIndex = 7;
-            this.label7.Text = "Tốc độ quay (RPM):\r\n转数 (RPM)";
+            this.label7.Text = "Tốc độ quay (Vòng/phút):\r\n转速";
             // 
             // txbTemperature
             // 
-            this.txbTemperature.Location = new System.Drawing.Point(185, 208);
+            this.txbTemperature.Location = new System.Drawing.Point(192, 204);
             this.txbTemperature.Name = "txbTemperature";
-            this.txbTemperature.Size = new System.Drawing.Size(132, 27);
+            this.txbTemperature.Size = new System.Drawing.Size(146, 27);
             this.txbTemperature.TabIndex = 6;
             this.txbTemperature.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbTemperature_KeyPress);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(5, 208);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(174, 40);
+            this.label6.Size = new System.Drawing.Size(166, 38);
             this.label6.TabIndex = 5;
             this.label6.Text = "Nhiệt độ tối đa (độ C):\r\n最高温度（摄氏度）";
             // 
             // txbTime
             // 
-            this.txbTime.Location = new System.Drawing.Point(185, 154);
+            this.txbTime.Location = new System.Drawing.Point(192, 150);
             this.txbTime.Name = "txbTime";
-            this.txbTime.Size = new System.Drawing.Size(132, 27);
+            this.txbTime.Size = new System.Drawing.Size(146, 27);
             this.txbTime.TabIndex = 4;
             this.txbTime.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbTime_KeyPress);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(5, 154);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(165, 40);
+            this.label5.Size = new System.Drawing.Size(154, 38);
             this.label5.TabIndex = 3;
-            this.label5.Text = "Thời gian trộn (phút):\r\n混合时间（分钟）";
+            this.label5.Text = "Thời gian trộn (phút):\r\n搅拌时间（分钟）";
             // 
             // lbProcessNumber
             // 
@@ -278,11 +281,12 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(5, 16);
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(5, 12);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(327, 20);
+            this.label2.Size = new System.Drawing.Size(296, 19);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Mô tả thao tác nguyên liệu / 材料处理说明:\r\n";
+            this.label2.Text = "Mô tả thao tác nguyên liệu / 材料操作说明:\r\n";
             // 
             // rtbRemark
             // 
@@ -290,7 +294,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rtbRemark.Location = new System.Drawing.Point(5, 39);
             this.rtbRemark.Name = "rtbRemark";
-            this.rtbRemark.Size = new System.Drawing.Size(712, 109);
+            this.rtbRemark.Size = new System.Drawing.Size(712, 105);
             this.rtbRemark.TabIndex = 0;
             this.rtbRemark.Text = "";
             // 
@@ -321,7 +325,7 @@
             this.btnEditMaterial.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
             this.btnEditMaterial.ClickTextColor = System.Drawing.Color.DodgerBlue;
             this.btnEditMaterial.CornerRadius = 5;
-            this.btnEditMaterial.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditMaterial.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditMaterial.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
             this.btnEditMaterial.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
             this.btnEditMaterial.HoverTextColor = System.Drawing.Color.DodgerBlue;
@@ -343,7 +347,7 @@
             this.btnDeleteMaterial.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
             this.btnDeleteMaterial.ClickTextColor = System.Drawing.Color.DodgerBlue;
             this.btnDeleteMaterial.CornerRadius = 5;
-            this.btnDeleteMaterial.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteMaterial.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteMaterial.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
             this.btnDeleteMaterial.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
             this.btnDeleteMaterial.HoverTextColor = System.Drawing.Color.DodgerBlue;
@@ -365,7 +369,7 @@
             this.btnAddMaterial.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
             this.btnAddMaterial.ClickTextColor = System.Drawing.Color.DodgerBlue;
             this.btnAddMaterial.CornerRadius = 5;
-            this.btnAddMaterial.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddMaterial.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddMaterial.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
             this.btnAddMaterial.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
             this.btnAddMaterial.HoverTextColor = System.Drawing.Color.DodgerBlue;
@@ -385,14 +389,14 @@
             this.dtgvMaterialInfos.AllowUserToResizeColumns = false;
             this.dtgvMaterialInfos.AllowUserToResizeRows = false;
             this.dtgvMaterialInfos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvMaterialInfos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvMaterialInfos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dtgvMaterialInfos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvMaterialInfos.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dtgvMaterialInfos.Location = new System.Drawing.Point(0, 187);
@@ -409,9 +413,10 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(7, 92);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(169, 20);
+            this.label4.Size = new System.Drawing.Size(155, 19);
             this.label4.TabIndex = 14;
             this.label4.Text = "Bảng phối liệu / 配料:";
             // 
@@ -426,9 +431,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(7, 52);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(101, 20);
+            this.label3.Size = new System.Drawing.Size(93, 19);
             this.label3.TabIndex = 11;
             this.label3.Text = "Số lô / 批號:";
             // 
@@ -443,9 +449,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(7, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(134, 20);
+            this.label1.Size = new System.Drawing.Size(120, 19);
             this.label1.TabIndex = 7;
             this.label1.Text = "Quy cách / 型號:";
             // 
