@@ -36,8 +36,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbWeight = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lbMatCode = new System.Windows.Forms.Label();
             this.lbUUID = new System.Windows.Forms.Label();
+            this.lbMatCode = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelStatus.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -47,6 +47,7 @@
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel1.ColumnCount = 4;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -68,13 +69,14 @@
             // 
             this.panelStatus.Controls.Add(this.lbStatus);
             this.panelStatus.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelStatus.Location = new System.Drawing.Point(472, 3);
+            this.panelStatus.Location = new System.Drawing.Point(472, 4);
             this.panelStatus.Name = "panelStatus";
-            this.panelStatus.Size = new System.Drawing.Size(114, 94);
+            this.panelStatus.Size = new System.Drawing.Size(113, 92);
             this.panelStatus.TabIndex = 3;
             // 
             // lbStatus
             // 
+            this.lbStatus.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbStatus.AutoSize = true;
             this.lbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbStatus.Location = new System.Drawing.Point(18, 39);
@@ -87,13 +89,14 @@
             // 
             this.panel3.Controls.Add(this.lbTolerane);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(355, 3);
+            this.panel3.Location = new System.Drawing.Point(355, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(111, 94);
+            this.panel3.Size = new System.Drawing.Size(110, 92);
             this.panel3.TabIndex = 2;
             // 
             // lbTolerane
             // 
+            this.lbTolerane.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbTolerane.AutoSize = true;
             this.lbTolerane.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTolerane.Location = new System.Drawing.Point(15, 39);
@@ -106,13 +109,14 @@
             // 
             this.panel2.Controls.Add(this.lbWeight);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(238, 3);
+            this.panel2.Location = new System.Drawing.Point(238, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(111, 94);
+            this.panel2.Size = new System.Drawing.Size(110, 92);
             this.panel2.TabIndex = 1;
             // 
             // lbWeight
             // 
+            this.lbWeight.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbWeight.AutoSize = true;
             this.lbWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbWeight.Location = new System.Drawing.Point(12, 39);
@@ -126,20 +130,10 @@
             this.panel1.Controls.Add(this.lbUUID);
             this.panel1.Controls.Add(this.lbMatCode);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Location = new System.Drawing.Point(4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(229, 94);
+            this.panel1.Size = new System.Drawing.Size(227, 92);
             this.panel1.TabIndex = 0;
-            // 
-            // lbMatCode
-            // 
-            this.lbMatCode.AutoSize = true;
-            this.lbMatCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMatCode.Location = new System.Drawing.Point(42, 39);
-            this.lbMatCode.Name = "lbMatCode";
-            this.lbMatCode.Size = new System.Drawing.Size(64, 22);
-            this.lbMatCode.TabIndex = 0;
-            this.lbMatCode.Text = "label1";
             // 
             // lbUUID
             // 
@@ -149,6 +143,17 @@
             this.lbUUID.Size = new System.Drawing.Size(0, 16);
             this.lbUUID.TabIndex = 1;
             this.lbUUID.Visible = false;
+            // 
+            // lbMatCode
+            // 
+            this.lbMatCode.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbMatCode.AutoSize = true;
+            this.lbMatCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMatCode.Location = new System.Drawing.Point(42, 39);
+            this.lbMatCode.Name = "lbMatCode";
+            this.lbMatCode.Size = new System.Drawing.Size(64, 22);
+            this.lbMatCode.TabIndex = 0;
+            this.lbMatCode.Text = "label1";
             // 
             // CustomDataRow
             // 

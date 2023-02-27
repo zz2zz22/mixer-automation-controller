@@ -51,9 +51,9 @@ namespace htv5_mixer_control
 
             StringBuilder insertSP = new StringBuilder();
             insertSP.Append("insert into specification_process ");
-            insertSP.Append("(uuid, specification_uuid, process_no, is_running, set_speed, set_temperature, set_time, delete_flag, material_remark)");
+            insertSP.Append("(uuid, specification_uuid, process_no, is_running, is_completed, set_speed, set_temperature, set_time, delete_flag, material_remark)");
             insertSP.Append(" values ");
-            insertSP.Append("('" + processDT.Rows[i]["uuid"].ToString() + "', '" + specUUID + "', '" + processDT.Rows[i]["process_no"].ToString() + "', 1, " + speed + ", " + temperature + ", " + time + ", 0, N'" + processDT.Rows[i]["remark"].ToString() + "')");
+            insertSP.Append("('" + processDT.Rows[i]["uuid"].ToString() + "', '" + specUUID + "', '" + (i+1).ToString() + "', 1, 1, " + speed + ", " + temperature + ", " + time + ", 0, N'" + processDT.Rows[i]["remark"].ToString() + "')");
             return insertSP.ToString();
         }
 

@@ -14,6 +14,8 @@ namespace htv5_mixer_control
         public static String SelectedMatUUID { get; set; }
         public static String SelectedProcessUUID { get; set; }
         public static String ControlSelectedSpecUUID { get; set; }
+        public static String ControlSelectedMatUUID { get; set; }
+        public static String ControlSelectedProcessUUID { get; set; }
 
 
         public static DataTable MaterialList { get; set; }

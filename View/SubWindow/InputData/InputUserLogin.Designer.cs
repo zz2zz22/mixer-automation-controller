@@ -90,6 +90,7 @@
             this.txbInputPassword.Size = new System.Drawing.Size(301, 27);
             this.txbInputPassword.TabIndex = 10;
             this.txbInputPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txbInputPassword_KeyDown);
+            this.txbInputPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txbInputPassword_Validating);
             // 
             // lbPassword
             // 
@@ -107,6 +108,7 @@
             this.txbInputUsername.Name = "txbInputUsername";
             this.txbInputUsername.Size = new System.Drawing.Size(301, 27);
             this.txbInputUsername.TabIndex = 8;
+            this.txbInputUsername.Validating += new System.ComponentModel.CancelEventHandler(this.txbInputUsername_Validating);
             // 
             // lbUsername
             // 

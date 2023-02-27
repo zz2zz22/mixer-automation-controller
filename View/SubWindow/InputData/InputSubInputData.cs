@@ -35,6 +35,7 @@ namespace htv5_mixer_control
             if (string.IsNullOrEmpty(txbInputCode.Text))
             {
                 e.Cancel = true;
+                txbInputCode.Focus();
                 errorProvider.SetError(txbInputCode, "Mã quy cách không được để trống!");
             }
             else
@@ -42,6 +43,7 @@ namespace htv5_mixer_control
                 if (!checkSpecificationCode(txbInputCode.Text.Trim()))
                 {
                     e.Cancel = true;
+                    txbInputCode.Focus();
                     errorProvider.SetError(txbInputCode, "Mã quy cách đã tồn tại trên hệ thống!");
                 }
                 else
@@ -70,6 +72,7 @@ namespace htv5_mixer_control
             if (string.IsNullOrEmpty(txbInputLotNo.Text))
             {
                 e.Cancel = true;
+                txbInputCode.Focus();
                 errorProvider.SetError(txbInputLotNo, "Số lô không được để trống!");
             }
             else
@@ -81,14 +84,16 @@ namespace htv5_mixer_control
 
         private void btnAddMaterial_Click(object sender, EventArgs e)
         {
-            if (ValidateChildren(ValidationConstraints.Enabled))
+            if (!checkSpecificationCode(txbInputCode.Text.Trim()))
             {
-                if (SaveVariables.MaterialList == null || SaveVariables.MaterialList.Rows.Count == 0)
-                    SaveVariables.addMatColumn();
-                MaterialInputCRUDForm materialInputCRUDForm = new MaterialInputCRUDForm(null, 0);
-                materialInputCRUDForm.FormClosing += materialInputCRUDFormClosing;
-                materialInputCRUDForm.ShowDialog();
+                txbInputCode.Focus();
+                errorProvider.SetError(txbInputCode, "Mã quy cách đã tồn tại trên hệ thống!");
             }
+            if (SaveVariables.MaterialList == null || SaveVariables.MaterialList.Rows.Count == 0)
+                SaveVariables.addMatColumn();
+            MaterialInputCRUDForm materialInputCRUDForm = new MaterialInputCRUDForm(null, 0);
+            materialInputCRUDForm.FormClosing += materialInputCRUDFormClosing;
+            materialInputCRUDForm.ShowDialog();
         }
         private void LoadMaterialData()
         {
@@ -105,13 +110,15 @@ namespace htv5_mixer_control
         }
         private void LoadProcessData()
         {
-            if (SaveVariables.ProcessList.Rows.Count >0)
+
+            if (SaveVariables.ProcessList.Rows.Count > 0)
             {
                 lbProcessNumber.Text = (SaveVariables.ProcessList.Rows.Count + 1).ToString();
-                rtbRemark.Clear();
+
                 txbSpeed.Clear();
                 txbTemperature.Clear();
                 txbTime.Clear();
+                rtbRemark.Clear();
                 dtgvProcess.DataSource = null;
                 SaveVariables.ProcessList.DefaultView.Sort = "process_no ASC";
                 dtgvProcess.DataSource = SaveVariables.ProcessList.DefaultView.ToTable();
@@ -121,7 +128,10 @@ namespace htv5_mixer_control
                 dtgvProcess.Columns["temperature"].HeaderText = "Nhiệt độ";
                 dtgvProcess.Columns["time"].HeaderText = "Thời gian";
                 dtgvProcess.Columns["remark"].HeaderText = "Mô tả";
+
             }
+            rtbRemark.Focus();
+
         }
         private void materialInputCRUDFormClosing(object sender, FormClosingEventArgs e)
         {
@@ -131,11 +141,17 @@ namespace htv5_mixer_control
 
         private void btnEditMaterial_Click(object sender, EventArgs e)
         {
-            if (ValidateChildren(ValidationConstraints.Enabled))
+
+            if (SaveVariables.SelectedMatUUID == null)
             {
-                if (SaveVariables.SelectedMatUUID == null)
+                MessageBox.Show("Vui lòng chọn mã liệu để chỉnh sửa!");
+            }
+            else
+            {
+                if (!checkSpecificationCode(txbInputCode.Text.Trim()))
                 {
-                    MessageBox.Show("Vui lòng chọn mã liệu để chỉnh sửa!");
+                    txbInputCode.Focus();
+                    errorProvider.SetError(txbInputCode, "Mã quy cách đã tồn tại trên hệ thống!");
                 }
                 else
                 {
@@ -143,30 +159,28 @@ namespace htv5_mixer_control
                     materialInputCRUDForm.FormClosing += materialInputCRUDFormClosing;
                     materialInputCRUDForm.ShowDialog();
                 }
+
             }
         }
 
         private void btnDeleteMaterial_Click(object sender, EventArgs e)
         {
-            if (ValidateChildren(ValidationConstraints.Enabled))
+            if (SaveVariables.SelectedMatUUID == null)
             {
-                if (SaveVariables.SelectedMatUUID == null)
+                MessageBox.Show("Vui lòng chọn mã liệu để xóa!");
+            }
+            else
+            {
+                for (int i = 0; i < SaveVariables.MaterialList.Rows.Count; i++)
                 {
-                    MessageBox.Show("Vui lòng chọn mã liệu để xóa!");
-                }
-                else
-                {
-                    for (int i = 0; i < SaveVariables.MaterialList.Rows.Count; i++)
+                    if (SaveVariables.MaterialList.Rows[i]["uuid"].ToString() == SaveVariables.SelectedMatUUID)
                     {
-                        if (SaveVariables.MaterialList.Rows[i]["uuid"].ToString() == SaveVariables.SelectedMatUUID)
-                        {
-                            SaveVariables.MaterialList.Rows[i].Delete();
-                            SaveVariables.MaterialList.AcceptChanges();
-                        }
+                        SaveVariables.MaterialList.Rows[i].Delete();
+                        SaveVariables.MaterialList.AcceptChanges();
                     }
-                    SaveVariables.SelectedMatUUID = null;
-                    LoadMaterialData();
                 }
+                SaveVariables.SelectedMatUUID = null;
+                LoadMaterialData();
             }
         }
 
@@ -182,15 +196,14 @@ namespace htv5_mixer_control
 
         private void btnProcessSave_Click(object sender, EventArgs e)
         {
-            if (ValidateChildren(ValidationConstraints.Enabled))
-            {
-                if (SaveVariables.ProcessList == null || SaveVariables.ProcessList.Rows.Count == 0)
-                    SaveVariables.addProcessColumn();
-                DialogResult dialogResult = MessageBox.Show("Thêm mới dữ liệu ?", "Thông tin", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                if (dialogResult == DialogResult.Yes)
-                    SaveVariables.ProcessList.Rows.Add(UUIDGenerator.getAscId(), lbProcessNumber.Text, txbSpeed.Text.Trim(), txbTemperature.Text.Trim(), txbTime.Text.Trim(), rtbRemark.Text.ToString().Trim());
-                LoadProcessData();
-            }
+            if (SaveVariables.ProcessList == null || SaveVariables.ProcessList.Rows.Count == 0)
+                SaveVariables.addProcessColumn();
+            DialogResult dialogResult = MessageBox.Show("Thêm mới dữ liệu ?", "Thông tin", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (dialogResult == DialogResult.Yes)
+                SaveVariables.ProcessList.Rows.Add(UUIDGenerator.getAscId(), lbProcessNumber.Text, txbSpeed.Text.Trim(), txbTemperature.Text.Trim(), txbTime.Text.Trim(), rtbRemark.Text.ToString().Trim());
+
+            LoadProcessData();
+
         }
 
         private void dtgvProcess_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -209,25 +222,22 @@ namespace htv5_mixer_control
 
         private void btnProcessEdit_Click(object sender, EventArgs e)
         {
-            if (ValidateChildren(ValidationConstraints.Enabled))
+            DialogResult dialogResult = MessageBox.Show("Cập nhật dữ liệu ?", "Thông tin", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (dialogResult == DialogResult.Yes)
             {
-                DialogResult dialogResult = MessageBox.Show("Cập nhật dữ liệu ?", "Thông tin", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                if (dialogResult == DialogResult.Yes)
+                for (int i = 0; i < SaveVariables.ProcessList.Rows.Count; i++)
                 {
-                    for (int i = 0; i < SaveVariables.ProcessList.Rows.Count; i++)
+                    if (SaveVariables.ProcessList.Rows[i]["uuid"].ToString() == SaveVariables.SelectedProcessUUID)
                     {
-                        if (SaveVariables.ProcessList.Rows[i]["uuid"].ToString() == SaveVariables.SelectedProcessUUID)
-                        {
-                            SaveVariables.ProcessList.Rows[i]["remark"] = rtbRemark.Text.Trim();
-                            SaveVariables.ProcessList.Rows[i]["speed"] = txbSpeed.Text.Trim();
-                            SaveVariables.ProcessList.Rows[i]["temperature"] = txbTemperature.Text.Trim();
-                            SaveVariables.ProcessList.Rows[i]["time"] = txbTime.Text.Trim();
-                        }
+                        SaveVariables.ProcessList.Rows[i]["remark"] = rtbRemark.Text.Trim();
+                        SaveVariables.ProcessList.Rows[i]["speed"] = txbSpeed.Text.Trim();
+                        SaveVariables.ProcessList.Rows[i]["temperature"] = txbTemperature.Text.Trim();
+                        SaveVariables.ProcessList.Rows[i]["time"] = txbTime.Text.Trim();
                     }
                 }
-                SaveVariables.SelectedProcessUUID= null;
-                LoadProcessData();
             }
+            SaveVariables.SelectedProcessUUID = null;
+            LoadProcessData();
         }
 
         private void btnProcessDelete_Click(object sender, EventArgs e)
@@ -243,8 +253,12 @@ namespace htv5_mixer_control
                     if (SaveVariables.ProcessList.Rows[i]["uuid"].ToString() == SaveVariables.SelectedProcessUUID)
                     {
                         SaveVariables.ProcessList.Rows[i].Delete();
-                        SaveVariables.ProcessList.AcceptChanges();
                     }
+                }
+                SaveVariables.ProcessList.AcceptChanges();
+                for (int j = 0; j < SaveVariables.ProcessList.Rows.Count; j++)
+                {
+                    SaveVariables.ProcessList.Rows[j]["process_no"] = (j + 1).ToString();
                 }
                 SaveVariables.SelectedProcessUUID = null;
                 LoadProcessData();
@@ -292,13 +306,97 @@ namespace htv5_mixer_control
 
         private void btnCreateSpecification_Click(object sender, EventArgs e)
         {
-            if (ValidateChildren(ValidationConstraints.Enabled))
+            DialogResult dialogResult = MessageBox.Show("Lưu dữ liệu thao tác?", "Thông tin", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (dialogResult == DialogResult.Yes)
             {
-                DialogResult dialogResult = MessageBox.Show("Lưu dữ liệu thao tác?", "Thông tin", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                if (dialogResult == DialogResult.Yes)
-                {
-                    UploadMain.transactionSupportUploadData(SaveVariables.MaterialList, SaveVariables.ProcessList, txbInputCode.Text.Trim(), txbInputLotNo.Text.Trim(), SaveVariables.OperatorUUID);
-                }
+                UploadMain.transactionSupportUploadData(SaveVariables.MaterialList, SaveVariables.ProcessList, txbInputCode.Text.Trim(), txbInputLotNo.Text.Trim(), SaveVariables.OperatorUUID);
+            }
+            dtgvMaterialInfos.DataSource = null;
+            txbInputCode.Clear();
+            txbInputLotNo.Clear();
+            dtgvProcess.DataSource = null;
+            rtbRemark.Clear();
+            txbSpeed.Clear();
+            txbTemperature.Clear();
+            txbTime.Clear();
+            SaveVariables.SelectedProcessUUID = null;
+            SaveVariables.ProcessList.Clear();
+        }
+
+        private void txbTime_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txbTime.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(txbTime, "Thời gian không được để trống!\n时间不能留空！");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txbTime, null);
+            }
+        }
+
+        private void txbTemperature_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txbTemperature.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(txbTemperature, "Nhiệt độ không được để trống!\n温度不能留空！");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txbTemperature, null);
+            }
+        }
+
+        private void txbSpeed_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txbSpeed.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(txbSpeed, "Tốc độ không được để trống!\n速度不能为空！");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txbSpeed, null);
+            }
+        }
+
+        private void txbSpeed_TextChanged(object sender, EventArgs e)
+        {
+            int value;
+            if (int.TryParse(txbSpeed.Text, out value))
+            {
+                if (value > 30)
+                    txbSpeed.Text = "30";
+                else if (value < 1)
+                    txbSpeed.Text = "1";
+
+            }
+        }
+
+        private void txbTime_TextChanged(object sender, EventArgs e)
+        {
+            int value;
+            if (int.TryParse(txbTime.Text, out value))
+            {
+                if (value < 1)
+                    txbTime.Text = "1";
+
+            }
+        }
+
+        private void txbTemperature_TextChanged(object sender, EventArgs e)
+        {
+            int value;
+            if (int.TryParse(txbTemperature.Text, out value))
+            {
+                if (value < 1)
+                    txbTemperature.Text = "1";
+
             }
         }
     }

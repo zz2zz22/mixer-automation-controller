@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gbxInputData = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnCreateSpecification = new XanderUI.XUIButton();
@@ -127,7 +127,7 @@
             // 
             // btnProcessEdit
             // 
-            this.btnProcessEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnProcessEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnProcessEdit.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnProcessEdit.ButtonImage = global::htv5_mixer_control.Properties.Resources.edit;
             this.btnProcessEdit.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
@@ -150,7 +150,7 @@
             // 
             // btnProcessDelete
             // 
-            this.btnProcessDelete.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnProcessDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnProcessDelete.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnProcessDelete.ButtonImage = global::htv5_mixer_control.Properties.Resources.delete;
             this.btnProcessDelete.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
@@ -173,7 +173,7 @@
             // 
             // btnProcessSave
             // 
-            this.btnProcessSave.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnProcessSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnProcessSave.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnProcessSave.ButtonImage = global::htv5_mixer_control.Properties.Resources.ADD;
             this.btnProcessSave.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
@@ -200,7 +200,8 @@
             this.dtgvProcess.AllowUserToDeleteRows = false;
             this.dtgvProcess.AllowUserToResizeColumns = false;
             this.dtgvProcess.AllowUserToResizeRows = false;
-            this.dtgvProcess.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.dtgvProcess.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtgvProcess.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtgvProcess.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -221,7 +222,9 @@
             this.txbSpeed.Name = "txbSpeed";
             this.txbSpeed.Size = new System.Drawing.Size(146, 27);
             this.txbSpeed.TabIndex = 8;
+            this.txbSpeed.TextChanged += new System.EventHandler(this.txbSpeed_TextChanged);
             this.txbSpeed.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbSpeed_KeyPress);
+            this.txbSpeed.Validating += new System.ComponentModel.CancelEventHandler(this.txbSpeed_Validating);
             // 
             // label7
             // 
@@ -239,7 +242,9 @@
             this.txbTemperature.Name = "txbTemperature";
             this.txbTemperature.Size = new System.Drawing.Size(146, 27);
             this.txbTemperature.TabIndex = 6;
+            this.txbTemperature.TextChanged += new System.EventHandler(this.txbTemperature_TextChanged);
             this.txbTemperature.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbTemperature_KeyPress);
+            this.txbTemperature.Validating += new System.ComponentModel.CancelEventHandler(this.txbTemperature_Validating);
             // 
             // label6
             // 
@@ -257,7 +262,9 @@
             this.txbTime.Name = "txbTime";
             this.txbTime.Size = new System.Drawing.Size(146, 27);
             this.txbTime.TabIndex = 4;
+            this.txbTime.TextChanged += new System.EventHandler(this.txbTime_TextChanged);
             this.txbTime.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbTime_KeyPress);
+            this.txbTime.Validating += new System.ComponentModel.CancelEventHandler(this.txbTime_Validating);
             // 
             // label5
             // 
@@ -388,17 +395,19 @@
             this.dtgvMaterialInfos.AllowUserToDeleteRows = false;
             this.dtgvMaterialInfos.AllowUserToResizeColumns = false;
             this.dtgvMaterialInfos.AllowUserToResizeRows = false;
+            this.dtgvMaterialInfos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dtgvMaterialInfos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvMaterialInfos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvMaterialInfos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dtgvMaterialInfos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvMaterialInfos.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dtgvMaterialInfos.Location = new System.Drawing.Point(0, 187);
             this.dtgvMaterialInfos.MultiSelect = false;
             this.dtgvMaterialInfos.Name = "dtgvMaterialInfos";

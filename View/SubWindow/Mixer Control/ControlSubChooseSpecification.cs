@@ -72,6 +72,8 @@ namespace htv5_mixer_control
 
         private void ControlSubChooseSpecification_Load(object sender, EventArgs e)
         {
+            btnSearchSpec.ButtonText = "Tìm kiếm";
+            btnConfirm.ButtonText = "Xác nhận";
             LoadData2DTGV();
         }
 
@@ -105,8 +107,16 @@ namespace htv5_mixer_control
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            ControlSubScaleMaterial controlSubScaleMaterial = new ControlSubScaleMaterial();
-            controlSubScaleMaterial.ShowDialog();
+            if (!String.IsNullOrEmpty(SaveVariables.ControlSelectedSpecUUID))
+            {
+                ControlSubScaleMaterial controlSubScaleMaterial = new ControlSubScaleMaterial();
+                controlSubScaleMaterial.ShowDialog();
+                
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn mẫu muốn làm!");
+            }
         }
     }
 }
