@@ -203,16 +203,13 @@ namespace htv5_mixer_control
                         //pLC.WritebittoPLC(true, 1, 0, 0, 1);
                         //if (pLC.ReadBitToBool(1, 0, 1, 1))
                         //    pLC.WritebittoPLC(false, 1, 0, 1, 1);
-
-                        sqlHTV5ControlCon sqlHTV5 = new sqlHTV5ControlCon();
-                        StringBuilder updateStatus = new StringBuilder();
-                        updateStatus.Append("update specification_process set is_completed = 0, is_running = 0 where uuid = '" + processUUID + "' and specification_uuid = '" + specUUID + "'");
-                        sqlHTV5.sqlExecuteNonQuery(updateStatus.ToString(), false);
-
-                        GetNextProcess(SaveVariables.ControlSelectedSpecUUID);
                     }
-                   
+                    sqlHTV5ControlCon sqlHTV5 = new sqlHTV5ControlCon();
+                    StringBuilder updateStatus = new StringBuilder();
+                    updateStatus.Append("update specification_process set is_completed = 0, is_running = 0 where uuid = '" + processUUID + "' and specification_uuid = '" + specUUID + "'");
+                    sqlHTV5.sqlExecuteNonQuery(updateStatus.ToString(), false);
 
+                    GetNextProcess(SaveVariables.ControlSelectedSpecUUID);
                 }
                 else
                 {
@@ -268,9 +265,9 @@ namespace htv5_mixer_control
 
         private void btnStartTimer_Click(object sender, EventArgs e)
         {
-            
-                pLC.WritebittoPLC(true, 1, 20, 0, 1);
-           
+
+            pLC.WritebittoPLC(true, 1, 20, 0, 1);
+
             if (!pLC.ReadBitToBool(1, 14, 4, 1))
             {
                 pLC.WritebittoPLC(true, 1, 14, 4, 1);
@@ -309,8 +306,7 @@ namespace htv5_mixer_control
 
         private void btnStartProcess_Click(object sender, EventArgs e)
         {
-            //if (CheckStartProcess())
-            //{
+
             DialogResult dialogResult = MessageBox.Show("Phải cho nguyên liệu vào máy trước khi cho chạy, bạn có chắc chắn muốn chạy ?", "CẢNH BÁO", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             if (dialogResult == DialogResult.OK)
             {

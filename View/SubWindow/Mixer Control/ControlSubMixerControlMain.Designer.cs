@@ -117,7 +117,6 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ControlSubMixerControlMain";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.ControlSubMixerControlMain_Load);
             this.panelHeader.ResumeLayout(false);
             this.ResumeLayout(false);

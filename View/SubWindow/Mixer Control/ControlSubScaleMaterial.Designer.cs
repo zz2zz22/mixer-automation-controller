@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.flpMaterialList = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnHold = new System.Windows.Forms.Button();
             this.cbComPort = new System.Windows.Forms.ComboBox();
             this.btnConnectScale = new XanderUI.XUIButton();
             this.label5 = new System.Windows.Forms.Label();
@@ -43,7 +44,6 @@
             this.btnNextStep = new XanderUI.XUIButton();
             this.btnConfirmScale = new XanderUI.XUIButton();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
-            this.btnHold = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panelWeight.SuspendLayout();
             this.SuspendLayout();
@@ -75,6 +75,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(417, 721);
             this.panel1.TabIndex = 1;
+            // 
+            // btnHold
+            // 
+            this.btnHold.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHold.Location = new System.Drawing.Point(25, 437);
+            this.btnHold.Name = "btnHold";
+            this.btnHold.Size = new System.Drawing.Size(126, 77);
+            this.btnHold.TabIndex = 10;
+            this.btnHold.Text = "GIỮ KL";
+            this.btnHold.UseVisualStyleBackColor = true;
+            this.btnHold.Click += new System.EventHandler(this.btnHold_Click);
             // 
             // cbComPort
             // 
@@ -226,17 +237,6 @@
             // 
             this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
             // 
-            // btnHold
-            // 
-            this.btnHold.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHold.Location = new System.Drawing.Point(25, 437);
-            this.btnHold.Name = "btnHold";
-            this.btnHold.Size = new System.Drawing.Size(126, 77);
-            this.btnHold.TabIndex = 10;
-            this.btnHold.Text = "GIỮ KL";
-            this.btnHold.UseVisualStyleBackColor = true;
-            this.btnHold.Click += new System.EventHandler(this.btnHold_Click);
-            // 
             // ControlSubScaleMaterial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -253,7 +253,6 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ControlSubScaleMaterial";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ControlSubScaleMaterial_FormClosing);
             this.Load += new System.EventHandler(this.ControlSubScaleMaterial_Load);
             this.panel1.ResumeLayout(false);

@@ -110,7 +110,6 @@ namespace htv5_mixer_control
         }
         private void LoadProcessData()
         {
-
             if (SaveVariables.ProcessList.Rows.Count > 0)
             {
                 lbProcessNumber.Text = (SaveVariables.ProcessList.Rows.Count + 1).ToString();
