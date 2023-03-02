@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbSpeedChange = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.lbTimeChange = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.btnStartProcess = new System.Windows.Forms.Button();
             this.lbProcessTemperature = new System.Windows.Forms.Label();
             this.lbProcessSpeed = new System.Windows.Forms.Label();
@@ -39,6 +43,9 @@
             this.rtbRemark = new System.Windows.Forms.RichTextBox();
             this.lbProcessNo = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnContinueMix = new System.Windows.Forms.Button();
+            this.btnResetRoll = new System.Windows.Forms.Button();
+            this.btnStartTimer = new System.Windows.Forms.Button();
             this.btnActivateSpeedControl = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.btnReverseRoll = new System.Windows.Forms.Button();
@@ -54,8 +61,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.lbRollSpeed = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnStartTimer = new System.Windows.Forms.Button();
-            this.btnResetRoll = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelShowTemperature.SuspendLayout();
@@ -65,6 +70,10 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.lbSpeedChange);
+            this.panel1.Controls.Add(this.label15);
+            this.panel1.Controls.Add(this.lbTimeChange);
+            this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.btnStartProcess);
             this.panel1.Controls.Add(this.lbProcessTemperature);
             this.panel1.Controls.Add(this.lbProcessSpeed);
@@ -80,13 +89,51 @@
             this.panel1.Size = new System.Drawing.Size(440, 635);
             this.panel1.TabIndex = 0;
             // 
+            // lbSpeedChange
+            // 
+            this.lbSpeedChange.AutoSize = true;
+            this.lbSpeedChange.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSpeedChange.Location = new System.Drawing.Point(288, 415);
+            this.lbSpeedChange.Name = "lbSpeedChange";
+            this.lbSpeedChange.Size = new System.Drawing.Size(19, 20);
+            this.lbSpeedChange.TabIndex = 12;
+            this.lbSpeedChange.Text = "..";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(11, 415);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(196, 40);
+            this.label15.TabIndex = 11;
+            this.label15.Text = "Tốc độ sau (vòng / phút):\r\n后面速度 (转/分钟):";
+            // 
+            // lbTimeChange
+            // 
+            this.lbTimeChange.AutoSize = true;
+            this.lbTimeChange.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTimeChange.Location = new System.Drawing.Point(289, 361);
+            this.lbTimeChange.Name = "lbTimeChange";
+            this.lbTimeChange.Size = new System.Drawing.Size(19, 20);
+            this.lbTimeChange.TabIndex = 10;
+            this.lbTimeChange.Text = "..";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(11, 361);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(186, 40);
+            this.label11.TabIndex = 9;
+            this.label11.Text = "Thời gian giai đoạn sau:\r\n后面时间:";
+            // 
             // btnStartProcess
             // 
             this.btnStartProcess.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnStartProcess.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStartProcess.Location = new System.Drawing.Point(33, 530);
+            this.btnStartProcess.Location = new System.Drawing.Point(33, 533);
             this.btnStartProcess.Name = "btnStartProcess";
-            this.btnStartProcess.Size = new System.Drawing.Size(333, 86);
+            this.btnStartProcess.Size = new System.Drawing.Size(333, 83);
             this.btnStartProcess.TabIndex = 8;
             this.btnStartProcess.Text = "BẮT ĐẦU THỰC HIỆN BƯỚC";
             this.btnStartProcess.UseVisualStyleBackColor = false;
@@ -95,65 +142,68 @@
             // lbProcessTemperature
             // 
             this.lbProcessTemperature.AutoSize = true;
-            this.lbProcessTemperature.Location = new System.Drawing.Point(240, 432);
+            this.lbProcessTemperature.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbProcessTemperature.Location = new System.Drawing.Point(289, 473);
             this.lbProcessTemperature.Name = "lbProcessTemperature";
-            this.lbProcessTemperature.Size = new System.Drawing.Size(62, 20);
+            this.lbProcessTemperature.Size = new System.Drawing.Size(19, 20);
             this.lbProcessTemperature.TabIndex = 7;
-            this.lbProcessTemperature.Text = "label11";
+            this.lbProcessTemperature.Text = "..";
             // 
             // lbProcessSpeed
             // 
             this.lbProcessSpeed.AutoSize = true;
-            this.lbProcessSpeed.Location = new System.Drawing.Point(240, 353);
+            this.lbProcessSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbProcessSpeed.Location = new System.Drawing.Point(289, 310);
             this.lbProcessSpeed.Name = "lbProcessSpeed";
-            this.lbProcessSpeed.Size = new System.Drawing.Size(53, 20);
+            this.lbProcessSpeed.Size = new System.Drawing.Size(19, 20);
             this.lbProcessSpeed.TabIndex = 6;
-            this.lbProcessSpeed.Text = "label7";
+            this.lbProcessSpeed.Text = "..";
             // 
             // lbProcessTime
             // 
             this.lbProcessTime.AutoSize = true;
-            this.lbProcessTime.Location = new System.Drawing.Point(240, 287);
+            this.lbProcessTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbProcessTime.Location = new System.Drawing.Point(289, 252);
             this.lbProcessTime.Name = "lbProcessTime";
-            this.lbProcessTime.Size = new System.Drawing.Size(53, 20);
+            this.lbProcessTime.Size = new System.Drawing.Size(19, 20);
             this.lbProcessTime.TabIndex = 5;
-            this.lbProcessTime.Text = "label6";
+            this.lbProcessTime.Text = "..";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 432);
+            this.label3.Location = new System.Drawing.Point(12, 473);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(122, 20);
+            this.label3.Size = new System.Drawing.Size(122, 40);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Nhiệt độ tối đa:";
+            this.label3.Text = "Nhiệt độ tối đa:\r\n最高温度:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 353);
+            this.label2.Location = new System.Drawing.Point(12, 310);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(164, 20);
+            this.label2.Size = new System.Drawing.Size(228, 40);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Tốc độ (vòng / phút):";
+            this.label2.Text = "Tốc độ ban đầu (vòng / phút):\r\n前面速度 (转/分钟):";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 287);
+            this.label1.Location = new System.Drawing.Point(11, 252);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 20);
+            this.label1.Size = new System.Drawing.Size(214, 40);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Thời gian:";
+            this.label1.Text = "Thời gian giai đoạn bắt đầu:\r\n前面时间:";
             // 
             // rtbRemark
             // 
             this.rtbRemark.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.rtbRemark.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbRemark.Location = new System.Drawing.Point(11, 52);
+            this.rtbRemark.Location = new System.Drawing.Point(11, 74);
             this.rtbRemark.Name = "rtbRemark";
             this.rtbRemark.ReadOnly = true;
-            this.rtbRemark.Size = new System.Drawing.Size(422, 220);
+            this.rtbRemark.Size = new System.Drawing.Size(422, 164);
             this.rtbRemark.TabIndex = 1;
             this.rtbRemark.Text = "";
             // 
@@ -170,6 +220,7 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.btnContinueMix);
             this.panel2.Controls.Add(this.btnResetRoll);
             this.panel2.Controls.Add(this.btnStartTimer);
             this.panel2.Controls.Add(this.btnActivateSpeedControl);
@@ -187,6 +238,44 @@
             this.panel2.Size = new System.Drawing.Size(566, 635);
             this.panel2.TabIndex = 1;
             // 
+            // btnContinueMix
+            // 
+            this.btnContinueMix.BackColor = System.Drawing.Color.Red;
+            this.btnContinueMix.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnContinueMix.ForeColor = System.Drawing.Color.Yellow;
+            this.btnContinueMix.Location = new System.Drawing.Point(414, 378);
+            this.btnContinueMix.Name = "btnContinueMix";
+            this.btnContinueMix.Size = new System.Drawing.Size(136, 53);
+            this.btnContinueMix.TabIndex = 11;
+            this.btnContinueMix.Text = "TIẾP TỤC TRỘN";
+            this.btnContinueMix.UseVisualStyleBackColor = false;
+            this.btnContinueMix.Visible = false;
+            this.btnContinueMix.Click += new System.EventHandler(this.btnContinueMix_Click);
+            // 
+            // btnResetRoll
+            // 
+            this.btnResetRoll.BackColor = System.Drawing.Color.White;
+            this.btnResetRoll.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResetRoll.Location = new System.Drawing.Point(380, 459);
+            this.btnResetRoll.Name = "btnResetRoll";
+            this.btnResetRoll.Size = new System.Drawing.Size(174, 69);
+            this.btnResetRoll.TabIndex = 10;
+            this.btnResetRoll.Text = "NGỪNG QUAY\r\n停止旋转";
+            this.btnResetRoll.UseVisualStyleBackColor = false;
+            this.btnResetRoll.Click += new System.EventHandler(this.btnResetRoll_Click);
+            // 
+            // btnStartTimer
+            // 
+            this.btnStartTimer.BackColor = System.Drawing.Color.White;
+            this.btnStartTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStartTimer.Location = new System.Drawing.Point(414, 278);
+            this.btnStartTimer.Name = "btnStartTimer";
+            this.btnStartTimer.Size = new System.Drawing.Size(136, 72);
+            this.btnStartTimer.TabIndex = 9;
+            this.btnStartTimer.Text = "BẮT ĐẦU TRỘN";
+            this.btnStartTimer.UseVisualStyleBackColor = false;
+            this.btnStartTimer.Click += new System.EventHandler(this.btnStartTimer_Click);
+            // 
             // btnActivateSpeedControl
             // 
             this.btnActivateSpeedControl.BackColor = System.Drawing.Color.Yellow;
@@ -202,7 +291,8 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(41, 576);
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(37, 576);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(291, 40);
             this.label13.TabIndex = 7;
@@ -212,11 +302,11 @@
             // 
             this.btnReverseRoll.BackColor = System.Drawing.Color.White;
             this.btnReverseRoll.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReverseRoll.Location = new System.Drawing.Point(187, 438);
+            this.btnReverseRoll.Location = new System.Drawing.Point(184, 459);
             this.btnReverseRoll.Name = "btnReverseRoll";
             this.btnReverseRoll.Size = new System.Drawing.Size(174, 69);
             this.btnReverseRoll.TabIndex = 6;
-            this.btnReverseRoll.Text = "QUAY NGƯỢC";
+            this.btnReverseRoll.Text = "QUAY NGƯỢC\r\n逆时针旋转";
             this.btnReverseRoll.UseVisualStyleBackColor = false;
             this.btnReverseRoll.Click += new System.EventHandler(this.btnReverseRoll_Click);
             // 
@@ -224,30 +314,31 @@
             // 
             this.btnNormalRoll.BackColor = System.Drawing.Color.White;
             this.btnNormalRoll.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNormalRoll.Location = new System.Drawing.Point(9, 438);
+            this.btnNormalRoll.Location = new System.Drawing.Point(6, 459);
             this.btnNormalRoll.Name = "btnNormalRoll";
             this.btnNormalRoll.Size = new System.Drawing.Size(172, 69);
             this.btnNormalRoll.TabIndex = 5;
-            this.btnNormalRoll.Text = "QUAY THUẬN";
+            this.btnNormalRoll.Text = "QUAY THUẬN\r\n顺时针旋转";
             this.btnNormalRoll.UseVisualStyleBackColor = false;
             this.btnNormalRoll.Click += new System.EventHandler(this.btnNormalRoll_Click);
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(8, 415);
+            this.label12.Location = new System.Drawing.Point(5, 436);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(137, 20);
+            this.label12.Size = new System.Drawing.Size(225, 20);
             this.label12.TabIndex = 4;
-            this.label12.Text = "Chọn chiều xoay:";
+            this.label12.Text = "Chọn chiều xoay: / 旋转方向:";
             // 
             // lbCountDown
             // 
             this.lbCountDown.AutoSize = true;
-            this.lbCountDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCountDown.Location = new System.Drawing.Point(125, 332);
+            this.lbCountDown.Font = new System.Drawing.Font("Bahnschrift SemiBold", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCountDown.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbCountDown.Location = new System.Drawing.Point(62, 341);
             this.lbCountDown.Name = "lbCountDown";
-            this.lbCountDown.Size = new System.Drawing.Size(182, 46);
+            this.lbCountDown.Size = new System.Drawing.Size(245, 72);
             this.lbCountDown.TabIndex = 3;
             this.lbCountDown.Text = "00:00:00";
             this.lbCountDown.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -257,9 +348,9 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(8, 287);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(299, 20);
+            this.label10.Size = new System.Drawing.Size(299, 40);
             this.label10.TabIndex = 2;
-            this.label10.Text = "Thời gian còn lại đến khi kết thúc bước:";
+            this.label10.Text = "Thời gian còn lại đến khi kết thúc bước:\r\n时间倒计时:";
             // 
             // panelShowTemperature
             // 
@@ -275,10 +366,11 @@
             // label9
             // 
             this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(146, 229);
+            this.label9.Location = new System.Drawing.Point(83, 229);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(117, 20);
+            this.label9.Size = new System.Drawing.Size(180, 29);
             this.label9.TabIndex = 3;
             this.label9.Text = "Celsius (độ C)";
             // 
@@ -286,11 +378,11 @@
             // 
             this.lbTemperature.AutoSize = true;
             this.lbTemperature.BackColor = System.Drawing.Color.Black;
-            this.lbTemperature.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTemperature.Font = new System.Drawing.Font("Bahnschrift Condensed", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTemperature.ForeColor = System.Drawing.Color.White;
-            this.lbTemperature.Location = new System.Drawing.Point(87, 103);
+            this.lbTemperature.Location = new System.Drawing.Point(80, 83);
             this.lbTemperature.Name = "lbTemperature";
-            this.lbTemperature.Size = new System.Drawing.Size(85, 51);
+            this.lbTemperature.Size = new System.Drawing.Size(116, 96);
             this.lbTemperature.TabIndex = 2;
             this.lbTemperature.Text = "0.0";
             this.lbTemperature.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -298,12 +390,13 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(3, 10);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(169, 20);
+            this.label5.Size = new System.Drawing.Size(218, 50);
             this.label5.TabIndex = 1;
-            this.label5.Text = "NHIỆT ĐỘ HIỆN TẠI:";
+            this.label5.Text = "NHIỆT ĐỘ HIỆN TẠI:\r\n实时温度:\r\n";
             // 
             // panelShowSpeed
             // 
@@ -319,10 +412,11 @@
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(141, 230);
+            this.label8.Location = new System.Drawing.Point(72, 230);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(132, 20);
+            this.label8.Size = new System.Drawing.Size(204, 29);
             this.label8.TabIndex = 2;
             this.label8.Text = "rpm (vòng/ phút)";
             // 
@@ -330,11 +424,11 @@
             // 
             this.lbRollSpeed.AutoSize = true;
             this.lbRollSpeed.BackColor = System.Drawing.Color.Black;
-            this.lbRollSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbRollSpeed.Font = new System.Drawing.Font("Bahnschrift Condensed", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbRollSpeed.ForeColor = System.Drawing.Color.White;
-            this.lbRollSpeed.Location = new System.Drawing.Point(91, 104);
+            this.lbRollSpeed.Location = new System.Drawing.Point(78, 84);
             this.lbRollSpeed.Name = "lbRollSpeed";
-            this.lbRollSpeed.Size = new System.Drawing.Size(85, 51);
+            this.lbRollSpeed.Size = new System.Drawing.Size(116, 96);
             this.lbRollSpeed.TabIndex = 1;
             this.lbRollSpeed.Text = "0.0";
             this.lbRollSpeed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -342,36 +436,13 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(3, 11);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(154, 20);
+            this.label4.Size = new System.Drawing.Size(201, 50);
             this.label4.TabIndex = 0;
-            this.label4.Text = "TỐC ĐỘ HIỆN TẠI:";
-            // 
-            // btnStartTimer
-            // 
-            this.btnStartTimer.BackColor = System.Drawing.Color.White;
-            this.btnStartTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStartTimer.Location = new System.Drawing.Point(414, 287);
-            this.btnStartTimer.Name = "btnStartTimer";
-            this.btnStartTimer.Size = new System.Drawing.Size(136, 61);
-            this.btnStartTimer.TabIndex = 9;
-            this.btnStartTimer.Text = "BẮT ĐẦU TRỘN";
-            this.btnStartTimer.UseVisualStyleBackColor = false;
-            this.btnStartTimer.Click += new System.EventHandler(this.btnStartTimer_Click);
-            // 
-            // btnResetRoll
-            // 
-            this.btnResetRoll.BackColor = System.Drawing.Color.White;
-            this.btnResetRoll.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnResetRoll.Location = new System.Drawing.Point(383, 438);
-            this.btnResetRoll.Name = "btnResetRoll";
-            this.btnResetRoll.Size = new System.Drawing.Size(174, 69);
-            this.btnResetRoll.TabIndex = 10;
-            this.btnResetRoll.Text = "NGỪNG QUAY";
-            this.btnResetRoll.UseVisualStyleBackColor = false;
-            this.btnResetRoll.Click += new System.EventHandler(this.btnResetRoll_Click);
+            this.label4.Text = "TỐC ĐỘ HIỆN TẠI:\r\n实时转速:\r\n";
             // 
             // ControlSubMixerControlAuto
             // 
@@ -433,5 +504,10 @@
         private System.Windows.Forms.Button btnStartProcess;
         private System.Windows.Forms.Button btnStartTimer;
         private System.Windows.Forms.Button btnResetRoll;
+        private System.Windows.Forms.Label lbTimeChange;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lbSpeedChange;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button btnContinueMix;
     }
 }

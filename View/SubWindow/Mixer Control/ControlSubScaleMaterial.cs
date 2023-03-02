@@ -34,17 +34,17 @@ namespace htv5_mixer_control
 
         private void btnNextStep_Click(object sender, EventArgs e)
         {
-            if (isFinished)
-            {
+            //if (isFinished)
+            //{
                 this.Hide();
                 ControlSubMixerControlMain controlSubMixer = new ControlSubMixerControlMain();
                 controlSubMixer.ShowDialog();
                 this.Close();
-            }
-            else
-            {
-                MessageBox.Show("CHƯA HOÀN THÀNH CÂN LIỆU");
-            }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("CHƯA HOÀN THÀNH CÂN LIỆU");
+            //}
         }
 
         private void btnConnectScale_Click(object sender, EventArgs e)

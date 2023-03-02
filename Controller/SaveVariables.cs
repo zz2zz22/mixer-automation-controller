@@ -91,6 +91,16 @@ namespace htv5_mixer_control
 
             processCol = new DataColumn();
             processCol.DataType = Type.GetType("System.String");
+            processCol.ColumnName = "time2";
+            ProcessList.Columns.Add(processCol);
+
+            processCol = new DataColumn();
+            processCol.DataType = Type.GetType("System.String");
+            processCol.ColumnName = "speed2";
+            ProcessList.Columns.Add(processCol);
+
+            processCol = new DataColumn();
+            processCol.DataType = Type.GetType("System.String");
             processCol.ColumnName = "remark";
             ProcessList.Columns.Add(processCol);
         }

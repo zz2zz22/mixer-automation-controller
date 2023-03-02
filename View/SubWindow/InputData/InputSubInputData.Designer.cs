@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gbxInputData = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnCreateSpecification = new XanderUI.XUIButton();
@@ -37,15 +37,7 @@
             this.btnProcessDelete = new XanderUI.XUIButton();
             this.btnProcessSave = new XanderUI.XUIButton();
             this.dtgvProcess = new System.Windows.Forms.DataGridView();
-            this.txbSpeed = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txbTemperature = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txbTime = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.lbProcessNumber = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.rtbRemark = new System.Windows.Forms.RichTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnEditMaterial = new XanderUI.XUIButton();
             this.btnDeleteMaterial = new XanderUI.XUIButton();
@@ -87,15 +79,7 @@
             this.panel2.Controls.Add(this.btnProcessDelete);
             this.panel2.Controls.Add(this.btnProcessSave);
             this.panel2.Controls.Add(this.dtgvProcess);
-            this.panel2.Controls.Add(this.txbSpeed);
-            this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.txbTemperature);
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.txbTime);
-            this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.lbProcessNumber);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.rtbRemark);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(526, 25);
             this.panel2.Name = "panel2";
@@ -140,7 +124,7 @@
             this.btnProcessEdit.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
             this.btnProcessEdit.HoverTextColor = System.Drawing.Color.DodgerBlue;
             this.btnProcessEdit.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btnProcessEdit.Location = new System.Drawing.Point(365, 231);
+            this.btnProcessEdit.Location = new System.Drawing.Point(433, 8);
             this.btnProcessEdit.Name = "btnProcessEdit";
             this.btnProcessEdit.Size = new System.Drawing.Size(157, 61);
             this.btnProcessEdit.TabIndex = 19;
@@ -163,7 +147,7 @@
             this.btnProcessDelete.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
             this.btnProcessDelete.HoverTextColor = System.Drawing.Color.DodgerBlue;
             this.btnProcessDelete.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btnProcessDelete.Location = new System.Drawing.Point(560, 157);
+            this.btnProcessDelete.Location = new System.Drawing.Point(596, 10);
             this.btnProcessDelete.Name = "btnProcessDelete";
             this.btnProcessDelete.Size = new System.Drawing.Size(157, 61);
             this.btnProcessDelete.TabIndex = 19;
@@ -186,7 +170,7 @@
             this.btnProcessSave.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
             this.btnProcessSave.HoverTextColor = System.Drawing.Color.DodgerBlue;
             this.btnProcessSave.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btnProcessSave.Location = new System.Drawing.Point(365, 157);
+            this.btnProcessSave.Location = new System.Drawing.Point(270, 8);
             this.btnProcessSave.Name = "btnProcessSave";
             this.btnProcessSave.Size = new System.Drawing.Size(157, 61);
             this.btnProcessSave.TabIndex = 18;
@@ -205,76 +189,16 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtgvProcess.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtgvProcess.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvProcess.Location = new System.Drawing.Point(3, 305);
+            this.dtgvProcess.Location = new System.Drawing.Point(3, 75);
             this.dtgvProcess.MultiSelect = false;
             this.dtgvProcess.Name = "dtgvProcess";
             this.dtgvProcess.ReadOnly = true;
             this.dtgvProcess.RowHeadersVisible = false;
             this.dtgvProcess.RowHeadersWidth = 51;
             this.dtgvProcess.RowTemplate.Height = 24;
-            this.dtgvProcess.Size = new System.Drawing.Size(750, 262);
+            this.dtgvProcess.Size = new System.Drawing.Size(750, 492);
             this.dtgvProcess.TabIndex = 10;
             this.dtgvProcess.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvProcess_CellClick);
-            // 
-            // txbSpeed
-            // 
-            this.txbSpeed.Location = new System.Drawing.Point(192, 258);
-            this.txbSpeed.Name = "txbSpeed";
-            this.txbSpeed.Size = new System.Drawing.Size(146, 27);
-            this.txbSpeed.TabIndex = 8;
-            this.txbSpeed.TextChanged += new System.EventHandler(this.txbSpeed_TextChanged);
-            this.txbSpeed.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbSpeed_KeyPress);
-            this.txbSpeed.Validating += new System.ComponentModel.CancelEventHandler(this.txbSpeed_Validating);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(5, 262);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(183, 38);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "Tốc độ quay (Vòng/phút):\r\n转速";
-            // 
-            // txbTemperature
-            // 
-            this.txbTemperature.Location = new System.Drawing.Point(192, 204);
-            this.txbTemperature.Name = "txbTemperature";
-            this.txbTemperature.Size = new System.Drawing.Size(146, 27);
-            this.txbTemperature.TabIndex = 6;
-            this.txbTemperature.TextChanged += new System.EventHandler(this.txbTemperature_TextChanged);
-            this.txbTemperature.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbTemperature_KeyPress);
-            this.txbTemperature.Validating += new System.ComponentModel.CancelEventHandler(this.txbTemperature_Validating);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(5, 208);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(166, 38);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Nhiệt độ tối đa (độ C):\r\n最高温度（摄氏度）";
-            // 
-            // txbTime
-            // 
-            this.txbTime.Location = new System.Drawing.Point(192, 150);
-            this.txbTime.Name = "txbTime";
-            this.txbTime.Size = new System.Drawing.Size(146, 27);
-            this.txbTime.TabIndex = 4;
-            this.txbTime.TextChanged += new System.EventHandler(this.txbTime_TextChanged);
-            this.txbTime.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbTime_KeyPress);
-            this.txbTime.Validating += new System.ComponentModel.CancelEventHandler(this.txbTime_Validating);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(5, 154);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(154, 38);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Thời gian trộn (phút):\r\n搅拌时间（分钟）";
             // 
             // lbProcessNumber
             // 
@@ -284,26 +208,6 @@
             this.lbProcessNumber.Name = "lbProcessNumber";
             this.lbProcessNumber.Size = new System.Drawing.Size(0, 25);
             this.lbProcessNumber.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(5, 12);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(296, 19);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Mô tả thao tác nguyên liệu / 材料操作说明:\r\n";
-            // 
-            // rtbRemark
-            // 
-            this.rtbRemark.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.rtbRemark.Location = new System.Drawing.Point(5, 39);
-            this.rtbRemark.Name = "rtbRemark";
-            this.rtbRemark.Size = new System.Drawing.Size(712, 105);
-            this.rtbRemark.TabIndex = 0;
-            this.rtbRemark.Text = "";
             // 
             // panel1
             // 
@@ -399,14 +303,14 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtgvMaterialInfos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvMaterialInfos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvMaterialInfos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgvMaterialInfos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvMaterialInfos.Location = new System.Drawing.Point(0, 187);
             this.dtgvMaterialInfos.MultiSelect = false;
@@ -511,15 +415,7 @@
         private System.Windows.Forms.DataGridView dtgvMaterialInfos;
         private XanderUI.XUIButton btnEditMaterial;
         private XanderUI.XUIButton btnDeleteMaterial;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RichTextBox rtbRemark;
         private System.Windows.Forms.Label lbProcessNumber;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txbSpeed;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txbTemperature;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txbTime;
         private System.Windows.Forms.DataGridView dtgvProcess;
         private XanderUI.XUIButton btnProcessDelete;
         private XanderUI.XUIButton btnProcessSave;

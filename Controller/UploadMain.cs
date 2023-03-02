@@ -42,6 +42,8 @@ namespace htv5_mixer_control
             string speed = processDT.Rows[i]["speed"].ToString();
             string temperature = processDT.Rows[i]["temperature"].ToString();
             string time = processDT.Rows[i]["time"].ToString();
+            string time2 = processDT.Rows[i]["time2"].ToString();
+            string speed2 = processDT.Rows[i]["speed2"].ToString();
             if (String.IsNullOrEmpty(speed))
                 speed = "NULL";
             if (String.IsNullOrEmpty(temperature))
@@ -51,9 +53,9 @@ namespace htv5_mixer_control
 
             StringBuilder insertSP = new StringBuilder();
             insertSP.Append("insert into specification_process ");
-            insertSP.Append("(uuid, specification_uuid, process_no, is_running, is_completed, set_speed, set_temperature, set_time, delete_flag, material_remark)");
+            insertSP.Append("(uuid, specification_uuid, process_no, is_running, is_completed, set_speed, set_temperature, set_time, delete_flag, material_remark, set_speed_2, set_time_2 )");
             insertSP.Append(" values ");
-            insertSP.Append("('" + processDT.Rows[i]["uuid"].ToString() + "', '" + specUUID + "', '" + (i+1).ToString() + "', 1, 1, " + speed + ", " + temperature + ", " + time + ", 0, N'" + processDT.Rows[i]["remark"].ToString() + "')");
+            insertSP.Append("('" + processDT.Rows[i]["uuid"].ToString() + "', '" + specUUID + "', '" + (i + 1).ToString() + "', 1, 1, " + speed + ", " + temperature + ", " + time + ", 0, N'" + processDT.Rows[i]["remark"].ToString() + "' , '" + speed2 + "', '" + time2 + "')");
             return insertSP.ToString();
         }
 

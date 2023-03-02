@@ -19,15 +19,29 @@ namespace htv5_mixer_control
         private Form activeForm = null;
         private void openChildForm(Form childForm)
         {
-            if (activeForm != null) activeForm.Close();
-            activeForm = childForm;
-            childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
-            xuiWidgetPanel1.Controls.Add(childForm);
-            xuiWidgetPanel1.Tag = childForm;
-            childForm.BringToFront();
-            childForm.Show();
+            if (activeForm != null)
+            {
+                activeForm.SendToBack();
+                activeForm = childForm;
+                childForm.TopLevel = false;
+                childForm.FormBorderStyle = FormBorderStyle.None;
+                childForm.Dock = DockStyle.Fill;
+                xuiWidgetPanel1.Controls.Add(childForm);
+                xuiWidgetPanel1.Tag = childForm;
+                childForm.BringToFront();
+                
+            }
+            else
+            {
+                activeForm = childForm;
+                childForm.TopLevel = false;
+                childForm.FormBorderStyle = FormBorderStyle.None;
+                childForm.Dock = DockStyle.Fill;
+                xuiWidgetPanel1.Controls.Add(childForm);
+                xuiWidgetPanel1.Tag = childForm;
+                childForm.BringToFront();
+                childForm.Show();
+            }
         }
 
         private void btnManualMode_Click(object sender, EventArgs e)

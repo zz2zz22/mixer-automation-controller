@@ -35,6 +35,7 @@ namespace htv5_mixer_control
 
         public string TimeLeftMsStr => TimeLeft.ToString(@"hh\:mm\:ss\.fff");
 
+
         private void TimerTick(object sender, EventArgs e)
         {
             TimeChanged?.Invoke();
@@ -75,6 +76,7 @@ namespace htv5_mixer_control
             _max = ts;
             TimeChanged?.Invoke();
         }
+        
 
         public void SetTime(int min, int sec = 0) => SetTime(TimeSpan.FromSeconds(min * 60 + sec));
 
@@ -83,7 +85,10 @@ namespace htv5_mixer_control
             timer.Start();
             _stpWatch.Start();
         }
-
+        public void Disable()
+        {
+            timer.Enabled = false;
+        }
         public void Pause()
         {
             timer.Stop();

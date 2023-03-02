@@ -29,7 +29,7 @@
     <ProductName>HTV5 Mixer Controller</ProductName>
     <PublisherName>Anh Vu</PublisherName>
     <MinimumRequiredVersion>1.0.0.0</MinimumRequiredVersion>
-    <ApplicationRevision>42</ApplicationRevision>
+    <ApplicationRevision>43</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -193,6 +193,12 @@
     <Compile Include="View\SubWindow\InputData\SubComponent\MaterialInputCRUDForm.Designer.cs">
       <DependentUpon>MaterialInputCRUDForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\SubWindow\InputData\SubComponent\ProcessInputCRUDForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\SubWindow\InputData\SubComponent\ProcessInputCRUDForm.Designer.cs">
+      <DependentUpon>ProcessInputCRUDForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\SubWindow\Mixer Control\ControlSubChooseSpecification.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -266,6 +272,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\SubWindow\InputData\SubComponent\MaterialInputCRUDForm.resx">
       <DependentUpon>MaterialInputCRUDForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SubWindow\InputData\SubComponent\ProcessInputCRUDForm.resx">
+      <DependentUpon>ProcessInputCRUDForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\SubWindow\Mixer Control\ControlSubChooseSpecification.resx">
       <DependentUpon>ControlSubChooseSpecification.cs</DependentUpon>

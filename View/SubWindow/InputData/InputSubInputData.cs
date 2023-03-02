@@ -89,11 +89,15 @@ namespace htv5_mixer_control
                 txbInputCode.Focus();
                 errorProvider.SetError(txbInputCode, "Mã quy cách đã tồn tại trên hệ thống!");
             }
-            if (SaveVariables.MaterialList == null || SaveVariables.MaterialList.Rows.Count == 0)
-                SaveVariables.addMatColumn();
-            MaterialInputCRUDForm materialInputCRUDForm = new MaterialInputCRUDForm(null, 0);
-            materialInputCRUDForm.FormClosing += materialInputCRUDFormClosing;
-            materialInputCRUDForm.ShowDialog();
+            else
+            {
+                if (SaveVariables.MaterialList == null || SaveVariables.MaterialList.Rows.Count == 0)
+                    SaveVariables.addMatColumn();
+                MaterialInputCRUDForm materialInputCRUDForm = new MaterialInputCRUDForm(null, 0);
+                materialInputCRUDForm.FormClosing += materialInputCRUDFormClosing;
+                materialInputCRUDForm.ShowDialog();
+            }
+
         }
         private void LoadMaterialData()
         {
@@ -114,10 +118,7 @@ namespace htv5_mixer_control
             {
                 lbProcessNumber.Text = (SaveVariables.ProcessList.Rows.Count + 1).ToString();
 
-                txbSpeed.Clear();
-                txbTemperature.Clear();
-                txbTime.Clear();
-                rtbRemark.Clear();
+
                 dtgvProcess.DataSource = null;
                 SaveVariables.ProcessList.DefaultView.Sort = "process_no ASC";
                 dtgvProcess.DataSource = SaveVariables.ProcessList.DefaultView.ToTable();
@@ -129,7 +130,7 @@ namespace htv5_mixer_control
                 dtgvProcess.Columns["remark"].HeaderText = "Mô tả";
 
             }
-            rtbRemark.Focus();
+
 
         }
         private void materialInputCRUDFormClosing(object sender, FormClosingEventArgs e)
@@ -197,12 +198,14 @@ namespace htv5_mixer_control
         {
             if (SaveVariables.ProcessList == null || SaveVariables.ProcessList.Rows.Count == 0)
                 SaveVariables.addProcessColumn();
-            DialogResult dialogResult = MessageBox.Show("Thêm mới dữ liệu ?", "Thông tin", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (dialogResult == DialogResult.Yes)
-                SaveVariables.ProcessList.Rows.Add(UUIDGenerator.getAscId(), lbProcessNumber.Text, txbSpeed.Text.Trim(), txbTemperature.Text.Trim(), txbTime.Text.Trim(), rtbRemark.Text.ToString().Trim());
-
+            ProcessInputCRUDForm processInputCRUDForm = new ProcessInputCRUDForm(null, 0);
+            processInputCRUDForm.FormClosing += processInputCRUDFormClosing;
+            processInputCRUDForm.ShowDialog();
+        }
+        private void processInputCRUDFormClosing(object sender, FormClosingEventArgs e)
+        {
+            ((Form)sender).FormClosing -= processInputCRUDFormClosing;
             LoadProcessData();
-
         }
 
         private void dtgvProcess_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -212,38 +215,30 @@ namespace htv5_mixer_control
                 int selectedrowindex = dtgvProcess.SelectedCells[0].RowIndex;
                 DataGridViewRow selectedRow = dtgvProcess.Rows[selectedrowindex];
                 SaveVariables.SelectedProcessUUID = Convert.ToString(selectedRow.Cells["uuid"].Value);
-                rtbRemark.Text = Convert.ToString(selectedRow.Cells["remark"].Value);
-                txbSpeed.Text = Convert.ToString(selectedRow.Cells["speed"].Value);
-                txbTemperature.Text = Convert.ToString(selectedRow.Cells["temperature"].Value);
-                txbTime.Text = Convert.ToString(selectedRow.Cells["time"].Value);
+
             }
         }
 
         private void btnProcessEdit_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Cập nhật dữ liệu ?", "Thông tin", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (dialogResult == DialogResult.Yes)
+            if (SaveVariables.SelectedProcessUUID == null)
             {
-                for (int i = 0; i < SaveVariables.ProcessList.Rows.Count; i++)
-                {
-                    if (SaveVariables.ProcessList.Rows[i]["uuid"].ToString() == SaveVariables.SelectedProcessUUID)
-                    {
-                        SaveVariables.ProcessList.Rows[i]["remark"] = rtbRemark.Text.Trim();
-                        SaveVariables.ProcessList.Rows[i]["speed"] = txbSpeed.Text.Trim();
-                        SaveVariables.ProcessList.Rows[i]["temperature"] = txbTemperature.Text.Trim();
-                        SaveVariables.ProcessList.Rows[i]["time"] = txbTime.Text.Trim();
-                    }
-                }
+                MessageBox.Show("Vui lòng chọn bước để chỉnh sửa!");
             }
-            SaveVariables.SelectedProcessUUID = null;
-            LoadProcessData();
+            else
+            {
+                ProcessInputCRUDForm processInputCRUDForm = new ProcessInputCRUDForm(SaveVariables.SelectedProcessUUID, 1);
+                processInputCRUDForm.FormClosing += processInputCRUDFormClosing;
+                processInputCRUDForm.ShowDialog();
+                SaveVariables.SelectedProcessUUID = null;
+            }
         }
 
         private void btnProcessDelete_Click(object sender, EventArgs e)
         {
             if (SaveVariables.SelectedProcessUUID == null)
             {
-                MessageBox.Show("Vui lòng chọn thao tác để xóa!");
+                MessageBox.Show("Vui lòng chọn mã liệu để xóa!");
             }
             else
             {
@@ -252,12 +247,8 @@ namespace htv5_mixer_control
                     if (SaveVariables.ProcessList.Rows[i]["uuid"].ToString() == SaveVariables.SelectedProcessUUID)
                     {
                         SaveVariables.ProcessList.Rows[i].Delete();
+                        SaveVariables.ProcessList.AcceptChanges();
                     }
-                }
-                SaveVariables.ProcessList.AcceptChanges();
-                for (int j = 0; j < SaveVariables.ProcessList.Rows.Count; j++)
-                {
-                    SaveVariables.ProcessList.Rows[j]["process_no"] = (j + 1).ToString();
                 }
                 SaveVariables.SelectedProcessUUID = null;
                 LoadProcessData();
@@ -314,89 +305,22 @@ namespace htv5_mixer_control
             txbInputCode.Clear();
             txbInputLotNo.Clear();
             dtgvProcess.DataSource = null;
-            rtbRemark.Clear();
-            txbSpeed.Clear();
-            txbTemperature.Clear();
-            txbTime.Clear();
+
             SaveVariables.SelectedProcessUUID = null;
             SaveVariables.ProcessList.Clear();
         }
 
-        private void txbTime_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrEmpty(txbTime.Text))
-            {
-                e.Cancel = true;
-                errorProvider.SetError(txbTime, "Thời gian không được để trống!\n时间不能留空！");
-            }
-            else
-            {
-                e.Cancel = false;
-                errorProvider.SetError(txbTime, null);
-            }
-        }
+        //private void txbSpeed_TextChanged(object sender, EventArgs e)
+        //{
+        //    int value;
+        //    if (int.TryParse(txbSpeed.Text, out value))
+        //    {
+        //        if (value > 30)
+        //            txbSpeed.Text = "30";
+        //        else if (value < 1)
+        //            txbSpeed.Text = "1";
 
-        private void txbTemperature_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrEmpty(txbTemperature.Text))
-            {
-                e.Cancel = true;
-                errorProvider.SetError(txbTemperature, "Nhiệt độ không được để trống!\n温度不能留空！");
-            }
-            else
-            {
-                e.Cancel = false;
-                errorProvider.SetError(txbTemperature, null);
-            }
-        }
-
-        private void txbSpeed_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrEmpty(txbSpeed.Text))
-            {
-                e.Cancel = true;
-                errorProvider.SetError(txbSpeed, "Tốc độ không được để trống!\n速度不能为空！");
-            }
-            else
-            {
-                e.Cancel = false;
-                errorProvider.SetError(txbSpeed, null);
-            }
-        }
-
-        private void txbSpeed_TextChanged(object sender, EventArgs e)
-        {
-            int value;
-            if (int.TryParse(txbSpeed.Text, out value))
-            {
-                if (value > 30)
-                    txbSpeed.Text = "30";
-                else if (value < 1)
-                    txbSpeed.Text = "1";
-
-            }
-        }
-
-        private void txbTime_TextChanged(object sender, EventArgs e)
-        {
-            int value;
-            if (int.TryParse(txbTime.Text, out value))
-            {
-                if (value < 1)
-                    txbTime.Text = "1";
-
-            }
-        }
-
-        private void txbTemperature_TextChanged(object sender, EventArgs e)
-        {
-            int value;
-            if (int.TryParse(txbTemperature.Text, out value))
-            {
-                if (value < 1)
-                    txbTemperature.Text = "1";
-
-            }
-        }
+        //    }
+        //}
     }
 }
