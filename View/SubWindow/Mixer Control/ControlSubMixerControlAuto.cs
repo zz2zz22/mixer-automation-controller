@@ -128,8 +128,9 @@ namespace htv5_mixer_control
         {
             if (pLC.ReadBitToBool(1, 20, 0, 1))
             {
-                DialogResult dialog = MessageBox.Show("Tắt điều khiển TỐC ĐỘ tự động?", "Cảnh báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if (dialog == DialogResult.OK)
+                CustomDialog d = new CustomDialog("Tắt điều khiển TỐC ĐỘ tự động?");
+                d.ShowDialog();
+                if (d.DialogResult.Equals(DialogResult.OK))
                 {
                     pLC.WritebittoPLC(false, 1, 20, 0, 1);
 
@@ -155,8 +156,9 @@ namespace htv5_mixer_control
             }
             else
             {
-                DialogResult dialog = MessageBox.Show("Bật điều khiển TỐC ĐỘ tự động?", "Cảnh báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if (dialog == DialogResult.OK)
+                CustomDialog d = new CustomDialog("Bật điều khiển TỐC ĐỘ tự động?");
+                d.ShowDialog();
+                if (d.DialogResult.Equals(DialogResult.OK))
                 {
                     pLC.WritebittoPLC(true, 1, 20, 0, 1);
 
@@ -229,9 +231,6 @@ namespace htv5_mixer_control
                 isComplete = true;
                 int i = processList.Rows.Count;
 
-                if (!pLC.ReadBitToBool(1, 0, 5, 1))
-                    pLC.WritebittoPLC(true, 1, 0, 5, 1);
-
                 if (processUUID != processList.Rows[i - 1]["uuid"].ToString())
                 {
                     //Ngừng quay
@@ -247,8 +246,13 @@ namespace htv5_mixer_control
                     btnNormalRoll.BackColor = Color.White;
                     btnReverseRoll.BackColor = Color.White;
 
-                    DialogResult dialog = MessageBox.Show("Đã hoàn thành công đoạn, bấm 'OK' để mở nắp, 'CANCEL' để giữ nắp đóng!", "Cảnh báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Stop);
-                    if (dialog == DialogResult.OK)
+                    CustomDialog d = new CustomDialog("Đã kết thúc quy trình chạy, bấm 'OK' để dừng quay!");
+
+                    if (!pLC.ReadBitToBool(1, 0, 5, 1))
+                        pLC.WritebittoPLC(true, 1, 0, 5, 1);
+
+                    d.ShowDialog();
+                    if (d.DialogResult.Equals(DialogResult.OK))
                     {
                         isComplete = false;
 
@@ -277,9 +281,17 @@ namespace htv5_mixer_control
                 }
                 else
                 {
-                    DialogResult dialog = MessageBox.Show("Đã kết thúc quy trình chạy, bấm 'OK' để dừng quay!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    if (dialog == DialogResult.OK)
+                    if (!pLC.ReadBitToBool(1, 0, 5, 1))
+                        pLC.WritebittoPLC(true, 1, 0, 5, 1);
+
+                    CustomDialog d = new CustomDialog("Đã kết thúc quy trình chạy, bấm 'OK' để dừng quay!");
+                    d.ShowDialog();
+                    if (d.DialogResult.Equals(DialogResult.OK))
                     {
+
+                        if (pLC.ReadBitToBool(1, 0, 5, 1))
+                            pLC.WritebittoPLC(false, 1, 0, 5, 1);
+
                         btnResetRoll.BackColor = Color.Yellow;
                         if (pLC.ReadBitToBool(1, 20, 0, 1))
                         {
@@ -434,8 +446,9 @@ namespace htv5_mixer_control
         {
             if (!isContinue)
             {
-                DialogResult dialog = MessageBox.Show("Tiếp tục trộn liệu với tốc độ cũ: " + tempSpeed + " (vòng/ phút)??", "Cảnh báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if (dialog == DialogResult.OK)
+                CustomDialog d = new CustomDialog("Tiếp tục trộn liệu với tốc độ cũ: " + tempSpeed + " (vòng/ phút)??");
+                d.ShowDialog();
+                if (d.DialogResult.Equals(DialogResult.OK))
                 {
                     isContinue = true;
                     if (!pLC.ReadBitToBool(1, 20, 0, 1))
@@ -464,8 +477,10 @@ namespace htv5_mixer_control
         {
             if (btnContinueMix.Visible)
                 btnContinueMix.Visible = false;
-            DialogResult dialogResult = MessageBox.Show("Phải cho nguyên liệu vào máy trước khi cho chạy, bạn có chắc chắn muốn chạy ?", "CẢNH BÁO", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-            if (dialogResult == DialogResult.OK)
+
+            CustomDialog dialog = new CustomDialog("Phải cho nguyên liệu vào máy trước khi cho chạy, bạn có chắc chắn muốn chạy ?");
+            dialog.ShowDialog();
+            if (dialog.DialogResult.Equals(DialogResult.OK))
             {
                 tempSpeed = null;
                 pLC.WriteRealtoPLC(Convert.ToSingle("0"), 1, 2, 2); // Nên truyền tốc độ = 0 xuống.

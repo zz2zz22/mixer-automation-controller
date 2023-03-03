@@ -149,6 +149,12 @@
     <Compile Include="Model\SQL Class\DatabaseUtils.cs" />
     <Compile Include="Model\SQL Class\sqlHTV5ControlCon.cs" />
     <Compile Include="Model\SQL Class\sqlSOFTCon.cs" />
+    <Compile Include="View\CustomComponents\CustomDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CustomComponents\CustomDialog.Designer.cs">
+      <DependentUpon>CustomDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -242,6 +248,9 @@
     <Compile Include="View\SubWindow\Mixer Control\CustomControl\CustomMessageBox.Designer.cs">
       <DependentUpon>CustomMessageBox.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\CustomComponents\CustomDialog.resx">
+      <DependentUpon>CustomDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -321,9 +330,7 @@
   <ItemGroup>
     <None Include="Resources\data-entry.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="View\CustomComponents\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>

@@ -31,6 +31,7 @@ namespace htv5_mixer_control
                 xuiWidgetPanel1.Tag = childForm;
                 childForm.BringToFront();
                 
+                
             }
             else
             {

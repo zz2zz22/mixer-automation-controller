@@ -214,7 +214,7 @@ namespace htv5_mixer_control
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Doc bit len loi: " + ex.Message);
                 //SystemLog.Output(SystemLog.MSG_TYPE.Err, "ReadArea Byte to String fail", ex.Message);
             }
             return Result;
@@ -230,7 +230,7 @@ namespace htv5_mixer_control
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show("Ghi bit xuong PLc loi: " + ex.Message);
                 //SystemLog.Output(SystemLog.MSG_TYPE.Err, "Write bit to PLC fail", ex.Message);
             }
         }
@@ -247,7 +247,7 @@ namespace htv5_mixer_control
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Doc real len loi: " + ex.Message);
                 //SystemLog.Output(SystemLog.MSG_TYPE.Err, "ReadArea Byte to String fail", ex.Message);
             }
             return Result;
@@ -263,7 +263,7 @@ namespace htv5_mixer_control
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show("Ghi real xuong PLC loi: " + ex.Message);
                 //SystemLog.Output(SystemLog.MSG_TYPE.Err, "Write Dint to PLC fail", ex.Message);
             }
         }
