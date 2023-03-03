@@ -180,8 +180,6 @@ namespace htv5_mixer_control
         {
             try
             {
-
-
                 byte[] BufferOP = new byte[2];
                 byte[] BufferNG = new byte[2];
                 byte[] BufferRW = new byte[2];
@@ -230,7 +228,7 @@ namespace htv5_mixer_control
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ghi bit xuong PLc loi: " + ex.Message);
+                MessageBox.Show("Ghi bit xuong PLC loi: " + ex.Message);
                 //SystemLog.Output(SystemLog.MSG_TYPE.Err, "Write bit to PLC fail", ex.Message);
             }
         }

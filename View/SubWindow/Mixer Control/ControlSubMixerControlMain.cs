@@ -32,7 +32,12 @@ namespace htv5_mixer_control
 
         private void btnManualMode_Click(object sender, EventArgs e)
         {
-            openChildForm(new ControlSubMixerControlManual());
+            DialogResult dialogResult = MessageBox.Show("Chọn qua chế độ khác sẽ bị khởi động lại, tiếp tục ?", "Cảnh báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Stop);
+            if (dialogResult == DialogResult.OK)
+            {
+                openChildForm(new ControlSubMixerControlManual());
+            }
+            
         }
 
         private void btnAutoMode_Click(object sender, EventArgs e)
