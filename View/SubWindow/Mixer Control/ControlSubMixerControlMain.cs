@@ -21,6 +21,7 @@ namespace htv5_mixer_control
         {
             if (activeForm != null)
             {
+                activeForm.Dock = DockStyle.None;
                 activeForm.SendToBack();
                 activeForm = childForm;
                 childForm.TopLevel = false;
