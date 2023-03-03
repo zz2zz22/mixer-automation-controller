@@ -320,6 +320,10 @@ namespace htv5_mixer_control
                     StringBuilder updateStatus = new StringBuilder();
                     updateStatus.Append("update specification_process set is_completed = 0, is_running = 0 where uuid = '" + processUUID + "' and specification_uuid = '" + specUUID + "'");
                     sqlHTV5.sqlExecuteNonQuery(updateStatus.ToString(), false);
+
+
+                    CustomDialog d4 = new CustomDialog("QUÁ TRÌNH ĐÃ KẾT THÚC, HÃY TẮT CHẾ ĐỘ TỰ ĐỘNG VÀ ĐỔ LIỆU BẰNG TAY.");
+                    d4.ShowDialog();
                 }
                 else
                 {
