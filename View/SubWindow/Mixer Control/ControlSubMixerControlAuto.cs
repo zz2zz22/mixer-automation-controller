@@ -277,14 +277,13 @@ namespace htv5_mixer_control
                     sqlHTV5.sqlExecuteNonQuery(updateStatus.ToString(), false);
 
                     GetNextProcess(SaveVariables.ControlSelectedSpecUUID);
-                    btnStartTimer.Enabled = true;
                 }
                 else
                 {
+                    CustomDialog d = new CustomDialog("Đã kết thúc quy trình chạy, bấm 'OK' để dừng quay!");
                     if (!pLC.ReadBitToBool(1, 0, 5, 1))
                         pLC.WritebittoPLC(true, 1, 0, 5, 1);
 
-                    CustomDialog d = new CustomDialog("Đã kết thúc quy trình chạy, bấm 'OK' để dừng quay!");
                     d.ShowDialog();
                     if (d.DialogResult.Equals(DialogResult.OK))
                     {
@@ -306,7 +305,6 @@ namespace htv5_mixer_control
 
                         if (pLC.ReadBitToBool(1, 0, 0, 1))
                             pLC.WritebittoPLC(false, 1, 0, 0, 1);
-                        btnStartTimer.Enabled = true;
                     }
 
                     sqlHTV5ControlCon sqlHTV5 = new sqlHTV5ControlCon();
@@ -491,6 +489,7 @@ namespace htv5_mixer_control
                     pLC.WritebittoPLC(false, 1, 0, 1, 1);
 
                 btnStartProcess.Enabled = false;
+                btnStartTimer.Enabled = true;
             }
 
         }
