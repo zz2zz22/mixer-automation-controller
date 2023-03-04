@@ -34,17 +34,17 @@ namespace htv5_mixer_control
 
         private void btnNextStep_Click(object sender, EventArgs e)
         {
-            //if (isFinished)
-            //{
+            if (isFinished)
+            {
                 this.Hide();
                 ControlSubMixerControlMain controlSubMixer = new ControlSubMixerControlMain();
                 controlSubMixer.ShowDialog();
                 this.Close();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("CHƯA HOÀN THÀNH CÂN LIỆU");
-            //}
+            }
+            else
+            {
+                MessageBox.Show("CHƯA HOÀN THÀNH CÂN LIỆU");
+            }
         }
 
         private void btnConnectScale_Click(object sender, EventArgs e)
@@ -177,14 +177,25 @@ namespace htv5_mixer_control
             CustomDataRow customData;
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                if (!String.IsNullOrEmpty(dt.Rows[i]["actual_weight"].ToString()))
+                if (!String.IsNullOrEmpty(dt.Rows[i]["actual_weight"].ToString()) || dt.Rows[i]["is_packed"].ToString() == "1")
                 {
                     customData = new CustomDataRow(dt.Rows[i]["uuid"].ToString(), dt.Rows[i]["material_code"].ToString(), dt.Rows[i]["weight"].ToString(), dt.Rows[i]["tolerance"].ToString(), "OK");
-                    flag++;
                 }
                 else
-                    customData = new CustomDataRow(dt.Rows[i]["uuid"].ToString(), dt.Rows[i]["material_code"].ToString(), dt.Rows[i]["weight"].ToString(), dt.Rows[i]["tolerance"].ToString(), "N/A");
+                    customData = new CustomDataRow(dt.Rows[i]["uuid"].ToString(), dt.Rows[i]["material_code"].ToString(), dt.Rows[i]["weight"].ToString(), dt.Rows[i]["tolerance"].ToString(), "NOT OK");
                 flpMaterialList.Controls.Add(customData);
+            }
+            for (int j = 0; j < dt.Rows.Count; j++)
+            {
+                if (String.IsNullOrEmpty(dt.Rows[j]["actual_weight"].ToString()) && dt.Rows[j]["is_packed"].ToString() == "0")
+                {
+                    flag = j;
+                    break;
+                }
+                else
+                {
+                    flag++;
+                }
             }
         }
         private void ControlSubScaleMaterial_Load(object sender, EventArgs e)

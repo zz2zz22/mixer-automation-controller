@@ -37,7 +37,6 @@ namespace htv5_mixer_control
             {
                 openChildForm(new ControlSubMixerControlManual());
             }
-            
         }
 
         private void btnAutoMode_Click(object sender, EventArgs e)

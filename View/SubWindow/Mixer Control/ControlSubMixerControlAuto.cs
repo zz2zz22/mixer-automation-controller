@@ -114,8 +114,6 @@ namespace htv5_mixer_control
                 btnReverseRoll.Visible = false;
                 label12.Visible = false;
             }
-            if (!isContinue)
-                btnContinueMix.Visible = false;
             //}
             //else
             //{
@@ -246,6 +244,8 @@ namespace htv5_mixer_control
                 btnNormalRoll.BackColor = Color.White;
                 btnReverseRoll.BackColor = Color.White;
 
+                pLC.WriteRealtoPLC(Convert.ToSingle("0"), 1, 2, 2);
+
                 CustomDialog d1 = new CustomDialog("Đã kết thúc quy trình chạy, bấm 'OK' để dừng quay và mở nắp, 'CANCEL' để dừng máy và giữ nắp đóng!");
                 d1.ShowDialog();
                 if (d1.DialogResult.Equals(DialogResult.OK))
@@ -322,8 +322,17 @@ namespace htv5_mixer_control
                     sqlHTV5.sqlExecuteNonQuery(updateStatus.ToString(), false);
 
 
+                    pLC.WriteRealtoPLC(Convert.ToSingle("0"), 1, 2, 2);
+
                     CustomDialog d4 = new CustomDialog("QUÁ TRÌNH ĐÃ KẾT THÚC, HÃY TẮT CHẾ ĐỘ TỰ ĐỘNG VÀ ĐỔ LIỆU BẰNG TAY.");
                     d4.ShowDialog();
+                    if (d4.DialogResult.Equals(DialogResult.OK))
+                    {
+                        CloseForm("ControlSubMixerControlMain");
+                    }else
+                    {
+                        CloseForm("ControlSubMixerControlMain");
+                    }
                 }
                 else
                 {
@@ -331,9 +340,20 @@ namespace htv5_mixer_control
                 }
             }
             btnStartProcess.Enabled = true;
-            btnContinueMix.Visible = true;
         }
+        private void CloseForm(string FormName)
+        {
+            List<Form> forms = new List<Form>();
 
+            // All opened myForm instances
+            foreach (Form f in Application.OpenForms)
+                if (f.Name == FormName)
+                    forms.Add(f);
+
+            // Now let's close opened myForm instances
+            foreach (Form f in forms)
+                f.Close();
+        }
         private void btnNormalRoll_Click(object sender, EventArgs e)
         {
             if (pLC.ReadBitToBool(1, 20, 0, 1))
@@ -483,17 +503,12 @@ namespace htv5_mixer_control
                     }
                     pLC.WriteRealtoPLC(Convert.ToSingle(tempSpeed), 1, 2, 2);
                     tempSpeed = null;
-
-                    btnContinueMix.Visible = false;
                 }
             }
         }
 
         private void btnStartProcess_Click(object sender, EventArgs e)
         {
-            if (btnContinueMix.Visible)
-                btnContinueMix.Visible = false;
-
             CustomDialog dialog = new CustomDialog("Phải cho nguyên liệu vào máy trước khi cho chạy, bạn có chắc chắn muốn chạy ?");
             dialog.ShowDialog();
             if (dialog.DialogResult.Equals(DialogResult.OK))

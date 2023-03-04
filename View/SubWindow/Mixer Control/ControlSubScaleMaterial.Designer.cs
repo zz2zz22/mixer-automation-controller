@@ -121,7 +121,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(197, 365);
+            this.label5.Location = new System.Drawing.Point(191, 376);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(31, 20);
             this.label5.TabIndex = 7;
@@ -131,7 +131,7 @@
             // 
             this.lbUpTolerance.AutoSize = true;
             this.lbUpTolerance.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbUpTolerance.Location = new System.Drawing.Point(291, 365);
+            this.lbUpTolerance.Location = new System.Drawing.Point(285, 376);
             this.lbUpTolerance.Name = "lbUpTolerance";
             this.lbUpTolerance.Size = new System.Drawing.Size(85, 29);
             this.lbUpTolerance.TabIndex = 6;
@@ -142,7 +142,7 @@
             // 
             this.lbDownTolerance.AutoSize = true;
             this.lbDownTolerance.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDownTolerance.Location = new System.Drawing.Point(66, 365);
+            this.lbDownTolerance.Location = new System.Drawing.Point(60, 376);
             this.lbDownTolerance.Name = "lbDownTolerance";
             this.lbDownTolerance.Size = new System.Drawing.Size(85, 29);
             this.lbDownTolerance.TabIndex = 5;
@@ -154,9 +154,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(10, 315);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(249, 20);
+            this.label2.Size = new System.Drawing.Size(249, 40);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Khoảng trọng lượng đạt yêu cầu:";
+            this.label2.Text = "Khoảng trọng lượng đạt yêu cầu:\r\n大概重量范围：";
             // 
             // panelWeight
             // 

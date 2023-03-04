@@ -114,7 +114,6 @@
             this.MinimizeBox = false;
             this.Name = "ControlSubMixerControlMain";
             this.ShowIcon = false;
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ControlSubMixerControlMain";
             this.Load += new System.EventHandler(this.ControlSubMixerControlMain_Load);
