@@ -46,6 +46,14 @@ namespace htv5_mixer_control
                     panelShowTemperature.BackColor = Color.Red;
 
                     //Thêm phần ghi log
+                    sqlHTV5ControlCon sqlHTV5 = new sqlHTV5ControlCon();
+                    StringBuilder insertLog = new StringBuilder();
+                    insertLog.Append("insert intro log_record ");
+                    insertLog.Append("(spec_uuid, log_uuid, remark, create_date) ");
+                    insertLog.Append("values ");
+                    insertLog.Append("('" + SaveVariables.ControlSelectedSpecUUID + "', '" + UUIDGenerator.getAscId() + "', N'Nhiệt độ cao cao hơn mức cho phép " + tempRT.ToString() + " > " + maxTemp.ToString() + "', '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "')");
+
+                    sqlHTV5.sqlExecuteNonQuery(insertLog.ToString(), false);
                 }
             }
             else
@@ -61,65 +69,66 @@ namespace htv5_mixer_control
 
         private void ControlSubMixerControlAuto_Load(object sender, EventArgs e)
         {
-            //if (pLC.ReadBitToBool(1, 0, 3, 1))
-            //{
-            GetNextProcess(SaveVariables.ControlSelectedSpecUUID);
-
-            runTimer = new Timer();
-            runTimer.Tick += runTimer_Tick;
-            runTimer.Interval = 1000;
-            runTimer.Enabled = true;
-
-            btnStartProcess.Enabled = true;
-
-            if (!pLC.ReadBitToBool(1, 20, 0, 1))
+            if (pLC.ReadBitToBool(1, 0, 3, 1))
             {
-                pLC.WritebittoPLC(true, 1, 20, 0, 1);
-            }
-            if (pLC.ReadBitToBool(1, 14, 4, 1))
-            {
-                pLC.WritebittoPLC(false, 1, 14, 4, 1);
-                btnNormalRoll.BackColor = Color.White;
-            }
+                GetNextProcess(SaveVariables.ControlSelectedSpecUUID);
 
-            if (pLC.ReadBitToBool(1, 14, 5, 1))
-            {
-                pLC.WritebittoPLC(false, 1, 14, 5, 1);
-                btnReverseRoll.BackColor = Color.White;
-            }
+                runTimer = new Timer();
+                runTimer.Tick += runTimer_Tick;
+                runTimer.Interval = 1000;
+                runTimer.Enabled = true;
 
-            if (!pLC.ReadBitToBool(1, 14, 4, 1) && !pLC.ReadBitToBool(1, 14, 5, 1))
-            {
-                btnResetRoll.BackColor = Color.Yellow;
+                btnStartProcess.Enabled = true;
+                btnStartTimer.Enabled = false;
+
+                if (!pLC.ReadBitToBool(1, 20, 0, 1))
+                {
+                    pLC.WritebittoPLC(true, 1, 20, 0, 1);
+                }
+                if (pLC.ReadBitToBool(1, 14, 4, 1))
+                {
+                    pLC.WritebittoPLC(false, 1, 14, 4, 1);
+                    btnNormalRoll.BackColor = Color.White;
+                }
+
+                if (pLC.ReadBitToBool(1, 14, 5, 1))
+                {
+                    pLC.WritebittoPLC(false, 1, 14, 5, 1);
+                    btnReverseRoll.BackColor = Color.White;
+                }
+
+                if (!pLC.ReadBitToBool(1, 14, 4, 1) && !pLC.ReadBitToBool(1, 14, 5, 1))
+                {
+                    btnResetRoll.BackColor = Color.Yellow;
+                }
+                else
+                {
+                    btnResetRoll.BackColor = Color.White;
+                }
+
+
+                if (pLC.ReadBitToBool(1, 20, 0, 1))
+                {
+                    btnActivateSpeedControl.BackColor = Color.Yellow;
+                    btnActivateSpeedControl.Text = "ĐANG ĐIỀU KHIỂN TỰ ĐỘNG";
+                    btnNormalRoll.Visible = true;
+                    btnReverseRoll.Visible = true;
+                    label12.Visible = true;
+                }
+                else
+                {
+                    btnActivateSpeedControl.BackColor = Color.White;
+                    btnActivateSpeedControl.Text = "ĐANG ĐIỀU KHIỂN BẰNG NÚT";
+                    btnNormalRoll.Visible = false;
+                    btnReverseRoll.Visible = false;
+                    label12.Visible = false;
+                }
             }
             else
             {
-                btnResetRoll.BackColor = Color.White;
+                MessageBox.Show("Vui lòng kích hoạt chế độ chạy tự động!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                CloseForm("ControlSubMixerControlMain");
             }
-
-
-            if (pLC.ReadBitToBool(1, 20, 0, 1))
-            {
-                btnActivateSpeedControl.BackColor = Color.Yellow;
-                btnActivateSpeedControl.Text = "ĐANG ĐIỀU KHIỂN TỰ ĐỘNG";
-                btnNormalRoll.Visible = true;
-                btnReverseRoll.Visible = true;
-                label12.Visible = true;
-            }
-            else
-            {
-                btnActivateSpeedControl.BackColor = Color.White;
-                btnActivateSpeedControl.Text = "ĐANG ĐIỀU KHIỂN BẰNG NÚT";
-                btnNormalRoll.Visible = false;
-                btnReverseRoll.Visible = false;
-                label12.Visible = false;
-            }
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Vui lòng kích hoạt chế độ chạy tự động!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    this.Close();
-            //}
         }
 
         private void btnActivateSpeedControl_Click(object sender, EventArgs e)
@@ -280,57 +289,39 @@ namespace htv5_mixer_control
             {
                 if (processUUID == processList.Rows[i - 1]["uuid"].ToString())
                 {
-                    CustomDialog d2 = new CustomDialog("Đã kết thúc quy trình chạy, bấm 'OK' hoặc 'CANCEL' để dừng quay!");
-                    d2.ShowDialog();
-                    if (d2.DialogResult.Equals(DialogResult.OK))
+                    btnResetRoll.BackColor = Color.Yellow;
+                    if (pLC.ReadBitToBool(1, 20, 0, 1))
                     {
-                        btnResetRoll.BackColor = Color.Yellow;
-                        if (pLC.ReadBitToBool(1, 20, 0, 1))
-                        {
-                            if (pLC.ReadBitToBool(1, 14, 4, 1))
-                                pLC.WritebittoPLC(false, 1, 14, 4, 1);
-                            if (pLC.ReadBitToBool(1, 14, 5, 1))
-                                pLC.WritebittoPLC(false, 1, 14, 5, 1);
-                        }
-                        btnNormalRoll.BackColor = Color.White;
-                        btnReverseRoll.BackColor = Color.White;
-
-                        if (pLC.ReadBitToBool(1, 0, 0, 1))
-                            pLC.WritebittoPLC(false, 1, 0, 0, 1);
+                        if (pLC.ReadBitToBool(1, 14, 4, 1))
+                            pLC.WritebittoPLC(false, 1, 14, 4, 1);
+                        if (pLC.ReadBitToBool(1, 14, 5, 1))
+                            pLC.WritebittoPLC(false, 1, 14, 5, 1);
                     }
-                    else
-                    {
-                        btnResetRoll.BackColor = Color.Yellow;
-                        if (pLC.ReadBitToBool(1, 20, 0, 1))
-                        {
-                            if (pLC.ReadBitToBool(1, 14, 4, 1))
-                                pLC.WritebittoPLC(false, 1, 14, 4, 1);
-                            if (pLC.ReadBitToBool(1, 14, 5, 1))
-                                pLC.WritebittoPLC(false, 1, 14, 5, 1);
-                        }
-                        btnNormalRoll.BackColor = Color.White;
-                        btnReverseRoll.BackColor = Color.White;
+                    btnNormalRoll.BackColor = Color.White;
+                    btnReverseRoll.BackColor = Color.White;
 
-                        if (pLC.ReadBitToBool(1, 0, 0, 1))
-                            pLC.WritebittoPLC(false, 1, 0, 0, 1);
+                    if (pLC.ReadBitToBool(1, 0, 0, 1))
+                        pLC.WritebittoPLC(false, 1, 0, 0, 1);
 
-                    }
+                    pLC.WriteRealtoPLC(Convert.ToSingle("0"), 1, 2, 2);
 
                     sqlHTV5ControlCon sqlHTV5 = new sqlHTV5ControlCon();
                     StringBuilder updateStatus = new StringBuilder();
                     updateStatus.Append("update specification_process set is_completed = 0, is_running = 0 where uuid = '" + processUUID + "' and specification_uuid = '" + specUUID + "'");
                     sqlHTV5.sqlExecuteNonQuery(updateStatus.ToString(), false);
 
-
-                    pLC.WriteRealtoPLC(Convert.ToSingle("0"), 1, 2, 2);
-
                     CustomDialog d4 = new CustomDialog("QUÁ TRÌNH ĐÃ KẾT THÚC, HÃY TẮT CHẾ ĐỘ TỰ ĐỘNG VÀ ĐỔ LIỆU BẰNG TAY.");
                     d4.ShowDialog();
                     if (d4.DialogResult.Equals(DialogResult.OK))
                     {
+                        resetStatus(specUUID);
+                        SaveVariables.ControlSelectedSpecUUID = null;
                         CloseForm("ControlSubMixerControlMain");
-                    }else
+                    }
+                    else
                     {
+                        resetStatus(specUUID);
+                        SaveVariables.ControlSelectedSpecUUID = null;
                         CloseForm("ControlSubMixerControlMain");
                     }
                 }
@@ -353,6 +344,14 @@ namespace htv5_mixer_control
             // Now let's close opened myForm instances
             foreach (Form f in forms)
                 f.Close();
+        }
+
+        private void resetStatus(string specUUID)
+        {
+            sqlHTV5ControlCon sqlHTV5 = new sqlHTV5ControlCon();
+            StringBuilder updateStatus = new StringBuilder();
+            updateStatus.Append("update specification_process set is_completed = 1, is_running = 1 where specification_uuid = '" + specUUID + "'");
+            sqlHTV5.sqlExecuteNonQuery(updateStatus.ToString(), false);
         }
         private void btnNormalRoll_Click(object sender, EventArgs e)
         {

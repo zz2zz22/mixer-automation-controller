@@ -40,12 +40,14 @@
             this.txbInputMaterialName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.cbxCheckPacked = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.cbxCheckPacked);
             this.panel1.Controls.Add(this.btnSaveMaterial);
             this.panel1.Controls.Add(this.txbInputMaterialTolerance);
             this.panel1.Controls.Add(this.label4);
@@ -58,7 +60,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(644, 276);
+            this.panel1.Size = new System.Drawing.Size(644, 355);
             this.panel1.TabIndex = 0;
             // 
             // btnSaveMaterial
@@ -75,7 +77,7 @@
             this.btnSaveMaterial.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
             this.btnSaveMaterial.HoverTextColor = System.Drawing.Color.DodgerBlue;
             this.btnSaveMaterial.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btnSaveMaterial.Location = new System.Drawing.Point(363, 202);
+            this.btnSaveMaterial.Location = new System.Drawing.Point(363, 274);
             this.btnSaveMaterial.Name = "btnSaveMaterial";
             this.btnSaveMaterial.Size = new System.Drawing.Size(269, 62);
             this.btnSaveMaterial.TabIndex = 8;
@@ -157,11 +159,21 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
+            // cbxCheckPacked
+            // 
+            this.cbxCheckPacked.AutoSize = true;
+            this.cbxCheckPacked.Location = new System.Drawing.Point(188, 201);
+            this.cbxCheckPacked.Name = "cbxCheckPacked";
+            this.cbxCheckPacked.Size = new System.Drawing.Size(442, 44);
+            this.cbxCheckPacked.TabIndex = 9;
+            this.cbxCheckPacked.Text = "Nguyên liệu được tính theo dạng gói hoặc thùng có sẵn.\r\n原材料按可提供的包装或盒的形式计算。";
+            this.cbxCheckPacked.UseVisualStyleBackColor = true;
+            // 
             // MaterialInputCRUDForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(644, 276);
+            this.ClientSize = new System.Drawing.Size(644, 355);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -193,5 +205,6 @@
         private XanderUI.XUIButton btnSaveMaterial;
         private System.Windows.Forms.TextBox txbInputMaterialTolerance;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.CheckBox cbxCheckPacked;
     }
 }

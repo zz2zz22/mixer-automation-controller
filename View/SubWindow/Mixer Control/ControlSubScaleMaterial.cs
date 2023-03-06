@@ -43,7 +43,7 @@ namespace htv5_mixer_control
             }
             else
             {
-                MessageBox.Show("CHƯA HOÀN THÀNH CÂN LIỆU");
+                MessageBox.Show("CHƯA HOÀN THÀNH CÂN LIỆU" + Environment.NewLine + "未完成的重量重量", "Cảnh báo / 警报", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
         }
 
@@ -52,7 +52,7 @@ namespace htv5_mixer_control
             if (serialPort1.IsOpen)
             {
                 serialPort1.Close();
-                btnConnectScale.ButtonText = "Kết nối cân";
+                btnConnectScale.ButtonText = "Kết nối cân" + Environment.NewLine + "连接电子秤";
             }
             else
             {
@@ -64,7 +64,7 @@ namespace htv5_mixer_control
                     serialPort1.StopBits = (StopBits)Enum.Parse(typeof(StopBits), "One");
                     serialPort1.Parity = (Parity)Enum.Parse(typeof(Parity), "None");
                     serialPort1.Open();
-                    btnConnectScale.ButtonText = "Ngắt kết nối";
+                    btnConnectScale.ButtonText = "Ngắt kết nối" + Environment.NewLine + "断开";
                 }
                 catch (Exception err)
                 {
@@ -92,7 +92,7 @@ namespace htv5_mixer_control
             }
             else
             {
-                MessageBox.Show("Chưa đạt trọng lượng yêu cầu!");
+                MessageBox.Show("Chưa đạt trọng lượng yêu cầu!" + Environment.NewLine + "未达到要求的重量！", "Cảnh báo / 警报", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
 
@@ -147,8 +147,8 @@ namespace htv5_mixer_control
         {
             if (i < dt.Rows.Count)
             {
-                lbAnnounce.Text = "Tiến hành cân liệu : " + dt.Rows[i]["material_code"].ToString();
                 scaleMatName = dt.Rows[i]["material_code"].ToString();
+                lbAnnounce.Text = "Tiến hành cân liệu : " + scaleMatName + "\n称量物料代码" + scaleMatName;
                 scaleMatUUID = dt.Rows[i]["uuid"].ToString();
                 matWeight = Convert.ToDouble(matList.Rows[i]["weight"].ToString());
                 matTolerance = Convert.ToDouble(matList.Rows[i]["tolerance"].ToString());
@@ -157,7 +157,7 @@ namespace htv5_mixer_control
             }
             else
             {
-                lbAnnounce.Text = "Đã HOÀN THÀNH cân liệu !!!";
+                lbAnnounce.Text = "Đã HOÀN THÀNH cân liệu !!!\n重量完成！!!";
                 lbDownTolerance.Text = "0";
                 lbUpTolerance.Text = "0";
                 scaleMatName = null;
@@ -201,8 +201,8 @@ namespace htv5_mixer_control
         private void ControlSubScaleMaterial_Load(object sender, EventArgs e)
         {
             isFinished = false;
-            btnConfirmScale.ButtonText = "Xác nhận KL";
-            btnNextStep.ButtonText = "Bắt đầu thực hiện";
+            btnConfirmScale.ButtonText = "Xác nhận KL" + Environment.NewLine + "确认重量";
+            btnNextStep.ButtonText = "Bắt đầu thực hiện" + Environment.NewLine + "开始制作";
             matList = GetMaterialData(SaveVariables.ControlSelectedSpecUUID);
             LoadFlowLayoutMat(matList);
             NextMatScale(matList, flag);
@@ -213,12 +213,12 @@ namespace htv5_mixer_control
             if (!serialPort1.IsOpen)
             {
                 cbComPort.Enabled = true;
-                btnConnectScale.ButtonText = "Kết nối cân";
+                btnConnectScale.ButtonText = "Kết nối cân" + Environment.NewLine + "连接电子秤";
             }
             else
             {
                 cbComPort.Enabled = false;
-                btnConnectScale.ButtonText = "Ngắt kết nối";
+                btnConnectScale.ButtonText = "Ngắt kết nối" + Environment.NewLine + "断开";
             }
         }
     }

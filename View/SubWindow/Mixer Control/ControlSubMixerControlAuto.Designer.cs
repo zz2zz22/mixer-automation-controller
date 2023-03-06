@@ -238,9 +238,9 @@
             // 
             this.btnResetRoll.BackColor = System.Drawing.Color.White;
             this.btnResetRoll.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnResetRoll.Location = new System.Drawing.Point(380, 459);
+            this.btnResetRoll.Location = new System.Drawing.Point(380, 458);
             this.btnResetRoll.Name = "btnResetRoll";
-            this.btnResetRoll.Size = new System.Drawing.Size(174, 69);
+            this.btnResetRoll.Size = new System.Drawing.Size(174, 55);
             this.btnResetRoll.TabIndex = 10;
             this.btnResetRoll.Text = "NGỪNG QUAY\r\n停止旋转";
             this.btnResetRoll.UseVisualStyleBackColor = false;
@@ -248,9 +248,9 @@
             // 
             // btnStartTimer
             // 
-            this.btnStartTimer.BackColor = System.Drawing.Color.White;
+            this.btnStartTimer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.btnStartTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStartTimer.Location = new System.Drawing.Point(375, 278);
+            this.btnStartTimer.Location = new System.Drawing.Point(375, 287);
             this.btnStartTimer.Name = "btnStartTimer";
             this.btnStartTimer.Size = new System.Drawing.Size(175, 72);
             this.btnStartTimer.TabIndex = 9;
@@ -262,9 +262,9 @@
             // 
             this.btnActivateSpeedControl.BackColor = System.Drawing.Color.Yellow;
             this.btnActivateSpeedControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActivateSpeedControl.Location = new System.Drawing.Point(99, 561);
+            this.btnActivateSpeedControl.Location = new System.Drawing.Point(251, 533);
             this.btnActivateSpeedControl.Name = "btnActivateSpeedControl";
-            this.btnActivateSpeedControl.Size = new System.Drawing.Size(454, 69);
+            this.btnActivateSpeedControl.Size = new System.Drawing.Size(299, 83);
             this.btnActivateSpeedControl.TabIndex = 8;
             this.btnActivateSpeedControl.Text = "ĐANG ĐIỀU KHIỂN TỰ ĐỘNG\r\n自动控制\r\n";
             this.btnActivateSpeedControl.UseVisualStyleBackColor = false;
@@ -274,9 +274,9 @@
             // 
             this.btnReverseRoll.BackColor = System.Drawing.Color.White;
             this.btnReverseRoll.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReverseRoll.Location = new System.Drawing.Point(184, 459);
+            this.btnReverseRoll.Location = new System.Drawing.Point(184, 458);
             this.btnReverseRoll.Name = "btnReverseRoll";
-            this.btnReverseRoll.Size = new System.Drawing.Size(174, 69);
+            this.btnReverseRoll.Size = new System.Drawing.Size(174, 55);
             this.btnReverseRoll.TabIndex = 6;
             this.btnReverseRoll.Text = "QUAY NGƯỢC\r\n逆时针旋转";
             this.btnReverseRoll.UseVisualStyleBackColor = false;
@@ -286,9 +286,9 @@
             // 
             this.btnNormalRoll.BackColor = System.Drawing.Color.White;
             this.btnNormalRoll.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNormalRoll.Location = new System.Drawing.Point(6, 459);
+            this.btnNormalRoll.Location = new System.Drawing.Point(6, 458);
             this.btnNormalRoll.Name = "btnNormalRoll";
-            this.btnNormalRoll.Size = new System.Drawing.Size(172, 69);
+            this.btnNormalRoll.Size = new System.Drawing.Size(172, 55);
             this.btnNormalRoll.TabIndex = 5;
             this.btnNormalRoll.Text = "QUAY THUẬN\r\n顺时针旋转";
             this.btnNormalRoll.UseVisualStyleBackColor = false;
@@ -297,7 +297,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(5, 436);
+            this.label12.Location = new System.Drawing.Point(5, 435);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(225, 20);
             this.label12.TabIndex = 4;
@@ -308,7 +308,7 @@
             this.lbCountDown.AutoSize = true;
             this.lbCountDown.Font = new System.Drawing.Font("Bahnschrift SemiBold", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCountDown.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lbCountDown.Location = new System.Drawing.Point(62, 341);
+            this.lbCountDown.Location = new System.Drawing.Point(62, 338);
             this.lbCountDown.Name = "lbCountDown";
             this.lbCountDown.Size = new System.Drawing.Size(245, 72);
             this.lbCountDown.TabIndex = 3;
@@ -340,11 +340,11 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(83, 229);
+            this.label9.Location = new System.Drawing.Point(83, 200);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(180, 29);
+            this.label9.Size = new System.Drawing.Size(180, 58);
             this.label9.TabIndex = 3;
-            this.label9.Text = "Celsius (độ C)";
+            this.label9.Text = "Celsius (độ C)\r\n摄氏度";
             // 
             // lbTemperature
             // 
@@ -352,7 +352,7 @@
             this.lbTemperature.BackColor = System.Drawing.Color.Black;
             this.lbTemperature.Font = new System.Drawing.Font("Bahnschrift Condensed", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTemperature.ForeColor = System.Drawing.Color.White;
-            this.lbTemperature.Location = new System.Drawing.Point(77, 71);
+            this.lbTemperature.Location = new System.Drawing.Point(56, 80);
             this.lbTemperature.Name = "lbTemperature";
             this.lbTemperature.Size = new System.Drawing.Size(116, 96);
             this.lbTemperature.TabIndex = 2;
@@ -386,11 +386,11 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(72, 230);
+            this.label8.Location = new System.Drawing.Point(69, 201);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(204, 29);
+            this.label8.Size = new System.Drawing.Size(204, 58);
             this.label8.TabIndex = 2;
-            this.label8.Text = "rpm (vòng/ phút)";
+            this.label8.Text = "rpm (vòng/ phút)\r\n每分钟转";
             // 
             // lbRollSpeed
             // 
@@ -398,7 +398,7 @@
             this.lbRollSpeed.BackColor = System.Drawing.Color.Black;
             this.lbRollSpeed.Font = new System.Drawing.Font("Bahnschrift Condensed", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbRollSpeed.ForeColor = System.Drawing.Color.White;
-            this.lbRollSpeed.Location = new System.Drawing.Point(88, 72);
+            this.lbRollSpeed.Location = new System.Drawing.Point(44, 81);
             this.lbRollSpeed.Name = "lbRollSpeed";
             this.lbRollSpeed.Size = new System.Drawing.Size(116, 96);
             this.lbRollSpeed.TabIndex = 1;

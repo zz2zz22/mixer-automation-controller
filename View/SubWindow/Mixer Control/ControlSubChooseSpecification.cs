@@ -1,4 +1,5 @@
 ﻿using htv5_mixer_control.Model.SQL_Class;
+using java.util;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -40,7 +41,7 @@ namespace htv5_mixer_control
             sqlHTV5ControlCon sqlHTV5 = new sqlHTV5ControlCon();
             StringBuilder stringBuilder = new StringBuilder();
 
-            stringBuilder.Append("select uuid, material_code, weight, tolerance from specification_material_info where specification_uuid = '" + specUUID + "'");
+            stringBuilder.Append("select * from specification_material_info where specification_uuid = '" + specUUID + "'");
             sqlHTV5.sqlDataAdapterFillDatatable(stringBuilder.ToString(), ref dt);
             return dt;
         }
@@ -51,7 +52,7 @@ namespace htv5_mixer_control
             sqlHTV5ControlCon sqlHTV5 = new sqlHTV5ControlCon();
             StringBuilder stringBuilder = new StringBuilder();
 
-            stringBuilder.Append("select uuid, process_no, material_remark, set_speed, set_temperature, set_time from specification_process where specification_uuid = '" + specUUID + "' order by process_no asc");
+            stringBuilder.Append("select * from specification_process where specification_uuid = '" + specUUID + "' order by process_no asc");
             sqlHTV5.sqlDataAdapterFillDatatable(stringBuilder.ToString(), ref dt);
             return dt;
         }
@@ -72,8 +73,8 @@ namespace htv5_mixer_control
 
         private void ControlSubChooseSpecification_Load(object sender, EventArgs e)
         {
-            btnSearchSpec.ButtonText = "Tìm kiếm";
-            btnConfirm.ButtonText = "Xác nhận";
+            btnSearchSpec.ButtonText = "Tìm kiếm" + Environment.NewLine + "搜索";
+            btnConfirm.ButtonText = "Xác nhận" + Environment.NewLine + "确认规格选择";
             LoadData2DTGV();
         }
 
@@ -88,7 +89,16 @@ namespace htv5_mixer_control
                 {
                     dtgvMaterialsInfo.DataSource = GetSpecMaterialsData(SaveVariables.ControlSelectedSpecUUID);
                     dtgvMaterialsInfo.Columns["uuid"].Visible = false;
+                    dtgvMaterialsInfo.Columns["specification_uuid"].Visible = false;
+                    dtgvMaterialsInfo.Columns["actual_weight"].Visible = false;
+                    dtgvMaterialsInfo.Columns["create_date"].Visible = false;
+                    dtgvMaterialsInfo.Columns["create_by"].Visible = false;
+                    dtgvMaterialsInfo.Columns["update_date"].Visible = false;
+                    dtgvMaterialsInfo.Columns["update_by"].Visible = false;
+                    dtgvMaterialsInfo.Columns["delete_flag"].Visible = false;
+                    dtgvMaterialsInfo.Columns["is_packed"].Visible = false;
                     dtgvMaterialsInfo.Columns["material_code"].HeaderText = "Mã liệu";
+                    dtgvMaterialsInfo.Columns["material_lot_no"].HeaderText = "Số lot";
                     dtgvMaterialsInfo.Columns["weight"].HeaderText = "Trọng lượng";
                     dtgvMaterialsInfo.Columns["tolerance"].HeaderText = "Dung sai";
                 }
@@ -96,11 +106,17 @@ namespace htv5_mixer_control
                 {
                     dtgvProcessInfo.DataSource = GetSpecProcessData(SaveVariables.ControlSelectedSpecUUID);
                     dtgvProcessInfo.Columns["uuid"].Visible = false;
+                    dtgvProcessInfo.Columns["specification_uuid"].Visible = false;
+                    dtgvProcessInfo.Columns["is_running"].Visible = false;
+                    dtgvProcessInfo.Columns["is_completed"].Visible = false;
+                    dtgvProcessInfo.Columns["delete_flag"].Visible = false;
                     dtgvProcessInfo.Columns["process_no"].HeaderText = "STT";
                     dtgvProcessInfo.Columns["material_remark"].HeaderText = "Nội dung";
-                    dtgvProcessInfo.Columns["set_speed"].HeaderText = "Tốc độ quay";
+                    dtgvProcessInfo.Columns["set_speed"].HeaderText = "Tốc độ quay ban đầu";
                     dtgvProcessInfo.Columns["set_temperature"].HeaderText = "Nhiệt độ";
-                    dtgvProcessInfo.Columns["set_time"].HeaderText = "Thời gian";
+                    dtgvProcessInfo.Columns["set_time"].HeaderText = "Thời gian ban đầu";
+                    dtgvProcessInfo.Columns["set_speed_2"].HeaderText = "Tốc độ quay sau";
+                    dtgvProcessInfo.Columns["set_time_2"].HeaderText = "Thời gian sau";
                 }
             }
         }
@@ -115,7 +131,7 @@ namespace htv5_mixer_control
             }
             else
             {
-                MessageBox.Show("Vui lòng chọn mẫu muốn làm!");
+                MessageBox.Show("Vui lòng chọn quy cách muốn thực hiện!" + Environment.NewLine + "请选择您要实施的方法！", "Cảnh báo / 警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

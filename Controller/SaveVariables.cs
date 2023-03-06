@@ -50,6 +50,11 @@ namespace htv5_mixer_control
             matCol.DataType = Type.GetType("System.Double");
             matCol.ColumnName = "tolerance";
             MaterialList.Columns.Add(matCol);
+
+            matCol = new DataColumn();
+            matCol.DataType = Type.GetType("System.String");
+            matCol.ColumnName = "is_packed";
+            MaterialList.Columns.Add(matCol);
         }
         public static void ResetTempMat()
         {

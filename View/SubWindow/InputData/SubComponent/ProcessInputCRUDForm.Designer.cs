@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.rtbRemark = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -42,6 +43,8 @@
             this.txbSetTemp = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.lbProcessNo = new System.Windows.Forms.Label();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -50,9 +53,9 @@
             this.label1.Location = new System.Drawing.Point(13, 68);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 20);
+            this.label1.Size = new System.Drawing.Size(56, 40);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Mô tả";
+            this.label1.Text = "Mô tả:\r\n描摹:";
             // 
             // rtbRemark
             // 
@@ -63,6 +66,7 @@
             this.rtbRemark.Size = new System.Drawing.Size(839, 126);
             this.rtbRemark.TabIndex = 1;
             this.rtbRemark.Text = "";
+            this.rtbRemark.Validating += new System.ComponentModel.CancelEventHandler(this.rtbRemark_Validating);
             // 
             // label2
             // 
@@ -70,9 +74,9 @@
             this.label2.Location = new System.Drawing.Point(13, 218);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(129, 20);
+            this.label2.Size = new System.Drawing.Size(129, 40);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Tốc độ ban đầu:";
+            this.label2.Text = "Tốc độ ban đầu:\r\n初始速度:";
             // 
             // txbSetSpeed
             // 
@@ -80,7 +84,9 @@
             this.txbSetSpeed.Name = "txbSetSpeed";
             this.txbSetSpeed.Size = new System.Drawing.Size(201, 27);
             this.txbSetSpeed.TabIndex = 3;
+            this.txbSetSpeed.TextChanged += new System.EventHandler(this.txbSetSpeed_TextChanged);
             this.txbSetSpeed.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbSetSpeed_KeyPress);
+            this.txbSetSpeed.Validating += new System.ComponentModel.CancelEventHandler(this.txbSetSpeed_Validating);
             // 
             // txbSetTime
             // 
@@ -88,7 +94,6 @@
             this.txbSetTime.Name = "txbSetTime";
             this.txbSetTime.Size = new System.Drawing.Size(201, 27);
             this.txbSetTime.TabIndex = 5;
-            this.txbSetTime.TextChanged += new System.EventHandler(this.txbSetTime_TextChanged);
             this.txbSetTime.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbSetTime_KeyPress);
             // 
             // label3
@@ -97,9 +102,9 @@
             this.label3.Location = new System.Drawing.Point(13, 267);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(146, 20);
+            this.label3.Size = new System.Drawing.Size(146, 40);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Thời gian ban đầu:";
+            this.label3.Text = "Thời gian ban đầu:\r\n初始时间:";
             // 
             // txbSetTime2
             // 
@@ -115,9 +120,9 @@
             this.label4.Location = new System.Drawing.Point(529, 267);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(114, 20);
+            this.label4.Size = new System.Drawing.Size(114, 40);
             this.label4.TabIndex = 8;
-            this.label4.Text = "Thời gian sau:";
+            this.label4.Text = "Thời gian sau:\r\n晚点:";
             // 
             // txbSetSpeed2
             // 
@@ -125,6 +130,7 @@
             this.txbSetSpeed2.Name = "txbSetSpeed2";
             this.txbSetSpeed2.Size = new System.Drawing.Size(225, 27);
             this.txbSetSpeed2.TabIndex = 7;
+            this.txbSetSpeed2.TextChanged += new System.EventHandler(this.txbSetSpeed2_TextChanged);
             this.txbSetSpeed2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbSetSpeed2_KeyPress);
             // 
             // label5
@@ -133,9 +139,9 @@
             this.label5.Location = new System.Drawing.Point(529, 218);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(97, 20);
+            this.label5.Size = new System.Drawing.Size(97, 40);
             this.label5.TabIndex = 6;
-            this.label5.Text = "Tốc độ sau:";
+            this.label5.Text = "Tốc độ sau:\r\n后速:";
             // 
             // label6
             // 
@@ -143,9 +149,9 @@
             this.label6.Location = new System.Drawing.Point(13, 347);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(122, 20);
+            this.label6.Size = new System.Drawing.Size(122, 40);
             this.label6.TabIndex = 10;
-            this.label6.Text = "Nhiệt độ tối đa:";
+            this.label6.Text = "Nhiệt độ tối đa:\r\n最高温度:";
             // 
             // txbSetTemp
             // 
@@ -157,9 +163,10 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(703, 435);
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Location = new System.Drawing.Point(533, 344);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(233, 93);
+            this.btnSave.Size = new System.Drawing.Size(403, 93);
             this.btnSave.TabIndex = 12;
             this.btnSave.Text = "button1";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -168,17 +175,21 @@
             // lbProcessNo
             // 
             this.lbProcessNo.AutoSize = true;
-            this.lbProcessNo.Location = new System.Drawing.Point(28, 9);
+            this.lbProcessNo.Location = new System.Drawing.Point(16, 9);
             this.lbProcessNo.Name = "lbProcessNo";
             this.lbProcessNo.Size = new System.Drawing.Size(53, 20);
             this.lbProcessNo.TabIndex = 13;
             this.lbProcessNo.Text = "label7";
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // ProcessInputCRUDForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(948, 540);
+            this.ClientSize = new System.Drawing.Size(948, 454);
             this.Controls.Add(this.lbProcessNo);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txbSetTemp);
@@ -194,12 +205,14 @@
             this.Controls.Add(this.rtbRemark);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ProcessInputCRUDForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProcessInputCRUDForm";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -221,5 +234,6 @@
         private System.Windows.Forms.TextBox txbSetTemp;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label lbProcessNo;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

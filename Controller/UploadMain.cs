@@ -30,10 +30,10 @@ namespace htv5_mixer_control
             StringBuilder insertSM = new StringBuilder();
             insertSM.Append("insert into specification_material_info ");
             insertSM.Append("(uuid, specification_uuid, material_code, material_lot_no, weight, tolerance, ");
-            insertSM.Append("actual_weight, create_date, create_by, update_date, update_by, delete_flag) ");
+            insertSM.Append("actual_weight, create_date, create_by, update_date, update_by, delete_flag, is_packed) ");
             insertSM.Append(" values ");
             insertSM.Append("( '" + matDT.Rows[i]["uuid"].ToString() + "', '" + specUUID + "', '" + matDT.Rows[i]["mat_name"].ToString() + "', N'" + matDT.Rows[i]["lot_no"].ToString() + "', '" + matDT.Rows[i]["weight"].ToString() + "', '" + matDT.Rows[i]["tolerance"].ToString() + "', ");
-            insertSM.Append("NULL, '" + date.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + empCode + "', NULL, NULL, '0')");
+            insertSM.Append("NULL, '" + date.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + empCode + "', NULL, NULL, '0', '" + matDT.Rows[i]["is_packed"].ToString() +"')");
             return insertSM.ToString();
         }
 

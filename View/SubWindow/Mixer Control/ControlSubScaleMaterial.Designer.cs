@@ -39,6 +39,8 @@
             this.lbDownTolerance = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panelWeight = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.lbScaleRT = new System.Windows.Forms.Label();
             this.lbAnnounce = new System.Windows.Forms.Label();
             this.btnNextStep = new XanderUI.XUIButton();
@@ -51,6 +53,7 @@
             // flpMaterialList
             // 
             this.flpMaterialList.AutoScroll = true;
+            this.flpMaterialList.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.flpMaterialList.Dock = System.Windows.Forms.DockStyle.Left;
             this.flpMaterialList.Location = new System.Drawing.Point(0, 0);
             this.flpMaterialList.Name = "flpMaterialList";
@@ -79,11 +82,11 @@
             // btnHold
             // 
             this.btnHold.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHold.Location = new System.Drawing.Point(25, 437);
+            this.btnHold.Location = new System.Drawing.Point(19, 485);
             this.btnHold.Name = "btnHold";
             this.btnHold.Size = new System.Drawing.Size(126, 77);
             this.btnHold.TabIndex = 10;
-            this.btnHold.Text = "GIỮ KL";
+            this.btnHold.Text = "GIỮ KL\r\n添加质量。";
             this.btnHold.UseVisualStyleBackColor = true;
             this.btnHold.Click += new System.EventHandler(this.btnHold_Click);
             // 
@@ -91,7 +94,7 @@
             // 
             this.cbComPort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbComPort.FormattingEnabled = true;
-            this.cbComPort.Location = new System.Drawing.Point(70, 23);
+            this.cbComPort.Location = new System.Drawing.Point(83, 12);
             this.cbComPort.Name = "cbComPort";
             this.cbComPort.Size = new System.Drawing.Size(131, 28);
             this.cbComPort.TabIndex = 9;
@@ -110,7 +113,7 @@
             this.btnConnectScale.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
             this.btnConnectScale.HoverTextColor = System.Drawing.Color.DodgerBlue;
             this.btnConnectScale.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btnConnectScale.Location = new System.Drawing.Point(220, 12);
+            this.btnConnectScale.Location = new System.Drawing.Point(220, 3);
             this.btnConnectScale.Name = "btnConnectScale";
             this.btnConnectScale.Size = new System.Drawing.Size(185, 53);
             this.btnConnectScale.TabIndex = 8;
@@ -121,7 +124,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(191, 376);
+            this.label5.Location = new System.Drawing.Point(196, 412);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(31, 20);
             this.label5.TabIndex = 7;
@@ -131,7 +134,7 @@
             // 
             this.lbUpTolerance.AutoSize = true;
             this.lbUpTolerance.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbUpTolerance.Location = new System.Drawing.Point(285, 376);
+            this.lbUpTolerance.Location = new System.Drawing.Point(290, 412);
             this.lbUpTolerance.Name = "lbUpTolerance";
             this.lbUpTolerance.Size = new System.Drawing.Size(85, 29);
             this.lbUpTolerance.TabIndex = 6;
@@ -142,7 +145,7 @@
             // 
             this.lbDownTolerance.AutoSize = true;
             this.lbDownTolerance.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDownTolerance.Location = new System.Drawing.Point(60, 376);
+            this.lbDownTolerance.Location = new System.Drawing.Point(65, 412);
             this.lbDownTolerance.Name = "lbDownTolerance";
             this.lbDownTolerance.Size = new System.Drawing.Size(85, 29);
             this.lbDownTolerance.TabIndex = 5;
@@ -152,7 +155,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 315);
+            this.label2.Location = new System.Drawing.Point(15, 351);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(249, 40);
             this.label2.TabIndex = 4;
@@ -161,18 +164,42 @@
             // panelWeight
             // 
             this.panelWeight.BackColor = System.Drawing.Color.Black;
+            this.panelWeight.Controls.Add(this.label1);
+            this.panelWeight.Controls.Add(this.label4);
             this.panelWeight.Controls.Add(this.lbScaleRT);
-            this.panelWeight.Location = new System.Drawing.Point(10, 149);
+            this.panelWeight.Location = new System.Drawing.Point(10, 139);
             this.panelWeight.Name = "panelWeight";
-            this.panelWeight.Size = new System.Drawing.Size(395, 150);
+            this.panelWeight.Size = new System.Drawing.Size(395, 186);
             this.panelWeight.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(334, 147);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 25);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "KG";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(3, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(215, 40);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "KHỐI LƯỢNG HIỆN TẠI:\r\n当前音量";
             // 
             // lbScaleRT
             // 
             this.lbScaleRT.AutoSize = true;
             this.lbScaleRT.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbScaleRT.ForeColor = System.Drawing.Color.White;
-            this.lbScaleRT.Location = new System.Drawing.Point(121, 45);
+            this.lbScaleRT.Location = new System.Drawing.Point(129, 56);
             this.lbScaleRT.Name = "lbScaleRT";
             this.lbScaleRT.Size = new System.Drawing.Size(146, 69);
             this.lbScaleRT.TabIndex = 0;
@@ -183,7 +210,7 @@
             // 
             this.lbAnnounce.AutoSize = true;
             this.lbAnnounce.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbAnnounce.Location = new System.Drawing.Point(9, 107);
+            this.lbAnnounce.Location = new System.Drawing.Point(9, 82);
             this.lbAnnounce.Name = "lbAnnounce";
             this.lbAnnounce.Size = new System.Drawing.Size(125, 25);
             this.lbAnnounce.TabIndex = 2;
@@ -203,7 +230,7 @@
             this.btnNextStep.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
             this.btnNextStep.HoverTextColor = System.Drawing.Color.DodgerBlue;
             this.btnNextStep.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btnNextStep.Location = new System.Drawing.Point(201, 584);
+            this.btnNextStep.Location = new System.Drawing.Point(201, 621);
             this.btnNextStep.Name = "btnNextStep";
             this.btnNextStep.Size = new System.Drawing.Size(204, 88);
             this.btnNextStep.TabIndex = 1;
@@ -225,7 +252,7 @@
             this.btnConfirmScale.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
             this.btnConfirmScale.HoverTextColor = System.Drawing.Color.DodgerBlue;
             this.btnConfirmScale.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btnConfirmScale.Location = new System.Drawing.Point(201, 437);
+            this.btnConfirmScale.Location = new System.Drawing.Point(201, 485);
             this.btnConfirmScale.Name = "btnConfirmScale";
             this.btnConfirmScale.Size = new System.Drawing.Size(204, 77);
             this.btnConfirmScale.TabIndex = 0;
@@ -245,6 +272,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.flpMaterialList);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -280,5 +308,7 @@
         private System.Windows.Forms.ComboBox cbComPort;
         private System.IO.Ports.SerialPort serialPort1;
         private System.Windows.Forms.Button btnHold;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label1;
     }
 }
